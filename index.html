@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="js/index-acciones.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/EstiloIndex.css">
+	<link rel="stylesheet" type="text/css" href="styles/General.css">
+</head>
+<body>
+<div class="contenedor">
+	<header class="header">
+		<div class="menu">
+		<!-- OPCIONES DE MENU-->
+		<div class="logo"></div>
+		<div class="buscador">
+			<div class="buscador-categoria">
+				<select class="propiedad">
+					<option>Todo</option> 
+					<option>Cat 1</option>
+					<option>Cat 2</option>
+					<option>Cat 3</option>
+					<option>Cat 4</option>
+				</select>
+			</div>
+			<div class="buscador-texto">
+				<input type="text" name="" class="propiedad">
+			</div>
+			<div class="buscador-boton">
+					<button class="boton propiedad b-color-4"><img src="img/lupa_blanco.png"></button>
+			</div>
+		</div>
+		<div class="cuenta">Log In log out</div>
+		<div class="onboarding"><p></p></div>
+		</div>
+	</header>	
+
+	<div class="principal">
+		<div class="carousel">
+			<p>Carousel</p>
+		</div>
+		<!-- NAVBAR Y NAVEGACION DE NAVBAR -->
+		<div class="principal-nav color-fuente-2"> <!-- NAVEGACION DE PRINCIPAL -->	
+		<div id="nav-peliculas" class="seccion peliculas" onclick="Opcion1()">Pel&iacute;culas</div>
+		<div id="nav-series" class="seccion series" onclick="Opcion2()">Series</div>
+		<div id="nav-juegos" class="seccion juegos" onclick="Opcion3()">Juegos</div>
+		<div id="nav-programas" class="seccion programas" onclick="Opcion4()">Programas</div>
+		</div>
+	</div>
+
+	<div class="grupos">
+		<!-- GRUPOS DE CONTENEDORES DE TARJETAS -->
+		<!-- NECESITA TITULO Y OTRO CONTENEDOR -->
+		<div class="g pel color-fuente-2">
+			<div class="g-titulo"><label> Titulo de Categoria</label></div>
+			<div class="g-cuerpo"><label> Aqui van tarjetas de la categoria</label></div>
+		</div>
+		
+	</div>
+
+	<footer class="footer color-fuente-3">
+		
+			
+			<div class="footer-columna">
+				<label class="espaciado">Terminos y condiciones</label>
+				<label class="espaciado">Politica de privacidad</label>
+				<label class="espaciado">Ayuda</label>
+			</div>
+			<div class="footer-columna">
+				<label class="espaciado">Proyecto Programacion Multimedia (Interfaz y Experiencia de Usuario)</label>
+			</div>
+			<div class="footer-columna">
+				<label class="espaciado">Copyright 2010 - 2021</label>
+				<label class="espaciado">www.compucalitvPLUS.com</label>
+				<label class="espaciado">Mexico, Nuevo Leon</label>
+			</div>				
+		
+	</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* 
+color valido 1: #108d33 verde
+color valido 2: #273d7d azul oscuro
+color valido 3: #2085b8 celeste oscuro
+color invalido: #862121; rojo obscuro opaco
+*/
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body{
+	background-color: rgba(0,0,0, .95);
+}
+/* COLORES */
+.b-color-1{
+	background-color: #000000;
+}
+.b-color-2{
+	background-color: #0c0c0c;
+}
+.b-color-3{
+	background-color: #2f2d2d;
+}
+.b-color-4{
+	background-color: #262626;	
+}
+.b-color-5{
+	background-color: #7d7979;
+}
+.b-color-6{
+	background-color: #273d7d;
+}
+.b-color-7{
+	background-color: #2085b8;
+}
+/* COLOR FUENTES */
+.color-fuente-1{
+	color: #ffffff;
+}
+.color-fuente-2{
+	color: #dcdcdc;
+}
+.color-fuente-3{
+	color: #7d7979;
+}
+/* FUENTE */
+.fuente-1{
+ font-family: Arial;
+}
+/* TAMAÑOS */
+.titulo-1{
+	font-size: 36px;
+}
+.titulo-2{
+	font-size: 34px;
+}
+.titulo-3{
+	font-size: 32px;
+}
+
+.cuerpo-1{
+	font-size: 24px;
+}
+.cuerpo-2{
+	font-size: 22px;
+}
+.cuerpo-3{
+	font-size: 20px;
+}
+
+.subtitulo-1{
+	font-size: 12px;
+}
+.subtitulo-2{
+	font-size: 10px;
+}
+.subtitulo-3{
+	font-size: 8px;
+}
+
