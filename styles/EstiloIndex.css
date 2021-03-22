@@ -45,7 +45,7 @@ body{
 	margin-right: 20px;
 	/*max-width: 20%;*/
 }
-.logo > img{
+.logo > img, .onboarding>img{
 	width: 100%;
 }
 .buscador{
@@ -91,12 +91,9 @@ body{
 	flex: 1 1 auto;
 	justify-content: center;
 	align-self: center;
-	background: url(../img/foco.png);
-	background-position: center;
-	background-attachment: contain;
-	background-size: 50px 50px;
-	background-repeat: no-repeat;
-	height: 50px;
+	max-width: 50px;
+	max-height: 50px;
+	margin-right: 10px;
 }
 .onboarding:hover{
 	background: url(../img/foco-activo.png);
@@ -283,4 +280,61 @@ body{
 .tarjetas > .miniaturas > .imagen:hover{
 	transform: scale(1.2);
 	transform-origin: center;
+}
+
+/* MEDIA QUERY*/
+@media (max-width: 600px){
+	.tarjetas > .miniaturas > .imagen{
+	min-width: 33.33%;
+	}
+
+	.categoria{
+		/*background-color: skyblue;*/
+		width: 100%;
+	}
+
+	.navbar-contenedor{
+		border: none;
+		width: 100%;
+		margin: 1px;
+	}
+	.menu{
+		flex-flow: column;
+		margin:0px;
+		padding: 0px;
+	}
+	.logo{
+		flex: 1 1 auto;
+		width: 100%;
+		margin: 0px;
+	}
+	.buscador{
+		flex: 1 1 auto;
+		width: 100%;
+		margin:0px;
+		max-width: 100%;
+		min-width: 100%;
+		align-self: none;
+	}
+	.buscador-categoria{
+		flex: 1 1 auto;
+		width: 20%;
+	}
+	.buscador-texto{
+		flex: 1 1 auto;
+		width: 70%;
+	}
+	.buscador-boton{
+		flex: 1 1 auto;
+		width: 10%;
+	}
+	.boton{
+		border-top-right-radius: 0px;	
+	}
+	.cuenta{
+		margin: 10px;
+	}
+	.onboarding{
+		margin: 10px;
+	}
 }
