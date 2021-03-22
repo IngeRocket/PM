@@ -10,7 +10,6 @@ body{
 	background-color: #2085b8;
 }
 .seccion:click{
-	
 	background-color: #2085b8;
 }
 .header{
@@ -43,20 +42,12 @@ body{
 	height: 100%;
 	/*max-width: 20%;*/
 }
-/*.logo>img{
-	width: 100%;
-	height: 100%;
-	display:block;
-	object-fit: cover;
-} */
 .buscador{
 	height: 35px;
 	display: flex;
 	flex: 5 1 auto;
 	justify-content: center;
 	align-self: center;
-	
-/*	background-color: orange;*/
 	max-width: 60%;
 	min-width: 50%;
 }
@@ -95,7 +86,6 @@ body{
 	flex: 1 1 auto;
 	justify-content: center;
 	align-self: center;
-	/*max-width: 10%;*/ 
 	background: url(../img/foco.png);
 	background-position: center;
 	background-attachment: contain;
@@ -115,15 +105,13 @@ body{
 
 
 .principal{
-	/*background-color: rgba(0,0,0,.6);*/
-	/*height: 800px;*/
 	display: flex;
 	flex: 1 1 auto;
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
 }
-.carousel{
+.contenedor-carousel{
 	background-color: #273d7d;
 	height: 600px;
 	width: 100%;
@@ -135,7 +123,7 @@ body{
 }
 
 .principal-nav{
-	/*background-color: gray;*/
+	background-color: rgba(0,0,0,.9);
 	width: 100%;
 	display: flex;
 	flex: 1 1 auto;
@@ -143,6 +131,9 @@ body{
 	align-items: center;
 	justify-content: center;
 	align-self: flex-end;
+	position: absolute;
+	bottom: 0;
+
 }
 
 .seccion{	
@@ -150,68 +141,24 @@ body{
 	height: 50px;
 	display: flex;
 	flex-flow: column;
-	border: solid gray;
+	border-left: solid gray;
+	border-right: solid gray;
 	border-width: 1px;
 	align-items: center;
 	justify-content: center;
 }
-
-
-
-.texto-titulo{
-
-}
-
-.texto-cuerpo{
-
-}
-
-.texto-boton{
-
-}
-
-.texto-principal-nav{
-
-}
-
 .grupos{
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 	margin:15px;
 }
-
-.g{
-	display: flex;
-	flex-flow: column;
-	justify-content: center; 					/*centro horizontal*/
-	align-content: center;										/*centro vertical*/
-	font-size: 20px;
-	border: solid;
-	height: 200px;
-	width: 100%;
-	margin: 5px;
-}
-.g-titulo{
-	display: flex;
-	flex-flow: row;
-	flex: 1 1 auto;
-	justify-content: flex-start;
-	padding: 10px;
-} 
-.g-cuerpo{
-	display: flex;
-	flex-flow: row;
-	flex: 1 1 auto;
-	justify-content: center;
-}
 .footer{
 	background-color: black;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center; 		
-	color: white;
-	
+	color: white;	
 }
 .footer-columna{
 	display: flex;
@@ -222,4 +169,105 @@ body{
 }
 .espaciado{
 	margin: 10px;
+}
+
+/* ----------------------------------------desastre-------------------------------------------------*/
+.navbar-contenedor{
+	border: solid gray;
+	width: 80%;
+	margin: 5px;
+}
+.navbar{
+	/*background-color: black;	*/
+}
+.navbar-contenido{
+	background-color: orange;
+	display: flex;
+	position: relative;
+	margin: 10px;
+}
+.flecha-der:hover, .flecha-izq:hover{
+	cursor: pointer;
+	cursor: hand;
+	color: black;
+	background-color: rgba(255, 255, 255, .6);
+}
+.flecha-der, .flecha-izq{
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	height: 50%;
+	top: calc( 50% - 25%);
+	width: 50px;
+	border: none;
+	transition: .2s ease all;
+	font-size: 25px;
+	color: white;
+}
+.flecha-izq{
+	left: 0;
+}
+.flecha-der{
+	right: 0;
+}
+.navbar-contenido > .miniaturas{
+	width: 100%;
+	overflow: hidden;
+	background-color: white;
+	display: flex;
+	scroll-behavior: smooth;
+	justify-content: center;
+}
+.navbar-contenido> .miniaturas > .imagen{
+	display: flex;
+	flex-wrap: nowrap;
+	width: auto;
+	height: auto;
+	transition: .3s ease all;
+}
+.miniaturas > .imagen > img{
+	width: 100%;
+	height: 100%;
+	
+}
+/**tarjetas*/
+.superior{
+	/*background-color: gray;*/
+	display: flex;
+	flex: column;
+	padding: 10px;
+}
+.categoria{
+	/*background-color: skyblue;*/
+	margin: 5px;
+	border: solid gray;
+	border-radius: 10px;
+}
+.tarjetas{
+	/*background-color: orange;*/
+	display: flex;
+	position: relative;
+	margin: 10px;
+	
+}
+.tarjetas > .miniaturas{
+	overflow: hidden;
+	/*background-color: white;*/
+	display: flex;
+	scroll-behavior: smooth;
+	padding: 20px 0;
+}
+.tarjetas > .miniaturas > .imagen{
+	display: flex;
+	flex-wrap: nowrap;
+	min-width: 20%;
+	transition: .3s ease all;
+}
+.tarjetas > .miniaturas > .imagen > img{
+	width: 100%;
+}
+
+/**/
+.tarjetas > .miniaturas > .imagen:hover{
+	transform: scale(1.2);
+	transform-origin: center;
 }
