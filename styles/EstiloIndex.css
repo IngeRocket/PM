@@ -3,6 +3,13 @@
 body{
 	background-color: rgba(255,230,80,.6);
 }
+.contenedor{
+	display:flex;
+	flex: 1 1 auto;
+	flex-flow: column;
+	
+	/*width: 100%;*/
+}
 .seccion:hover{
 	cursor: pointer;
 	cursor: hand;
@@ -15,6 +22,7 @@ body{
 .header{
 	display: flex;
 	flex: 1 1 auto;
+	/*width: 100%;*/
 	border-bottom: solid #7d7979 2px;
 }
 
@@ -24,8 +32,7 @@ body{
 	text-align: center;
 	display: flex;
 	flex-flow: row;
-	flex: 1 1 auto;
-	
+	flex: 1 1 auto;	
 	padding: 10px;
 }
 .logo{
@@ -34,13 +41,12 @@ body{
 	justify-content: center;
 	align-self: center;
 	background-color: red;
-	width: 20%;
-	background: url(../img/logo.png); 
-	background-position: center;
-	background-attachment: contain; 
-	background-size: cover;
-	height: 100%;
+	width: 10%;
+	margin-right: 20px;
 	/*max-width: 20%;*/
+}
+.logo > img{
+	width: 100%;
 }
 .buscador{
 	height: 35px;
@@ -68,8 +74,7 @@ body{
 }
 .boton>img{
 	height: 30px;
-	width: 30px;
-	
+	width: 30px;	
 }
 .propiedad{
 	width: 100%;
@@ -110,6 +115,7 @@ body{
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
+/*	background-color: white;*/
 }
 .contenedor-carousel{
 	background-color: #273d7d;
@@ -149,9 +155,14 @@ body{
 }
 .grupos{
 	display: flex;
+	flex: 1 1 auto;
 	flex-flow: column;
 	align-items: center;
-	margin:15px;
+	justify-content: center;
+
+/*	background-color: white;*/
+	 
+/*	margin:15px;*/
 }
 .footer{
 	background-color: black;
@@ -159,6 +170,7 @@ body{
 	flex-flow: row wrap;
 	align-items: center; 		
 	color: white;	
+	flex: 1 1 auto;
 }
 .footer-columna{
 	display: flex;
@@ -241,6 +253,7 @@ body{
 	margin: 5px;
 	border: solid gray;
 	border-radius: 10px;
+	width: 90%;
 }
 .tarjetas{
 	/*background-color: orange;*/
