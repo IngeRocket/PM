@@ -1,8 +1,8 @@
 /*HOJA DE ESTILO PARA INDEX*/
 /* 1920px (PC) - 1200px (laptop) */	
-body{
+/*body{
 	background-color: rgba(255,230,80,.6);
-}
+} */
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
@@ -235,8 +235,6 @@ body{
 }
 .miniaturas > .imagen > img{
 	width: 100%;
-	height: 100%;
-	
 }
 /**tarjetas*/
 .superior{

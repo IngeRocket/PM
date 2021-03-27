@@ -1,0 +1,100 @@
+.opcion:hover, button:hover{
+	cursor: pointer;
+	cursor: hand;
+}
+.contenedor{
+	display:flex;
+	flex: 1 1 auto;
+	flex-flow: column;
+	align-items: center;
+	background-color: brown;
+}
+.header{
+	display: flex;
+	flex: 1 1 auto;
+	/*width: 100%;*/
+	border-bottom: solid #7d7979 2px;
+}
+.footer{
+	background-color: black;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center; 		
+	color: white;	
+	flex: 1 1 auto;
+}
+.footer-columna{
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+	text-align: center;
+	margin: 10px;
+}
+.espaciado{
+	margin: 10px;
+}
+/* aqui empieza la pagina nueva */
+.principal{
+	display: flex;
+	background-color: gray;
+	flex: 1 1 auto;
+	margin: 10px;
+	width: 80%;
+}
+.navegacion{
+	display:flex;
+	flex-flow: column;
+	width: 20%;
+	justify-content: center;
+	align-items: center;
+	background-color: skyblue;
+}
+.contenido{
+	width: 80%;
+	background-color: purple;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.opcion{
+	
+	display: flex;
+	background-color: gray;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid blue 5px;
+}
+.vista{
+	
+}
+.contenido > .flecha-der, .contenido > .flecha-izq{
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	height: 50%;
+	top: calc( 50% - 25%);
+	width: 50px;
+	border: none;
+	transition: .2s ease all;
+	font-size: 25px;
+	color: white;
+}
+.flecha-der{
+	right: 0;
+	margin-right: 5px;
+}
+.flecha-izq{
+	left:0;
+	margin-left: 5px;
+}
+.vista > .image > img{
+	width: 100%;
+}
+.vista > .image{
+	display: flex;
+	flex-wrap: nowrap;
+	width: auto;
+	height: auto;
+	transition: .3s ease all;
+}
