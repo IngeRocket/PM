@@ -98,3 +98,83 @@
 	height: auto;
 	transition: .3s ease all;
 }
+.informacion, .informacion-extra{
+	display: flex;
+	width: 80%;
+	justify-content: flex-end;
+	background-color: gray;
+}
+.contador{
+	margin-left: 10px;
+	border-radius: 5px;
+	border: solid black 5px;
+	padding: 10px;
+}
+.fecha-ver, .reportar{
+	margin-left: 10px;
+	border-radius: 5px;
+	border: solid black 5px;
+	padding: 5px;
+}
+.ver-mas{
+	display: flex;
+	width: 80%;
+	height: 250px;
+	background-color: black;
+	margin-top: 10px;
+	border-radius: 15px;
+	border: solid gray;
+	justify-content: center;
+	align-items: center;
+}
+.contenedor-comentarios{
+	display: flex;
+	width: 80%;
+	margin-top: 10px;
+	border-radius: 15px;
+	border: solid gray;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+}
+
+.lectura-comentarios{
+	display: flex;
+	width: 90%;
+}
+.tarjeta{
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	margin: 5px;
+}
+.com-imagen{
+	display: flex;
+	width: 50px;
+	background-color: purple;
+	border-radius: 100%;
+	height: 50px;
+	justify-content: center;
+	align-items: center;
+}
+.com-comentario{
+	display: flex;
+	width: 90%;
+	background-color: orange;
+	margin-left: 20px;
+	border-radius: 5px;
+	border: solid gray 2px;
+	border-left-width: 15px;
+	border-bottom-left-radius: 20px;
+}
+.caja-comentarios{
+	display: flex;
+	justify-content: center;
+	background-color: white;
+	width: 90%;
+	margin: 10px;
+}
+.comentario{
+	width: 100%;
+	height: 80px;
+}
