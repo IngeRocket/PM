@@ -1,15 +1,41 @@
 *{
-	margin: 10px;
-	padding: 10px;
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
+hr{
+	margin-top: 45px; 
+	width: 100%;
+}
 
+button{
+	margin-top: 5px; 
+	width: 60%;
+	height: 50px;
+	border-radius: 15px;
+}
+button:hover{
+	cursor: hand;
+	cursor: pointer;
+}
+input, label{
+	margin-bottom: 5px;
+	padding: 0px;
+}
 .contenedor{
 	display:flex;
 	flex-flow: column;
 	justify-content: center;
 	align-items: center;
-	background-color: orange;
+	/*background-color: orange;*/
+}
+.formulario-login{
+	display: flex;
+	flex-flow: column;
+	width: 650px;
+	background-color: #262626;
+	text-align: center;
+	align-items: center;
 }
 .superior{
 	display:flex;
@@ -19,18 +45,33 @@
 .superior > img{
 	width: 100%;
 }
-.inferior{
-	background-color: gray;
-}
 .contenido{
 	display:flex;
 	flex-flow: column;
+	align-items: center;
+	margin-top: 50px;
 }
-.formulario-login{
+.inferior{
+	background-color: black;
+	width: 100%;
+	color: white;
+	margin-top: 50px;
+	height: 100px;
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	flex-flow: column;
-	width: 33.33%;
-	background-color: white;
-	text-align: center;
 }
+.escala{
+	width: 80%;
+	height: 45px;
+}
+.btn-primario{
+	background-color: #273d7d;
+	border: none;
+}
+.btn-secundario{
+	/*border: solid #273d7d 2px;*/
+	border-style: none;
+	background-color: #2085b8;
+}
+
