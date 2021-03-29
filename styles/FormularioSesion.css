@@ -21,6 +21,7 @@ button:hover{
 input, label{
 	margin-bottom: 5px;
 	padding: 0px;
+	text-align: center;
 }
 .contenedor{
 	display:flex;
