@@ -51,6 +51,7 @@ input, label{
 	flex-flow: column;
 	align-items: center;
 	margin-top: 50px;
+	width: 60%;
 }
 .inferior{
 	background-color: black;
