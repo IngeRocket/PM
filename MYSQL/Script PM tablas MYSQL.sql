@@ -3,19 +3,21 @@
 create database PM_PROYECTO;
 use PM_PROYECTO;
 
+
 create table Usuario(
 usu_id int unsigned auto_increment primary key,
-usu_correo text not null UNIQUE,
-usu_nombre varchar(25) not null,
-usu_ap varchar(25) not null,
+usu_correo varchar(60) unique,
+usu_nickname varchar(25) unique,
 usu_clave text not null,
-usu_fregistro date default now(),
-usu_rol int default 1
+usu_fregistro date,
+usu_rol int default 1,
+usu_imagen mediumblob null
 );
+
 create table Imagen(
 img_id int unsigned auto_increment primary key,
-img_imagen mediumblob not null,
-img_formato varchar(8) not null
+img_imagen mediumblob null,
+img_formato varchar(8) null
 );
 
 create table Pelicula(
@@ -48,7 +50,7 @@ j_descripcion text not null,
 j_temporada int not null,
 j_year varchar(4) not null,
 j_peso varchar(20) not null,
-j_fsubida date default now(),
+j_fsubida date,
 j_factualizacion date default now(),
 j_visita bigint unsigned default 1,
 j_activo bool default 1
@@ -59,7 +61,7 @@ p_titulo text not null,
 p_descripcion text not null,
 p_version varchar(10) not null,
 p_peso varchar(20) not null,
-p_fsubida date default now(),
+p_fsubida date,
 p_factualizacion date default now(),
 p_visita bigint unsigned default 1,
 p_activo bool default 1
@@ -69,6 +71,8 @@ create table Reporte_Pelicula(
 rp_id_pelicula int unsigned not null,
 rp_id_usuario int unsigned not null,
 rp_estado bool default 0,
+rp_freporte date,
+rp_fsolucion date,
 constraint primary key PR_rp_pl_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rp_pl_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rp_pl_programa(rp_id_programa) references Pelicula(p_id) on delete cascade
@@ -77,6 +81,8 @@ create table Reporte_Serie(
 rs_id_serie int unsigned not null,
 rs_id_usuario int unsigned not null,
 rs_estado bool default 0,
+rs_freporte date,
+rs_fsolucion date,
 constraint primary key PR_rpj_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rpj_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rpj_programa(rp_id_juego) references Serie(s_id) on delete cascade
@@ -85,6 +91,8 @@ create table Reporte_Juego(
 rj_id_juego int unsigned not null,
 rj_id_usuario int unsigned not null,
 rj_estado bool default 0,
+rj_freporte date,
+rj_fsolucion date,
 constraint primary key PR_rpj_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rpj_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rpj_programa(rp_id_juego) references Juego(j_id) on delete cascade
@@ -93,6 +101,8 @@ create table Reporte_Programa(
 rp_id_programa int unsigned not null,
 rp_id_usuario int unsigned not null,
 rp_estado bool default 0,
+rp_freporte date,
+rp_fsolucion date,
 constraint primary key PR_rp_prg_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rp_prg_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rp_prg_programa(rp_id_programa) references Programa(p_id) on delete cascade
