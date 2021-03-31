@@ -1,5 +1,6 @@
 var Usuario = "";
 var idUsuario = 0;
+var invitado = false;
 
 $(document).ready(	function(){
 	/*alert("Hola");*/
