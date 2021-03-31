@@ -10,6 +10,10 @@
 	
 	/*width: 100%;*/
 }
+.cuenta > .cuenta-opc1:hover, .cuenta > .cuenta-opc2:hover, .logo:hover{
+	cursor: pointer;
+	cursor: hand;
+}
 .seccion:hover{
 	cursor: pointer;
 	cursor: hand;
@@ -85,6 +89,11 @@
 	justify-content: center;
 	align-self: center;
 	max-width: 20%; 
+}
+.cuenta > .cuenta-opc1, .cuenta > .cuenta-opc2{
+	margin-left: 5px;
+	margin-right: 5px;
+	display: flex;
 }
 .onboarding{
 	display: flex;
