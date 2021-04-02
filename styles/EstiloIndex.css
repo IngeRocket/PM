@@ -279,7 +279,7 @@
 	min-width: 20%;
 	transition: .3s ease all;
 }
-.tarjetas > .miniaturas > .imagen > img{
+.tarjetas > .miniaturas > .imagen > a >img{
 	width: 100%;
 }
 
@@ -343,5 +343,17 @@
 	}
 	.onboarding{
 		margin: 10px;
+	}
+	.cuenta{
+		width: 100%;
+		max-width: 100%;
+		/*background-color: white;*/
+	}
+	.cuenta-opc1, .cuenta-opc2{
+		width: 100%;
+		justify-content: center;
+		/*background-color: orange;*/
+		border-radius: 5px;
+		border: solid white 1px;		
 	}
 }
