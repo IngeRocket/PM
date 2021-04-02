@@ -53,4 +53,23 @@
 		$conexion->close();
 	}
 
+	/* FUNCIONES DE CARGA DE ELEMENTOS DE INDEX	*/
+	function CargarPeliculas(){
+
+	}
+	function CargarSeries(){
+
+	}
+	function CargarJuegos(){
+
+	}
+	function CargarProgramas(){
+
+	}
+	
+	/*	BUSCADOR DE INDEX	*/
+	function RealizarBusqueda(opcion, nombre){
+		/* Opcion: numero 1 - 4 */
+	}
+
 ?>
