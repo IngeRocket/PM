@@ -16,7 +16,7 @@ usu_imagen mediumblob null
 
 create table Imagen(
 img_id int unsigned auto_increment primary key,
-img_imagen mediumblob null,
+img_ruta text not null,
 img_formato varchar(8) null
 );
 
