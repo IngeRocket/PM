@@ -1,5 +1,5 @@
 /* diseño de base de datos para Programacion Multimedia*/
-
+/* AGREGAR CALIDAD EN SERIES Y PELICULAS */
 create database PM_PROYECTO;
 use PM_PROYECTO;
 
@@ -26,8 +26,8 @@ p_titulo text not null,
 p_descripcion text not null,
 p_year varchar(4) not null,
 p_peso varchar(20) not null,
-p_fsubida date default now(),
-p_factualizacion date default now(),
+p_fsubida date default (date( now() ) ),
+p_factualizacion date default (date( now() ) ),
 p_visita bigint unsigned default 1,
 p_activo bool default 1
 );
@@ -38,8 +38,8 @@ s_descripcion text not null,
 s_temporada int not null,
 s_year varchar(4) not null,
 s_peso varchar(20) not null,
-s_fsubida date default now(),
-s_factualizacion date default now(),
+s_fsubida date default (date( now() ) ),
+s_factualizacion date default (date( now() ) ),
 s_visita bigint unsigned default 1,
 s_activo bool default 1
 );
@@ -50,8 +50,8 @@ j_descripcion text not null,
 j_temporada int not null,
 j_year varchar(4) not null,
 j_peso varchar(20) not null,
-j_fsubida date,
-j_factualizacion date default now(),
+j_fsubida date default (date( now() ) ),
+j_factualizacion date default (date( now() ) ),
 j_visita bigint unsigned default 1,
 j_activo bool default 1
 );
@@ -61,8 +61,8 @@ p_titulo text not null,
 p_descripcion text not null,
 p_version varchar(10) not null,
 p_peso varchar(20) not null,
-p_fsubida date,
-p_factualizacion date default now(),
+p_fsubida date default (date( now() ) ),
+p_factualizacion date default (date( now() ) ),
 p_visita bigint unsigned default 1,
 p_activo bool default 1
 );
@@ -71,8 +71,8 @@ create table Reporte_Pelicula(
 rp_id_pelicula int unsigned not null,
 rp_id_usuario int unsigned not null,
 rp_estado bool default 0,
-rp_freporte date,
-rp_fsolucion date,
+rp_freporte date default (date( now() ) ),
+rp_fsolucion date default (date( now() ) ),
 constraint primary key PR_rp_pl_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rp_pl_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rp_pl_programa(rp_id_programa) references Pelicula(p_id) on delete cascade
@@ -81,8 +81,8 @@ create table Reporte_Serie(
 rs_id_serie int unsigned not null,
 rs_id_usuario int unsigned not null,
 rs_estado bool default 0,
-rs_freporte date,
-rs_fsolucion date,
+rs_freporte date default (date( now() ) ),
+rs_fsolucion date default (date( now() ) ),
 constraint primary key PR_rpj_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rpj_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rpj_programa(rp_id_juego) references Serie(s_id) on delete cascade
@@ -91,8 +91,8 @@ create table Reporte_Juego(
 rj_id_juego int unsigned not null,
 rj_id_usuario int unsigned not null,
 rj_estado bool default 0,
-rj_freporte date,
-rj_fsolucion date,
+rj_freporte date default (date( now() ) ),
+rj_fsolucion date default (date( now() ) ),
 constraint primary key PR_rpj_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rpj_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rpj_programa(rp_id_juego) references Juego(j_id) on delete cascade
@@ -101,8 +101,8 @@ create table Reporte_Programa(
 rp_id_programa int unsigned not null,
 rp_id_usuario int unsigned not null,
 rp_estado bool default 0,
-rp_freporte date,
-rp_fsolucion date,
+rp_freporte date default (date( now() ) ),
+rp_fsolucion date default (date( now() ) ),
 constraint primary key PR_rp_prg_llave(rp_id_promgrama , rp_id_usuario),
 constraint foreign key FK_rp_prg_usuario(rp_id_usuario) references Usuario(usu_id) on delete cascade,
 constraint foreign key FK_rp_prg_programa(rp_id_programa) references Programa(p_id) on delete cascade
@@ -129,7 +129,7 @@ ij_id_j int unsigned not null,
 ij_id_img int unsigned not null,
 ij_portada bool default 0,
 constraint primary key(ij_id_j, ij_id_img),
-constraint FK_ij_j foreign key(ij_id_j) references Pelicula(j_id),
+constraint FK_ij_j foreign key(ij_id_j) references Juego(j_id),
 constraint FK_ij_img foreign key(ij_id_img) references Imagen(img_id)
 );
 create table Imagen_Programa(
