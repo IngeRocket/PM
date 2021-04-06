@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRUEBA JSON</title>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("body").on("click","#Ensayo",function(){
+			var dataToSend = { 
+				action: "Prueba"
+				};
+			$.ajax({
+			url: "php/webservice.php",
+			async: true,
+			type: 'POST',
+			data: dataToSend, 
+			success: function (data){
+
+					var datos = JSON.parse(data);			
+					for (var i = 0; i < datos.length; i++) {	
+					$(".resultados").append(datos[i].ID + "<br>");
+					$(".resultados").append(datos[i].Titulo + "<br>");
+					$(".resultados").append("<img src='"+ datos[i].Ruta +"' width='400px' height = '400px'>"+datos[i].Ruta + "<br>");
+					$(".resultados").append(datos[i].Visitas + "<br>");
+					$(".resultados").append(datos[i].Peso + "<br>");
+					$(".resultados").append(datos[i].Estreno + "<br>");
+					$(".resultados").append(datos[i].Subido + "<br>");
+					} 
+					//alert(data);
+					console.log(data);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+
+	<button id="Ensayo">Traer info Peliculas</button>
+	<div class="resultados">
+		
+	</div>
+</body>
+</html>

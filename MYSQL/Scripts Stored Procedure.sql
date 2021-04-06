@@ -21,3 +21,11 @@ call SP_Registro('IngeRocket','IngeRocket@correo.com','IngeRocket');
 call SP_Login('IngeRocket@correo.com','IngeRocket');
 call SP_Login('IngeRocket','IngeRocket');
 select * from usuario;
+
+DELIMITER //
+create procedure SP_Prueba()
+begin
+select * from v_catalogo_pelicula;
+end
+//
+call SP_Prueba;

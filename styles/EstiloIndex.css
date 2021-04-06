@@ -10,6 +10,10 @@
 	
 	/*width: 100%;*/
 }
+.buscador-barra{
+	width: 100%;
+	text-align: center;
+}
 .cuenta > .cuenta-opc1:hover, .cuenta > .cuenta-opc2:hover, .logo:hover{
 	cursor: pointer;
 	cursor: hand;

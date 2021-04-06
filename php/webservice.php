@@ -3,7 +3,13 @@
 
 	$action = $_POST['action'];
 
+	if ($action == "Prueba") {
+		Prueba();
+	}
+
+/*
 	switch($action){
+		
 		case "Registro":{
 			$user = $_POST['user'];
 			$pass = $_POST['pass'];
@@ -14,11 +20,10 @@
 			$user = $_POST['user'];
 			$pass = $_POST['pass'];
 			RegistroUsuario($user, $pass);
+		} 
+		case "Prueba":{
+			Prueba();
 		}
-		default:
-			{
-				alert("Hola");
-			}
 	}	
 
 
@@ -53,7 +58,7 @@
 		$conexion->close();
 	}
 
-	/* FUNCIONES DE CARGA DE ELEMENTOS DE INDEX	*/
+	// FUNCIONES DE CARGA DE ELEMENTOS DE INDEX	
 	function CargarPeliculas(){
 
 	}
@@ -67,9 +72,24 @@
 
 	}
 	
-	/*	BUSCADOR DE INDEX	*/
+	//	BUSCADOR DE INDEX	
 	function RealizarBusqueda(opcion, nombre){
-		/* Opcion: numero 1 - 4 */
+		// Opcion: numero 1 - 4 
+	}
+*/
+	function Prueba(){
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL sp_prueba");
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
 	}
 
 ?>

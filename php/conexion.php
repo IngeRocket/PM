@@ -1,14 +1,14 @@
 <?php
-	function connect() {
+	function Conectar(){
 		$databasehost = "127.0.0.1";	
 		$databaseuser = "root";
 		$databasepass = "root";
-		$databasename = "PM_PROYECTO";
+		$databasename = "pm_proyecto";
 
-		$mysqli = new mysqli($databasehost, $databaseuser, $databasepass, $databasename,3306);
-		if ($mysqli->connect_errno) {
+		$conexion = new mysqli($databasehost, $databaseuser, $databasepass, $databasename, 3306);
+		if ($conexion->connect_errno) {
 			echo "Problema con la conexion a la base de datos";
-		}
-		return $mysqli;
-	}	
+		}	
+		return $conexion;
+	}
 ?>
