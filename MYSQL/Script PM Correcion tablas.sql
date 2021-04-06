@@ -22,7 +22,7 @@ p_caracteristicas text not null,
 p_version varchar(10) not null
 );
 
-drop table articulo;
+-- drop table articulo;
 create table articulo(
 a_id int unsigned auto_increment primary key,
 a_titulo text not null,

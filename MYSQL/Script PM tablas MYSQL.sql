@@ -20,53 +20,6 @@ img_ruta text not null,
 img_formato varchar(8) null
 );
 
-create table Pelicula(
-p_id int unsigned auto_increment primary key,
-p_titulo text not null,
-p_descripcion text not null,
-p_year varchar(4) not null,
-p_peso varchar(20) not null,
-p_fsubida date default (date( now() ) ),
-p_factualizacion date default (date( now() ) ),
-p_visita bigint unsigned default 1,
-p_activo bool default 1
-);
-create table Serie(
-s_id int unsigned auto_increment primary key,
-s_titulo text not null,
-s_descripcion text not null,
-s_temporada int not null,
-s_year varchar(4) not null,
-s_peso varchar(20) not null,
-s_fsubida date default (date( now() ) ),
-s_factualizacion date default (date( now() ) ),
-s_visita bigint unsigned default 1,
-s_activo bool default 1
-);
-create table Juego(
-j_id int unsigned auto_increment primary key,
-j_titulo text not null,
-j_descripcion text not null,
-j_temporada int not null,
-j_year varchar(4) not null,
-j_peso varchar(20) not null,
-j_fsubida date default (date( now() ) ),
-j_factualizacion date default (date( now() ) ),
-j_visita bigint unsigned default 1,
-j_activo bool default 1
-);
-create table Programa(
-p_id int unsigned auto_increment primary key,
-p_titulo text not null,
-p_descripcion text not null,
-p_version varchar(10) not null,
-p_peso varchar(20) not null,
-p_fsubida date default (date( now() ) ),
-p_factualizacion date default (date( now() ) ),
-p_visita bigint unsigned default 1,
-p_activo bool default 1
-);
-
 create table Reporte_Pelicula(
 rp_id_pelicula int unsigned not null,
 rp_id_usuario int unsigned not null,
