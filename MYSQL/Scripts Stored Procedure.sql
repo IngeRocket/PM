@@ -21,5 +21,3 @@ call SP_Registro('IngeRocket','IngeRocket@correo.com','IngeRocket');
 call SP_Login('IngeRocket@correo.com','IngeRocket');
 call SP_Login('IngeRocket','IngeRocket');
 select * from usuario;
-
-select * from V_series;

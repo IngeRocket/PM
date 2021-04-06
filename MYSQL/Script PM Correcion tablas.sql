@@ -22,12 +22,12 @@ p_caracteristicas text not null,
 p_version varchar(10) not null
 );
 
-
+drop table articulo;
 create table articulo(
 a_id int unsigned auto_increment primary key,
 a_titulo text not null,
 a_portada int unsigned not null,
-a_fsalida date not null,
+a_fsalida varchar(4),
 a_fsubida date default ( date(now()) ),
 a_factualizacion date default ( date( now() ) ),
 a_estado bit default 1,
@@ -40,5 +40,6 @@ a_programa int unsigned null,
 constraint FK_a_pelicula foreign key (a_pelicula) references pelicula(p_id) on delete cascade,
 constraint FK_a_serie foreign key (a_serie) references serie(s_id) on delete cascade,
 constraint FK_a_juego foreign key (a_juego) references juego(j_id) on delete cascade,
-constraint FK_a_programa foreign key (a_programa) references programa(p_id) on delete cascade
+constraint FK_a_programa foreign key (a_programa) references programa(p_id) on delete cascade,
+constraint FK_a_portada foreign key (a_portada) references imagen(img_id) on delete cascade
 );

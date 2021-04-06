@@ -41,8 +41,36 @@ select * from imagen;
 select * from serie;
 select * from imagen_Serie; 
 */
+describe articulo;
+select * from imagen;
+select * from serie;
+insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 1',1);
+insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 2',1);
+insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 3',1);
+insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 4',1);
+insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 5',1);
+
+insert into pelicula(p_descripcion) values('Descripcion de pelicula 1');
+insert into pelicula(p_descripcion) values('Descripcion de pelicula 2');
+insert into pelicula(p_descripcion) values('Descripcion de pelicula 3');
+insert into pelicula(p_descripcion) values('Descripcion de pelicula 4');
+insert into pelicula(p_descripcion) values('Descripcion de pelicula 5');
+
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_serie) values('The Flash',6,'2014','2.4 GB',1);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_serie) values('Brooklyn Nine-Nineh',7,'2013','2.4 GB',2);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_serie) values('The Big Bang Theory',8,'2007','2.4 GB',3);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_serie) values('Arrow',9,'2012','2.4 GB',4);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_serie) values('Smallville',10,'2001','2.4 GB',5);
+
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Sonic',1,'2020','2.4 GB',1);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Ready Player One',2,'2018','4.4 GB',2);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Dr Strange',3,'2016','3.2 GB',3);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Avengers: Intinity War',4,'2018','4.8 GB',4);
+insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Big 6 Hero',5,'2014','3.6 GB',5);
 /*		VISTAS		*/
 /* HACER LO MISMO CON LA CATEGORIA DE PELICULAS, PROGRAMAS Y JUEGOS*/
+select * from articulo where a_serie is not null;
+/*
 DELIMITER //
 create view V_Series as
 select S.s_id ID, S.s_titulo Serie, S.s_year Estreno, S.s_fsubida Subida, I.img_ruta Portada, S.s_peso Peso, S.s_visita Visitas from Imagen as I
@@ -51,5 +79,5 @@ on IMGS.is_id_img = I.img_id
 join Serie as S
 on S.s_id = IMGS.is_id_s;
 //
-
+*/
 SELECT * FROM V_SERIES;
