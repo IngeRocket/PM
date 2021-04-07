@@ -102,3 +102,14 @@ order by a_fsalida desc;
 
 select * from V_CATALOGO_PELICULA order by Estreno;
 select * from V_CATALOGO_SERIE order by Subido, Estreno desc;
+
+
+DELIMITER //
+create view V_CATALOGO as 
+select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido, a_pelicula Pelicula, a_serie Serie, a_juego Juego, a_programa Programa from articulo 
+join imagen as I
+on I.img_id = a_portada
+order by a_fsalida desc;
+//
+
+select * from V_CATALOGO;

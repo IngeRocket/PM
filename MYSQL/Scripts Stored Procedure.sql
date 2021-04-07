@@ -29,3 +29,9 @@ select * from v_catalogo_pelicula;
 end
 //
 call SP_Prueba;
+DELIMITER //
+create procedure SP_Catalogo()
+begin
+select * from v_catalogo;
+end
+//
