@@ -5,6 +5,10 @@
 
 	if ($action == "Prueba") {
 		Prueba();
+	}else{
+		if($action == "Catalogo"){
+			Catalogo();
+		}
 	}
 
 /*
@@ -80,6 +84,21 @@
 	function Prueba(){
 		$conexion = Conectar();
 		$sentencia = $conexion->prepare("CALL sp_prueba");
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
+	}
+
+	function Catalogo(){
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL sp_Catalogo");
 		$sentencia->execute();
 
 		$resultado = $sentencia->get_result();
