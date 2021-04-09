@@ -1,226 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>LogIn</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/index-acciones.js"></script>
-	<script type="text/javascript" src="js/sesion.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles/EstiloIndex.css">
+	<link rel="stylesheet" type="text/css" href="styles/FormularioSesion.css">
 	<link rel="stylesheet" type="text/css" href="styles/General.css">
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/sesion.js"></script>
 </head>
 <body>
-<div class="contenedor">
-	<header class="header">
-		<div class="menu">
-		<!-- OPCIONES DE MENU-->
-		<div class="logo"><img src="img/logo.png"></div>
-		<div class="buscador">
-		<!--	<div class="buscador-categoria">
-				<select class="propiedad">
-					<option>Todo</option> 
-					<option>Cat 1</option>
-					<option>Cat 2</option>
-					<option>Cat 3</option>
-					<option>Cat 4</option>
-				</select>
-			</div> -->
-			<div class="buscador-texto">
-				<input type="text" name="" class="buscador-barra" placeholder="Buscar...">
+	<div class="contenedor">
+		<div class="formulario-login">
+			<div class="superior">
+				<img src="img/logo.png">
 			</div>
-			<div class="buscador-boton">
-					<button class="boton propiedad b-color-4"><img src="img/lupa_blanco.png"></button>
-			</div>
-		</div>
-		<div class="cuenta">
-			<div class="cuenta-opc1">Iniciar Sesion</div>	
-			<div class="cuenta-opc2">Registrarme</div>	
-		</div>
-		<div class="onboarding"><img src="img/foco.png"></div>
-		</div>
-	</header>	
 
-	<div class="principal">
-		<div class="navbar-contenedor"> <!-- categoria -->
-			<div class="navbar"> 	<!-- inferior -->
-				<div class="navbar-contenido"> <!-- tarjetas -->
-				<!-- AQUI VAN LAS IMAGENES -->
-						<div class="miniaturas">
-							<div class="imagen">
-								<img src="img/peliculas/3.jpg">
-							</div>
-						
-						</div>
-			
-				<button id="flecha-izq" class="flecha-izq"> < </button>
-				<button id="flecha-der" class="flecha-der"> > </button>
-				<!-- NAVBAR Y NAVEGACION DE NAVBAR -->
-					<div class="principal-nav color-fuente-2"> <!-- NAVEGACION DE PRINCIPAL -->	
-					<div id="nav-peliculas" class="seccion peliculas" onclick="Opcion1()">Pel&iacute;culas</div>
-					<div id="nav-series" class="seccion series" onclick="Opcion2()">Series</div>
-					<div id="nav-juegos" class="seccion juegos" onclick="Opcion3()">Juegos</div>
-					<div id="nav-programas" class="seccion programas" onclick="Opcion4()">Programas</div>
-					</div>
-				</div>
+			<div class="contenido">
+				<label class="color-fuente-1">Usuario / email</label>
+				<input class="escala" type="text" name="" placeholder="Usuario">
+				<label class="color-fuente-1">Contrase&ntilde;a</label>
+				<input class="escala" type="password" name="" placeholder="Clave de acceso"><br>
+				<button id="btn-login" class="btn-primario color-fuente-1">Iniciar Sesi&oacute;n</button>
+				<hr>
+				<label class="color-fuente-1">¿No estas registrado? Da click en el boton de abajo para ir a registrarte</label>
+				<button id="btn-registro" class="btn-secundario color-fuente-1">Crear Cuenta nueva</button>
+				<label class="color-fuente-1">Navega como invitado si aun no estas convencido de crearte una cuenta</label>
+				<button id="btn-invitado" class="btn-primario color-fuente-1">Navegar como invitado</button>
 			</div>
+			
+			<div class="inferior"> <label>Acerca de los terminos de conviciones sobre privacidad de datos</label></div>
+
 		</div>		
 	</div>
-
-	<div class="grupos">
-		
-		<!-- GRUPOS DE CONTENEDORES DE TARJETAS -->
-		<!-- NECESITA TITULO Y OTRO CONTENEDOR -->
-		<!-- -->
-		<div class="categoria">	
-			<div class="superior">
-				<div class="cuerpo-1 color-fuente-2">Peliculas: Agregados recientemente </div>
-			</div>
-			<div class="inferior">
-				<div class="tarjetas">
-						
-							<div id="min-Peliculas" class="miniaturas">
-							<div class="imagen">
-								<a href="#"><img src="img/peliculas/1.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/peliculas/2.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/peliculas/3.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/peliculas/4.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/peliculas/5.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/series/1.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/series/2.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/series/3.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/series/4.jpg"></a>
-							</div>
-						</div>
-				
-					<button id="flecha-izq" class="flecha-izq"> < </button>
-					<button id="flecha-der" class="flecha-der"> > </button>
-				</div>
-			</div>
-		</div>
-		<div class="categoria">	
-			<div class="superior">
-				<div class="cuerpo-1 color-fuente-2">Series: Agregados recientemente </div>
-			</div>
-			<div class="inferior">
-				<div class="tarjetas">
-						
-							<div id="min-Series" class="miniaturas">
-							<div class="imagen">
-								<a href="#"><img src="img/Series/1.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Series/2.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Series/3.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Series/4.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Series/5.jpg"></a>
-							</div>
-						</div>
-					<button id="flecha-izq" class="flecha-izq"> < </button>
-					<button id="flecha-der" class="flecha-der"> > </button>
-				</div>
-			</div>
-		</div>
-		<div class="categoria">	
-			<div class="superior">
-				<div class="cuerpo-1 color-fuente-2">Juegos: Agregados recientemente </div>
-			</div>
-			<div class="inferior">
-				<div class="tarjetas">
-				
-							<div id="min-Juegos" class="miniaturas">
-							<div class="imagen">
-								<a href="#"><img src="img/Juegos/1.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Juegos/2.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Juegos/3.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Juegos/4.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Juegos/5.jpg"></a>
-							</div>
-						</div>
-					<button id="flecha-izq" class="flecha-izq"> < </button>
-					<button id="flecha-der" class="flecha-der"> > </button>
-				</div>
-			</div>
-		</div>
-		<div class="categoria">	
-			<div class="superior">
-				<div class="cuerpo-1 color-fuente-2">Programas: Agregados recientemente </div>
-			</div>
-			<div class="inferior">
-				<div class="tarjetas">
-						
-							<div id="min-Programas" class="miniaturas">
-							<div class="imagen">
-								<a href="#"><img src="img/Programas/1.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Programas/2.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Programas/3.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Programas/4.jpg"></a>
-							</div>
-							<div class="imagen">
-								<a href="#"><img src="img/Programas/5.jpg"></a>
-							</div>
-						</div>
-					<button id="flecha-izq" class="flecha-izq"> < </button>
-					<button id="flecha-der" class="flecha-der"> > </button>
-				</div>
-			</div>
-		</div>
-		 <!-- -->
-	</div>
-
-	<footer class="footer color-fuente-3">
-		
-			
-			<div class="footer-columna">
-				<label class="espaciado">Terminos y condiciones</label>
-				<label class="espaciado">Politica de privacidad</label>
-				<label class="espaciado">Ayuda</label>
-			</div>
-			<div class="footer-columna">
-				<label class="espaciado">Proyecto Programacion Multimedia (Interfaz y Experiencia de Usuario)</label>
-			</div>
-			<div class="footer-columna">
-				<label class="espaciado">Copyright 2010 - 2021</label>
-				<label class="espaciado">www.compucalitvPLUS.com</label>
-				<label class="espaciado">Mexico, Nuevo Leon</label>
-			</div>				
-		
-	</footer>
-</div>
 </body>
 </html>
