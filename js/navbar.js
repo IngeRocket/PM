@@ -25,6 +25,12 @@ $(document).ready(	function(){
 			}	
 		});
 
+		$("body").on("click","#buscar", function(){
+			window.location.href="categoria.html";
+		});
+
+
+
 });
 
 function Requisitos(){

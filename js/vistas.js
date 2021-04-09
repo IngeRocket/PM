@@ -1,4 +1,5 @@
 	$(document).ready(	function(){
+
 		$("body").on("click","#Buscar",function(){
 			var dataToSend = { 
 				action: "Catalogo"
@@ -25,8 +26,11 @@
 				}
 			});
 		});
-
-			
+		
+		$("body").on("click",".resultado", function(){					
+			window.location.href="elemento.html";
+		});
+		
 	});	
 
 function AgregarPelicula(id,ruta,peso){
