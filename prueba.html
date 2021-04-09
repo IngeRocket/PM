@@ -22,15 +22,7 @@
 
 					var datos = JSON.parse(data);			
 					for (var i = 0; i < datos.length; i++) {	
-						/*
-					$(".resultados").append(datos[i].ID + "<br>");
-					$(".resultados").append(datos[i].Titulo + "<br>");
-					$(".resultados").append("<img src='"+ datos[i].Ruta +"' width='400px' height = '400px'>"+datos[i].Ruta + "<br>");
-					$(".resultados").append(datos[i].Visitas + "<br>");
-					$(".resultados").append(datos[i].Peso + "<br>");
-					$(".resultados").append(datos[i].Estreno + "<br>");
-					$(".resultados").append(datos[i].Subido + "<br>");
-					*/
+
 					if(datos[i].Pelicula != null){
 						AgregarPelicula(datos[i].ID,datos[i].Ruta,datos[i].Peso);
 					}else{

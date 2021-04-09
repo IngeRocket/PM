@@ -75,13 +75,13 @@ body, html{
 	width: 80%;
 }
 .area{
-	/*display: flex;*/
 	display: flex;
 	flex-flow: row wrap;
 	background-color: white;
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	justify-content: center;
+	margin:10px;
 }
 .orden{
 	display: flex;
