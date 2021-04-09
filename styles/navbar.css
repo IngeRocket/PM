@@ -1,0 +1,45 @@
+.logo:hover, .menu-categoria > label, .cuenta-opc1 > label, .cuenta-opc2 > label{
+	cursor: pointer;
+	cursor: hand;
+}
+.contenedor{
+	display:flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+}
+.header > .navbar {
+	background-color: #000; 
+}
+.navbar > .logo{
+	display: flex;
+	justify-content: center; 
+	height: 80px;  
+}
+.navbar > .cuenta{
+	display: flex;
+	justify-content: flex-end;
+	border-top: solid gray 1px;
+}
+.cuenta-opc1, .cuenta-opc2{
+	margin-left: 5px;
+	margin-right: 5px
+}
+.navbar > .menu-categorias{
+/*	background: skyblue;*/
+	display: flex;
+	justify-content: center;
+	border-top: solid gray 1px;
+	border-bottom: solid gray 1px;
+	/*margin-top: 5px;*/
+}
+
+.menu-categorias > .menu-categoria{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+@media (max-width: 450px){
+	.logo{
+		overflow: hidden;
+	}
+}
