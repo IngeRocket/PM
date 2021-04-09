@@ -3,28 +3,8 @@ var idUsuario = 0;
 var invitado = false;
 
 $(document).ready(	function(){
-				
-		$("body").on("click",".cuenta-opc1", function(){
-			if(Usuario==""){
-				IrLogIn();	
-			}else{
-				//opciones de cuenta como cambiar password
-				/* al cambiar, si da clic me voy a configuracion*/
-			}	
-		});
-
-		$("body").on("click",".cuenta-opc2", function(){
-			if(Usuario==""){
-				IrRegistro();	
-			}else{
-				//opciones de cuenta como cambiar password
-				/* al cambiar, esta opcion sera de log out */
-			}	
-		});
-
-		$("body").on("click",".logo", function(){
-				IrPrincipal();					
-		});
+		
+		Requisitos();
 		$("body").on("click","#btn-login", function(){
 			//funcion de login					
 		});
@@ -34,6 +14,9 @@ $(document).ready(	function(){
 		$("body").on("click","#btn-invitado", function(){					
 			NavegacionGuess(true);
 		});
+		$("body").on("click","#btn-r-login", function(){					
+			IrLogIn();
+		});
 });
 
 function Requisitos(){
@@ -41,16 +24,12 @@ function Requisitos(){
 	invitado = localStorage.getItem("Invitado");
  	usuario = localStorage.getItem("Usuario");
  	idUsuario = localStorage.getItem("idUsuario");
+ 	//alert(invitado); /* revisar porque entreba en false */
 
- 	if (invitado || invitado == null ) {
- 		//Sesion como invitado
+ 	if (invitado == true) {
  		IrPrincipal();
- 	}else{
- 		if(Usuario != null){
- 			//No cerro sesion ni borro el historial
- 			IrPrincipal();
- 		}
- 	}	
+ 	}
+
 }
 
 function NavegacionGuess(valor){
@@ -63,7 +42,7 @@ function IrRegistro(){
 	window.location.href="registro.html";
 }
 function IrLogIn(){
-	window.location.href="login.html";	
+	window.location.href="index.html";	
 }
 function IrPrincipal(){
 	window.location.href="principal.html";	
