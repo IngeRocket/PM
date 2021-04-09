@@ -3,9 +3,7 @@ var idUsuario = 0;
 var invitado = false;
 
 $(document).ready(	function(){
-
-		var invitado = localStorage.getItem("Invitado");		
-		
+				
 		$("body").on("click",".cuenta-opc1", function(){
 			if(Usuario==""){
 				IrLogIn();	
@@ -33,28 +31,32 @@ $(document).ready(	function(){
 		$("body").on("click","#btn-registro", function(){					
 			IrRegistro();
 		});
-
+		$("body").on("click","#btn-invitado", function(){					
+			NavegacionGuess(true);
+		});
 });
 
 function Requisitos(){
  /* Revisar si existe la variable sesion y si tiene valor con local storage*/
-var sesion = localStorage.getItem("sesion");
+	invitado = localStorage.getItem("Invitado");
+ 	usuario = localStorage.getItem("Usuario");
+ 	idUsuario = localStorage.getItem("idUsuario");
 
-		if (sesion==null){
-			sesion = false;
-			
-			}else{
-
-		}
+ 	if (invitado || invitado == null ) {
+ 		//Sesion como invitado
+ 		IrPrincipal();
+ 	}else{
+ 		if(Usuario != null){
+ 			//No cerro sesion ni borro el historial
+ 			IrPrincipal();
+ 		}
+ 	}	
 }
 
 function NavegacionGuess(valor){
 	if(valor){
 		localStorage.setItem("Invitado",true);
-		window.location.href="index.html";
-	}else{
-		localStorage.setItem("Invitado",false);
-		window.location.href="index.html";
+		window.location.href="principal.html";
 	}
 }
 function IrRegistro(){
