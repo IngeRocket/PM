@@ -1,23 +1,25 @@
 body, html{
 	height: 100%;
 }
+
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
-	background-color: orange;
-	align-items: stretch;
+	background-color: red;
 	height: 100%;
 }
 .panel{
 	display: flex;
-	background-color: white;
+	background-color: skyblue;
 	width: 20%;
 	flex-flow: column;
 	align-items: center;
+	padding: 10px;
 /*	flex-direction: column-reverse;
-	align-self: flex-start; */
+	align-self: flex-start; 
 	margin: 10px;
 	padding: 10px;
+	*/
 }
 .contenido{
 	display: flex;
@@ -90,6 +92,9 @@ body, html{
 	flex-flow: column;
 	justify-content: center;
 }
+.orden > label{
+	margin-bottom: 10px;
+}
 .navegacion{
 	display:flex;
 	justify-content: center;
@@ -97,7 +102,7 @@ body, html{
 	width: 100%;
 	height: 10%;
 	flex-flow: row;
-	background-color: red; 
+	background-color: white; 
 }
 .navegacion > .anterior{
 	display: flex;
@@ -112,4 +117,110 @@ body, html{
 	width: 40%;
 	margin: 10px;
 	justify-content: center;
+}
+
+@media (max-width: 1300px){
+	body, html{
+	height: auto;
+	}
+	.contenedor{
+		flex-flow: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.panel{
+		display: flex;
+		flex-flow: row;
+		flex: 1 1 auto;
+		width: 80%;
+		height: 20%;
+		background-color: purple;
+	}
+	.opcion-2{
+		width: 40%;
+		height: 80%;
+	}
+	.opcion-1{
+		width: 60%;
+		height: 80%;
+	}
+	.orden{
+		flex-flow: row;
+		margin-bottom: 10px;
+	}
+	.orden > label{
+		margin: 10px;
+	}
+	
+	.contenido{
+		width: 90%;
+		height: 80%;
+	}
+}
+@media (max-width: 900px){
+	.panel{
+		display: flex;
+		flex-flow: column;
+		flex: 1 1 auto;
+		width: 80%;
+		height: auto;
+		background-color: purple;
+	}
+	.opcion-2{
+		width: 100%;
+		height: 80%;
+	}
+	.opcion-1{
+		width: 100%;
+		height: auto;
+	}
+	.orden{
+		flex-flow: row;
+		margin-bottom: 10px;
+	}
+	.orden > label{
+		margin: 10px;
+	}
+	
+}
+@media (max-width: 522px){
+	.panel{
+		display: flex;
+		flex-flow: column;
+		flex: 1 1 auto;
+		width: 100%;
+		background-color: purple;
+		margin:0px;
+		padding:0px;
+	}
+	.opcion-2{
+		width: 100%;
+		height: auto;
+	}
+	.opcion-1{
+		width: 100%;
+		height: auto;
+	}
+	.orden{
+		flex-flow: column;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.orden > label{
+		margin: 1px;
+	}
+	.contenido{
+		width: 100%;
+	}
+	.caja-busqueda{
+		flex-flow:column;
+		width: 100%;
+		height: auto;
+	}
+	.buscador{
+		width: 100%;
+	}
+	.boton{
+		width: 100%;
+	}
 }

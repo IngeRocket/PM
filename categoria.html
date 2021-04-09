@@ -3,16 +3,22 @@
 <head>
 	<title></title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="styles/General.css">
+
 	<link rel="stylesheet" type="text/css" href="styles/BusquedaGeneral.css">
 	<link rel="stylesheet" type="text/css" href="styles/Categoria.css">
+	<link rel="stylesheet" type="text/css" href="styles/General.css">
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/vistas.js"></script>
 </head>
 <body>
 <div class="contenedor">
+	<header class="header">
+		<div class="navbar">
+			<div class="logo"></div>
+			<div class="categorias"></div>
+		</div>
+	</header>
 	<div class="panel">
-		
 		<div class="opcion-2">
 			<label>Ordenar por:</label>
 			<label>Fecha de publicacion </label>
@@ -29,12 +35,12 @@
 				</select>	
 		</div>
 		<div class="opcion-1">
-			<label>Mostrar categorias:</label><br>
+			<label>Mostrar categorias:</label>
 			<div class="orden">
-				<label><input type="checkbox" name="" value="1"> Peliculas </label><br>
-				<label><input type="checkbox" name="" value="2"> Series </label><br>
-				<label><input type="checkbox" name="" value="3"> Juegos </label><br>
-				<label><input type="checkbox" name="" value="4"> Programas </label><br>
+				<label><input type="checkbox" name="" value="1"> Peliculas </label>
+				<label><input type="checkbox" name="" value="2"> Series </label>
+				<label><input type="checkbox" name="" value="3"> Juegos </label>
+				<label><input type="checkbox" name="" value="4"> Programas </label>
 			</div>
 			<button>Aplicar</button>
 		</div>
