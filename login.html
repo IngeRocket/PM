@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles/FormularioSesion.css">
 	<link rel="stylesheet" type="text/css" href="styles/General.css">
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/sesion.js"></script>
 </head>
 <body>
 	<div class="contenedor">
@@ -18,13 +20,14 @@
 				<input class="escala" type="text" name="" placeholder="Usuario">
 				<label class="color-fuente-1">Contrase&ntilde;a</label>
 				<input class="escala" type="password" name="" placeholder="Clave de acceso"><br>
-				<button class="btn-primario color-fuente-1">Iniciar Sesi&oacute;n</button>
-				<hr><br><br>
+				<button id="btn-login" class="btn-primario color-fuente-1">Iniciar Sesi&oacute;n</button>
+				<hr>
 				<label class="color-fuente-1">¿No estas registrado? Da click en el boton de abajo para ir a registrarte</label>
-				<button class="btn-secundario color-fuente-1">Crear Cuenta nueva</button>
-				<br>
+				<button id="btn-registro" class="btn-secundario color-fuente-1">Crear Cuenta nueva</button>
+				<label class="color-fuente-1">Navega como invitado si aun no estas convencido de crearte una cuenta</label>
+				<button id="btn-invitado" class="btn-primario color-fuente-1">Navegar como invitado</button>
 			</div>
-
+			
 			<div class="inferior"> <label>Acerca de los terminos de conviciones sobre privacidad de datos</label></div>
 
 		</div>		
