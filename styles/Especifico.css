@@ -1,19 +1,19 @@
+.contenido{
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	/*background-color: red;*/
+}
 .opcion:hover, button:hover{
 	cursor: pointer;
 	cursor: hand;
 }
+
 .contenedor{
-	display:flex;
-	flex: 1 1 auto;
-	flex-flow: column;
-	align-items: center;
-	background-color: brown;
-}
-.header{
 	display: flex;
 	flex: 1 1 auto;
-	/*width: 100%;*/
-	border-bottom: solid #7d7979 2px;
+	flex-flow: column;
 }
 .footer{
 	background-color: black;
@@ -49,7 +49,7 @@
 	align-items: center;
 	background-color: skyblue;
 }
-.contenido{
+.contenido-resultado{
 	width: 80%;
 	background-color: purple;
 	position: relative;
@@ -69,7 +69,7 @@
 .vista{
 	
 }
-.contenido > .flecha-der, .contenido > .flecha-izq{
+.contenido-resultado > .flecha-der, .contenido-resultado > .flecha-izq{
 	background-color: rgba(0, 0, 0, 0.3);
 	position: absolute;
 	height: 50%;

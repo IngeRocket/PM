@@ -18,7 +18,8 @@
 .navbar > .cuenta{
 	display: flex;
 	justify-content: flex-end;
-	border-top: solid gray 1px;
+	background-color: #0c0c0c;
+	/*border-top: solid gray 1px;*/
 }
 .cuenta-opc1, .cuenta-opc2{
 	margin-left: 5px;
@@ -30,6 +31,10 @@
 	justify-content: center;
 	border-top: solid gray 1px;
 	border-bottom: solid gray 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #0c0c0c;
+	/*border-bottom: solid gray 1px;*/
 	/*margin-top: 5px;*/
 }
 

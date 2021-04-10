@@ -1,0 +1,23 @@
+.contenedor{
+	display: flex;
+	flex: 1 1 auto;
+	flex-flow: column;
+}
+
+.footer{
+	margin-top: 10px;
+	background-color: #000;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center; 		
+	color: white;	
+	flex: 1 1 auto;
+}
+
+.footer-columna{
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+	text-align: center;
+	margin: 10px;
+}

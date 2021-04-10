@@ -4,55 +4,78 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="styles/General.css">
+	<link rel="stylesheet" type="text/css" href="styles/Navbar.css">
+	<link rel="stylesheet" type="text/css" href="styles/Footer.css">
 	<link rel="stylesheet" type="text/css" href="styles/Especifico.css">
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
 </head>
 <body>
 <div class="contenedor">
-	<header class="header"></header>
-	<div class="informacion color-fuente-1"> 
-		<div class="contador"># vistas</div>
-		<div class="contador"># descargas</div>
-	</div>
-	<div class="principal">
-		<div class="navegacion">
-			<div class="opcion color-fuente-1">Portada</div>
-			<div class="opcion color-fuente-1">Descripcion</div>	
-			<div class="opcion color-fuente-1">Capturas</div>	
-			<div class="opcion color-fuente-1">Enlace de Descarga</div>		
+	<header class="header">
+		<div class="navbar">
+				<div class="logo"><img src="img/logo.png"></div>
+				<div class="cuenta">
+					<div class="cuenta-opc1"><label class="color-fuente-1 fuente-1">Iniciar Sesion</label></div>
+					<div class="cuenta-opc2"><label class="color-fuente-1 fuente-1">Registro</label></div>
+				</div>
+				<div class="menu-categorias">
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Peliculas</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Series</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Juegos</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Programas</label></div>
+				</div>
 		</div>
-		<div class="contenido">
-			<button id="flecha-izq" class="flecha-izq"> < </button>
-			<button id="flecha-der" class="flecha-der"> > </button>
-			<div class="vista color-fuente-1">
-				<div class="image">
-					 <img src="img/series/2.jpg">
+	</header>
+	<div class="contenido">
+		<div class="informacion color-fuente-1"> 
+			<div class="contador"># vistas</div>
+			<div class="contador"># descargas</div>
+		</div>
+		<div class="principal">
+			<div class="navegacion">
+				<div class="opcion color-fuente-1">Portada</div>
+				<div class="opcion color-fuente-1">Descripcion</div>	
+				<div class="opcion color-fuente-1">Capturas</div>	
+				<div class="opcion color-fuente-1">Enlace de Descarga</div>		
+			</div>
+			<div class="contenido-resultado">
+				<button id="flecha-izq" class="flecha-izq"> < </button>
+				<button id="flecha-der" class="flecha-der"> > </button>
+				<div class="vista color-fuente-1">
+					<div class="image">
+						 <img src="img/series/2.jpg">
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="informacion-extra color-fuente-1">
-		
-			<div class="fecha-ver">Fecha de verificacion: 10/10/2020</div>
-			<div class="reportar"><button>Reportar</button></div>
-		
-	</div>
+		<div class="informacion-extra color-fuente-1">
+			
+				<div class="fecha-ver">Fecha de verificacion: 10/10/2020</div>
+				<div class="reportar"><button>Reportar</button></div>
+			
+		</div>
 
-	<div class="ver-mas color-fuente-1">Miniaturas de recomendados/ mas ...</div>
-
-	<div class="contenedor-comentarios">
-		<div class="lectura-comentarios">
-			<div class="tarjeta">
-				<div class="com-imagen">foto usuario</div>
-				<div class="com-comentario"> mi comentario</div>
+		<div class="ver-mas color-fuente-1">Miniaturas de recomendados/ mas ...</div>
+			
+	</div>
+	
+	<footer class="footer color-fuente-3">
+			<div class="footer-columna">
+				<label class="espaciado">Terminos y condiciones</label>
+				<label class="espaciado">Politica de privacidad</label>
+				<label class="espaciado">Ayuda</label>
 			</div>
-		</div>
-		<div class="caja-comentarios">
-			<textarea class="comentario"></textarea>
-			<button>Enviar</button>
-		</div>
+			<div class="footer-columna">
+				<label class="espaciado">Proyecto Programacion Multimedia (Interfaz y Experiencia de Usuario)</label>
+			</div>
+			<div class="footer-columna">
+				<label class="espaciado">Copyright 2010 - 2021</label>
+				<label class="espaciado">www.compucalitvPLUS.com</label>
+				<label class="espaciado">Mexico, Nuevo Leon</label>
+			</div>				
+	</footer>
+	
 	</div>
-
-	<footer class="footer"></footer>
-</div>
 </body>
 </html>

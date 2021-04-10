@@ -25,7 +25,7 @@ $(document).ready(	function(){
 			}	
 		});
 
-		$("body").on("click","#buscar", function(){
+		$("body").on("click","#Buscar", function(){
 			window.location.href="categoria.html";
 		});
 
