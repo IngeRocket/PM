@@ -50,14 +50,11 @@ function Requisitos(){
  	CorreoUsuario = localStorage.getItem("CorreoUsuario");
 	
  	//alert(invitado); /* revisar porque entreba en false */
-	/*
- 	if (Invitado == true || (Usuario == "" || Usuario == null)) {
- 		alert(Invitado);
- 		alert("entre");
+	/**/
+ 	if (Invitado != null || Usuario != null) {
+ 		alert("Datos de sesion previa");
  		IrPrincipal();
  	}
- 	*/
-
 }
 
 function RegistrarUsuario(user, pass, email){
@@ -100,7 +97,7 @@ function LogIn(user, pass){
 				//datos incorrectos
 			}else{
 				GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
-				alert("Alerta antes de cambio" + data[0].usuId);
+				alert("Alerta antes de cambio");
 				IrPrincipal();
 			}			
 			/*for (var i = 0; i < datos.length; i++) {
