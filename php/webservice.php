@@ -3,65 +3,24 @@
 
 	$action = $_POST['action'];
 
-	if ($action == "Prueba") {
+	if ($action == "Prueba")
 		Prueba();
-	}else{
-		if($action == "Catalogo"){
+	else
+		if($action == "Catalogo")
 			Catalogo();
-		}
-	}
 
-/*
-	switch($action){
-		
-		case "Registro":{
+	if($action == "Login"){
+		Login();
+	}
+		if($action == "Registro"){
 			$user = $_POST['user'];
 			$pass = $_POST['pass'];
 			$email = $_POST['email'];
 			RegistroUsuario($user, $pass, $email);
-		}
-		case "Login":{
-			$user = $_POST['user'];
-			$pass = $_POST['pass'];
-			RegistroUsuario($user, $pass);
-		} 
-		case "Prueba":{
-			Prueba();
-		}
-	}	
+		}		
+		
 
-
-	function RegistroUsuario(usuario, password, email){
-		$sentencia = $conexion->prepare("CALL SP_Registro(?,?,?)");
-		$sentencia->bind_param('sss', usuario, email, password);
-		$sentencia->execute();
-
-		$resultado = $sentencia->get_result();
-		while( $r = $resultado->fetch_assoc()) {
-		                $rows[] = $r;
-		         }                    
-		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
-
-		$sentencia->close();
-		$conexion->close();
-	}
-
-
-	function Login(usuario, password){
-		$sentencia = $conexion->prepare("CALL SP_Login(?,?)");
-		$sentencia->bind_param('ss', usuario, password);
-		$sentencia->execute();
-
-		$resultado = $sentencia->get_result();
-		while( $r = $resultado->fetch_assoc()) {
-		                $rows[] = $r;
-		         }                    
-		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
-
-		$sentencia->close();
-		$conexion->close();
-	}
-
+/*
 	// FUNCIONES DE CARGA DE ELEMENTOS DE INDEX	
 	function CargarPeliculas(){
 
@@ -111,4 +70,43 @@
 		$conexion->close();
 	}
 
+
+	function Login(){
+		$usuario = $_POST['user'];
+		$password = $_POST['pass']; // La contraseña es case sensity debido a la encriptacion
+		/*
+		$usuario = "IngeRocket";
+		$password = "IngeRocket"; */ 
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL SP_Login(?,?)");
+		$sentencia->bind_param('ss', $usuario, $password);
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
+		
+		}
+/*
+	function RegistroUsuario(usuario, password, email){
+		$sentencia = $conexion->prepare("CALL SP_Registro(?,?,?)");
+		$sentencia->bind_param('sss', usuario, email, password);
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
+	}
+*/
 ?>

@@ -1,14 +1,15 @@
 var Usuario = "";
 var idUsuario = 0;
-var invitado = false;
+var Invitado = false;
 
 $(document).ready(	function(){
 		
 		Requisitos();
 
 		$("body").on("click",".cuenta-opc1", function(){
-			if(invitado || Usuario==""){
-				localStorage.setItem("Invitado",false);
+			if(Invitado || Usuario==""){
+				localStorage.setItem("Invitado", false);
+				//alert("click");
 				IrLogIn();	
 			}else{
 				//opciones de cuenta como cambiar password
@@ -35,18 +36,22 @@ $(document).ready(	function(){
 
 function Requisitos(){
  /* Revisar si existe la variable sesion y si tiene valor con local storage*/
-	invitado = localStorage.getItem("Invitado");
- 	usuario = localStorage.getItem("Usuario");
+	Invitado = localStorage.getItem("Invitado");
+ 	Usuario = localStorage.getItem("Usuario");
  	idUsuario = localStorage.getItem("idUsuario");	
+ 	
  	/* aqui se revisara si hay sesion para cambiar nombre en opcion 1 de navbar*/
+}
 
-}
 function IrRegistro(){
-	window.location.href="registro.html";
+	window.location.href = "registro.html";
 }
+
 function IrLogIn(){
-	window.location.href="index.html";	
+	localStorage.removeItem("Invitado");
+	window.location.href = "index.html";	
 }
+
 function IrPrincipal(){
-	window.location.href="principal.html";	
+	window.location.href= "principal.html";	
 }
