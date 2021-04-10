@@ -50,12 +50,13 @@ function Requisitos(){
  	CorreoUsuario = localStorage.getItem("CorreoUsuario");
 	
  	//alert(invitado); /* revisar porque entreba en false */
-
+	/*
  	if (Invitado == true || (Usuario == "" || Usuario == null)) {
  		alert(Invitado);
  		alert("entre");
  		IrPrincipal();
  	}
+ 	*/
 
 }
 
@@ -99,6 +100,8 @@ function LogIn(user, pass){
 				//datos incorrectos
 			}else{
 				GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
+				alert("Alerta antes de cambio" + data[0].usuId);
+				IrPrincipal();
 			}			
 			/*for (var i = 0; i < datos.length; i++) {
 				}*/  
@@ -126,7 +129,7 @@ function IrPrincipal(){
 }
 function GuardarDatos(idusu, usuario, correo){
 	localStorage.setItem("Invitado", false);
-	localStorage.setItem("idUsuario",idUsuario);
+	localStorage.setItem("idUsuario",idusu);
 	localStorage.setItem("Usuario",usuario);
 	localStorage.setItem("CorreoUsuario",correo);
 }

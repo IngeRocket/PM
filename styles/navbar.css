@@ -19,6 +19,8 @@
 	display: flex;
 	justify-content: flex-end;
 	background-color: #0c0c0c;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	/*border-top: solid gray 1px;*/
 }
 .cuenta-opc1, .cuenta-opc2{

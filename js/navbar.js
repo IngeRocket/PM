@@ -7,11 +7,12 @@ $(document).ready(	function(){
 		Requisitos();
 
 		$("body").on("click",".cuenta-opc1", function(){
-			if(Invitado || Usuario==""){
+			if(Usuario==""){
 				localStorage.setItem("Invitado", false);
 				//alert("click");
 				IrLogIn();	
 			}else{
+				alert("Opcion de mi cuenta");
 				//opciones de cuenta como cambiar password
 				/* al cambiar, si da clic me voy a configuracion*/
 			}	
@@ -23,6 +24,7 @@ $(document).ready(	function(){
 			}else{
 				//opciones de cuenta como cambiar password
 				/* al cambiar, esta opcion sera de log out */
+				CerrarSesion();
 			}	
 		});
 
@@ -39,8 +41,17 @@ function Requisitos(){
 	Invitado = localStorage.getItem("Invitado");
  	Usuario = localStorage.getItem("Usuario");
  	idUsuario = localStorage.getItem("idUsuario");	
- 	
+ 	alert(Usuario);
  	/* aqui se revisara si hay sesion para cambiar nombre en opcion 1 de navbar*/
+ 	if (Usuario.length > 0){
+ 		alert(Usuario);
+ 		//document.getElementById("n-opc-1").value = Usuario;
+		var opcion1 = document.getElementById("n-opc-1");
+		var opcion2 = document.getElementById("n-opc-2");
+		opcion1.innerHTML= Usuario;
+		opcion2.innerHTML= "Cerrar Sesion";
+
+ 	}
 }
 
 function IrRegistro(){
@@ -54,4 +65,8 @@ function IrLogIn(){
 
 function IrPrincipal(){
 	window.location.href= "principal.html";	
+}
+
+function CerrarSesion(){
+	alert("Cierre de sesion");
 }
