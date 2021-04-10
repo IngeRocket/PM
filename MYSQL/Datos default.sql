@@ -1,7 +1,7 @@
 use PM_PROYECTO;
 
-select * from imagen;
-/*
+/* select * from imagen;
+ */
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/1.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/2.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/3.jpg','JPG');
@@ -37,13 +37,6 @@ insert into imagen_serie(is_id_s,is_id_img,is_portada)values(3,8,1);
 insert into imagen_serie(is_id_s,is_id_img,is_portada)values(4,9,1);
 insert into imagen_serie(is_id_s,is_id_img,is_portada)values(5,10,1);
 
-select * from imagen;
-select * from serie;
-select * from imagen_Serie; 
-*/
-describe articulo;
-select * from imagen;
-select * from serie;
 insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 1',1);
 insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 2',1);
 insert into serie(s_descripcion,s_temporada) values('Descripcion de serie 3',1);
@@ -67,49 +60,3 @@ insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Rea
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Dr Strange',3,'2016','3.2 GB',3);
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Avengers: Intinity War',4,'2018','4.8 GB',4);
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_pelicula) values('Big 6 Hero',5,'2014','3.6 GB',5);
-/*		VISTAS		*/
-/* HACER LO MISMO CON LA CATEGORIA DE PELICULAS, PROGRAMAS Y JUEGOS*/
-select * from articulo where a_serie is not null;
-/*
-DELIMITER //
-create view V_Series as
-select S.s_id ID, S.s_titulo Serie, S.s_year Estreno, S.s_fsubida Subida, I.img_ruta Portada, S.s_peso Peso, S.s_visita Visitas from Imagen as I
-join imagen_serie as IMGS
-on IMGS.is_id_img = I.img_id
-join Serie as S
-on S.s_id = IMGS.is_id_s;
-//
-*/
-describe articulo;
-SELECT * FROM V_SERIES;
-DELIMITER //
-create view V_CATALOGO_SERIE as 
-select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido from articulo 
-join imagen as I
-on I.img_id = a_portada
-where a_serie is not null
-order by a_fsalida desc;
-//
-
-DELIMITER //
-create view V_CATALOGO_PELICULA as 
-select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido from articulo 
-join imagen as I
-on I.img_id = a_portada
-where a_pelicula is not null
-order by a_fsalida desc;
-//
-
-select * from V_CATALOGO_PELICULA order by Estreno;
-select * from V_CATALOGO_SERIE order by Subido, Estreno desc;
-
-
-DELIMITER //
-create view V_CATALOGO as 
-select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido, a_pelicula Pelicula, a_serie Serie, a_juego Juego, a_programa Programa from articulo 
-join imagen as I
-on I.img_id = a_portada
-order by a_fsalida desc;
-//
-
-select * from V_CATALOGO;
