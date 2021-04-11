@@ -18,113 +18,83 @@
   		'</body>'.
   		'</html>';
 */  	
-    $mensaje='<html>'.
+    $mensaje='<!DOCTYPE html>'.
+    '<html>'.
     '<head>'.
-    '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">'.
+    '<title></title>'.
+    '</head>'.
     '<style type="text/css">'.
-      '*{'.
-        'margin: 0px;'.
-        'padding: 0px;'.
-        'box-sizing: border-box;'.
-      '}'.
-      '.color-fuente-1{'.
-        'color: #ffffff;'.
-      '}'.
-      '.color-fuente-4{'.
-        'color: #2085B8;'.
-      '}'.
-      '.fuente-1{'.
-       'font-family: Arial;'.
-      '}'.
-      '.cuerpo-2{'.
-        'font-size: 22px;'.
-      '}'.
-      '.cuerpo-3{'.
-        'font-size: 20px;'.
-      '}'.
-      '.subtitulo-1{'.
-        'font-size: 12px;'.
-      '}'.
-      '.contenedor{'.
-        'display:flex;'.
-        'flex: 1 1 auto;'.
-        'background-color: skyblue;'.
-      '}'.
-      '.correo{'.
-        'display: flex;'.
-        'flex: 1 1 auto;'.
-        'flex-flow: column;'.
-        'max-width: 500px;'.
-        'height: 625px;'.
-        'align-self: center;'.
-      '}'.
-      '.correo-logo{'.
-        'display: flex;'.
-        'width: 100%;'.
-        'height: 15%;'.
-        'background-color: #000;'.
-        'justify-content: center;'.
-        'overflow: hidden;'.
-      '}'.
-      '.correo-cuerpo{'.
-        'display: flex;'.
-        'height: 70%;'.
-        'width: 100%;'.
-        'flex-flow: column;'.
-        'justify-content: center;'.
-        'background-color: #0c0c0c;'.
-      '}'.
-      '.correo-footer{'.
-        'display: flex;'.
-        'background-color: #000;'.
-        'height: 15%;'.
-        'width: 100%;'.
-      '}'.
-      '.cuerpo-titulo, .cuerpo-usuario, .cuerpo-texto, .correo-footer{'.
-        'width: 100%;'.
-        'display: flex;'.
-        'justify-content: center;'.
-        'text-align: center;'.
-      '}'.
-      '.correo-footer{'.
-        'flex-flow: column;'.
-        'align-items: center;'.
-      '}'.
-      '.correo-footer > label{'.
-      'margin-top: 10px;'.
-      '}'.
-      '.cuerpo-usuario > label{'.
-      'margin:20px;'.
-      '}'.
-      '@media (max-width: 500px){'.
-      '.contenedor{'.
-      'width: 100%;'.
-      '}'.
-      '.correo{'.
-      'width: 100%;'.
-      '}'.
+    '*{'.
+    ' border: 0px;'.
+    ' margin: 0px;'.
+    '}'.
+    'body{'.
+    ' display:flex;'.
+    ' justify-content: center;'.
+    ' font-family: Arial;'.
+    ' font-size: 22px;'.
+    '}'.
+    'table{'.
+    ' max-width: 80%;'.
+    ' border: none;'.
+    ' margin: 0px;'.
+    ' padding: 0px;'.
+    ' border-collapse: collapse;'.
+    ' background-color: yellow;'.
+    ' background-color: #0c0c0c;'.
+    '}'.
+    'td{'.
+    '  margin: 0px;'.
+    '  padding: 0px;'.
+    '  background-color: #0c0c0c;'.
+    '  text-align: center;'.
+    '  width: 100%;'.
+    '}'.
+    'td > img {'.
+    ' width: 100%;'.
+    '}'.
+    '.nombre{'.
+    ' color: #2085B8;'.
+    '}'.
+    '.saludo, .mensaje, .despedida {'.
+    '  color: #fff;'.
+    '}'.
+    '.saludo{'.
+    ' padding-top: 200px;'.
+    '}'.
+    '.nombre{'.
+    'height: 100px;'.
+    '}'.
+    '.mensaje{'.
+    ' padding-bottom: 100px;'.
+    '  height: 200px;'.
+    '}'.
+    '.despedida{'.
+    '  background-color: #000000;'.
     '}'.
     '</style>'.
-    '</head>'.
     '<body>'.
-    '<div class="contenedor">'.
-    '<div class="correo">'.
-    '<div class="correo-logo"><img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></div>'.
-    '<div class="correo-cuerpo">'.
-    '<div class="cuerpo-titulo">'.
-    '<label class="color-fuente-1 fuente-1 cuerpo-2">Hola!</label></div>'.
-    '<div class="cuerpo-usuario">'.
-    '<label class="color-fuente-4 fuente-1 cuerpo-2">Nombre de Usuario</label></div>'.
-    '<div class="cuerpo-texto">'.
-    '<label class="color-fuente-1 fuente-1 cuerpo-3">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</label></div>'.
-    '</div>'.
-    '<div class="correo-footer">'.
-    '<label class="fuente-1 color-fuente-1 subtitulo-1">Copyright 2010 - 2021</label>'.
-    '<label class="fuente-1 color-fuente-1 subtitulo-1">www.compucalitvPLUS.com</label>'.
+    '<table id="tabla" style="width:100%">'.
+    '<tr>'.
+    '<td><img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></td>'.
+    '</tr>'.
+    '<tr>'.
+    '<td class="saludo">Hola</td>'.
+    '</tr>'.
+    '<tr>'.
+    '<td class="nombre">Nombre de usuario</td>'.
+    '</tr>'.
+    '<tr>'.
+    '<td class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.
+    '</tr>'.
+    '<tr>'.
+    '<td class="despedida">'.
+    '<label class="fuente-1 color-fuente-1 subtitulo-1">Copyright 2010 - 2021</label><br>'.
+    '<label class="fuente-1 color-fuente-1 subtitulo-1">www.compucalitvPLUS.com</label><br>'.
     '<label class="fuente-1 color-fuente-1 subtitulo-1">Mexico, Nuevo Leon</label>'.
-    '</div>'.
-    '</div>'.
-    '</div>'.
+    '</td>'.
+    '</tr>'.
+    '</table>'.
     '</body>'.
     '</html>';
     $cabeceras = 'MIME-Version: 1.0' . "\r\n";
