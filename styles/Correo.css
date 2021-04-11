@@ -1,31 +1,50 @@
-html,body{
-	height: 100%;
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.color-fuente-1{
+	color: #ffffff;
+}
+.color-fuente-4{
+	color: #2085B8;
+}
+.fuente-1{
+ font-family: Arial;
+}
+.cuerpo-2{
+	font-size: 22px;
+}
+.cuerpo-3{
+	font-size: 20px;
+}
+.subtitulo-1{
+	font-size: 12px;
 }
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
 	background-color: skyblue;
-	justify-content: center;
-	height: 100%;
 }
 .correo{
 	display: flex;
 	flex: 1 1 auto;
 	flex-flow: column;
 	max-width: 500px;
+	height: 625px;
+	align-self: center;
 }
 .correo-logo{
 	display: flex;
 	width: 100%;
-	height: 10%;
+	height: 15%;
 	background-color: #000;
-}
-.correo-logo > img{
-	width: 100%;
+	justify-content: center;
+	overflow: hidden;
 }
 .correo-cuerpo{
 	display: flex;
-	height: 90%;
+	height: 70%;
 	width: 100%;
 	flex-flow: column;
 	justify-content: center;
@@ -44,6 +63,7 @@ html,body{
 	text-align: center;
 }
 .correo-footer{
+	height: 15%;
 	flex-flow: column;
 	align-items: center;
 }
@@ -52,4 +72,12 @@ html,body{
 }
 .cuerpo-usuario > label{
 	margin:20px;
+}
+@media (max-width: 500px){
+	.contenedor{
+		width: 100%;
+	}
+	.correo{
+		width: 100%;
+	}
 }
