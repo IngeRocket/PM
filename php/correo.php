@@ -6,7 +6,7 @@
 	}
 
   function EnviarCorreo(){
-  	$para = 'julio.97.mendoza@gmail.com';
+  	$para = 'angel.66.mendoza@gmail.com';
   	$titulo = 'Bienvenido a CompucaliTVPlus';
 /*  	$mensaje = '<html>'.
   		'<head><title>Email con HTML</title></head>'.
@@ -23,75 +23,27 @@
     '<head>'.
     '<title></title>'.
     '</head>'.
-    '<style type="text/css">'.
-    '*{'.
-    ' border: 0px;'.
-    ' margin: 0px;'.
-    '}'.
-    'body{'.
-    ' display:flex;'.
-    ' justify-content: center;'.
-    ' font-family: Arial;'.
-    ' font-size: 22px;'.
-    '}'.
-    'table{'.
-    ' max-width: 80%;'.
-    ' border: none;'.
-    ' margin: 0px;'.
-    ' padding: 0px;'.
-    ' border-collapse: collapse;'.
-    ' background-color: yellow;'.
-    ' background-color: #0c0c0c;'.
-    '}'.
-    'td{'.
-    '  margin: 0px;'.
-    '  padding: 0px;'.
-    '  background-color: #0c0c0c;'.
-    '  text-align: center;'.
-    '  width: 100%;'.
-    '}'.
-    'td > img {'.
-    ' width: 100%;'.
-    '}'.
-    '.nombre{'.
-    ' color: #2085B8;'.
-    '}'.
-    '.saludo, .mensaje, .despedida {'.
-    '  color: #fff;'.
-    '}'.
-    '.saludo{'.
-    ' padding-top: 200px;'.
-    '}'.
-    '.nombre{'.
-    'height: 100px;'.
-    '}'.
-    '.mensaje{'.
-    ' padding-bottom: 100px;'.
-    '  height: 200px;'.
-    '}'.
-    '.despedida{'.
-    '  background-color: #000000;'.
-    '}'.
-    '</style>'.
-    '<body>'.
-    '<table id="tabla" style="width:100%">'.
+    '<body style="display:flex; justify-content: center;">'.
+    '<table style=" font-family: Arial; font-size: 22px; id="tabla" style=" max-width: 400px;'.
+    ' border: none; margin: 0px; padding: 0px; border-collapse: collapse; border:none; background-color: #0c0c0c; border: solid white 1px;">'.
     '<tr>'.
-    '<td><img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></td>'.
+    '<td style="margin: 0px; padding: 0px; background-color: #000; border:none; text-align: center; width: 100%;">'.
+    '<img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></td>'.
     '</tr>'.
     '<tr>'.
-    '<td class="saludo">Hola</td>'.
+    '<td class="saludo" style="margin: 0px; padding: 0px; border:none; background-color: #0c0c0c; text-align: center; width: 100%; color: #fff; padding-top: 200px;">Hola</td>'.
     '</tr>'.
     '<tr>'.
-    '<td class="nombre">Nombre de usuario</td>'.
+    '<td style="text-align: center; width: 100%; color: #2085B8; border:none; height: 100px; background-color: #0c0c0c;" class="nombre">Nombre de usuario</td>'.
     '</tr>'.
     '<tr>'.
-    '<td class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.
+    '<td style="text-align: center; width: 100%; background-color: #0c0c0c; color:#fff; padding-bottom: 100px; height: 200px;" class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.
     '</tr>'.
     '<tr>'.
-    '<td class="despedida">'.
-    '<label class="fuente-1 color-fuente-1 subtitulo-1">Copyright 2010 - 2021</label><br>'.
-    '<label class="fuente-1 color-fuente-1 subtitulo-1">www.compucalitvPLUS.com</label><br>'.
-    '<label class="fuente-1 color-fuente-1 subtitulo-1">Mexico, Nuevo Leon</label>'.
+    '<td style="background-color: #000; text-align:center; color: #fff;" class="despedida">'.
+    '<label>Copyright 2010 - 2021</label><br>'.
+    '<label>www.compucalitvPLUS.com</label><br>'.
+    '<label>Mexico, Nuevo Leon</label>'.
     '</td>'.
     '</tr>'.
     '</table>'.
