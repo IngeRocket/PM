@@ -1,0 +1,55 @@
+html,body{
+	height: 100%;
+}
+.contenedor{
+	display:flex;
+	flex: 1 1 auto;
+	background-color: skyblue;
+	justify-content: center;
+	height: 100%;
+}
+.correo{
+	display: flex;
+	flex: 1 1 auto;
+	flex-flow: column;
+	max-width: 500px;
+}
+.correo-logo{
+	display: flex;
+	width: 100%;
+	height: 10%;
+	background-color: #000;
+}
+.correo-logo > img{
+	width: 100%;
+}
+.correo-cuerpo{
+	display: flex;
+	height: 90%;
+	width: 100%;
+	flex-flow: column;
+	justify-content: center;
+	background-color: #0c0c0c;
+}
+.correo-footer{
+	display: flex;
+	background-color: #000;
+	height: 10%;
+	width: 100%;
+}
+.cuerpo-titulo, .cuerpo-usuario, .cuerpo-texto, .correo-footer{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.correo-footer{
+	flex-flow: column;
+	align-items: center;
+}
+.correo-footer > label{
+	margin-top: 10px;
+}
+.cuerpo-usuario > label{
+	margin:20px;
+}

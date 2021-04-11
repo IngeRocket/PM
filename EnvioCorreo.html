@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="styles/General.css">
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function (){
+
+	$("body").on("click","#EnviarCorreo", function(){					
+		var dataToSend = { 
+			action: "Correo"
+			};
+		$.ajax({
+		url: "php/correo.php",
+		async: true,
+		type: 'POST',
+		data: dataToSend, 
+		success: function (data){
+				console.log("Correo enviado");
+				console.log(data);
+			}, error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        	alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+    		}       
+		});
+	});
+
+	});
+</script>
+</head>
+<body>
+<div class="contenedor">
+	<button id="EnviarCorreo" width="300px">Enviar</button>
+</div>
+</body>
+</html>
