@@ -39,10 +39,31 @@ select * from v_catalogo_pelicula;
 end
 //
 call SP_Prueba;
+
 DELIMITER //
 create procedure SP_Catalogo()
 begin
 select * from v_catalogo;
-end
+end;
 //
+
+DELIMITER //
+create procedure SP_Busqueda (busqueda text, categoria int)
+begin
+if categoria = 1 then
+SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null;
+elseif categoria = 2 then
+SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Serie is not null;
+elseif categoria = 3 then
+SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Juego is not null;
+elseif categoria = 4 then
+SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Programa is not null;
+end if;
+end;
+//
+
+/*call sp_busqueda ('a', 1);
+SELECT * FROM v_catalogo*/
+
+
 

@@ -19,27 +19,6 @@
 			RegistroUsuario($user, $pass, $email);
 		}		
 		
-
-/*
-	// FUNCIONES DE CARGA DE ELEMENTOS DE INDEX	
-	function CargarPeliculas(){
-
-	}
-	function CargarSeries(){
-
-	}
-	function CargarJuegos(){
-
-	}
-	function CargarProgramas(){
-
-	}
-	
-	//	BUSCADOR DE INDEX	
-	function RealizarBusqueda(opcion, nombre){
-		// Opcion: numero 1 - 4 
-	}
-*/
 	function Prueba(){
 		$conexion = Conectar();
 		$sentencia = $conexion->prepare("CALL sp_prueba");
@@ -80,6 +59,29 @@
 		$conexion = Conectar();
 		$sentencia = $conexion->prepare("CALL SP_Login(?,?)");
 		$sentencia->bind_param('ss', $usuario, $password);
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
+		
+		}
+
+		function busqueda(){
+
+		/* 1 Pelicula, 2 Serie, 3 Juego, 4 Programa, 5 Todas*/
+		$titulo = $_POST['titulo'];
+		$categoria = $_POST['categoria'];
+		
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL SP_Busqueda(?,?)");
+		$sentencia->bind_param('ss', $titulo, $categoria);
 		$sentencia->execute();
 
 		$resultado = $sentencia->get_result();
