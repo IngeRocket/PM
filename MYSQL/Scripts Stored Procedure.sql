@@ -47,6 +47,7 @@ select * from v_catalogo;
 end;
 //
 
+
 DELIMITER //
 create procedure SP_Busqueda (busqueda text, categoria int)
 begin
@@ -58,6 +59,8 @@ elseif categoria = 3 then
 SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Juego is not null;
 elseif categoria = 4 then
 SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Programa is not null;
+elseif categoria = 5 then
+SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%');
 end if;
 end;
 //
