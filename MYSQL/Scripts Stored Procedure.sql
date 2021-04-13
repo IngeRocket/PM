@@ -66,49 +66,61 @@ end;
 //
 
 
-
+drop procedure SP_Lectura;
 DELIMITER //
 create procedure SP_Lectura(idElemento int, tipo int)
 begin
 	if tipo = 1 then
 		-- se esta buscando en peliculas
-	select A.a_titulo, P.p_descripcion, P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
+        
+	select A.a_titulo, P.p_descripcion, A.a_fsalida ,P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
     join pelicula as P
     on P.p_id = A.a_pelicula
     join imagen as I
     on I.img_id = A.a_portada
-    where A.a_id = idElemento and A.a_estado = 1;
+    where A.a_pelicula = idElemento and A.a_estado = 1;
     end if;
     
     if tipo = 2 then
-	select A.a_titulo, S.s_descripcion, S.s_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    -- series
+        update articulo set a_visita = a_visita + 1 where a_serie = idElemento;
+	select A.a_titulo, S.s_descripcion, A.a_fsalida, S.s_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
     join serie as S
-    on P.p_id = A.a_serie
+    on S.s_id = A.a_serie
     join imagen as I
     on I.img_id = A.a_portada
-    where A.a_id = idElemento and A.a_estado = 1;
+    where A.a_serie = idElemento and A.a_estado = 1;
     end if;
     
     if tipo = 3 then
-	select A.a_titulo, J.j_descripcion, j_caracteristicas ,J.j_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    -- juegos
+        update articulo set a_visita = a_visita + 1 where a_juego = idElemento;
+	select A.a_titulo, J.j_descripcion, A.a_fsalida, j_caracteristicas ,J.j_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
     join juego as J
-    on P.p_id = A.a_juego
+    on J.j_id = A.a_juego
     join imagen as I
     on I.img_id = A.a_portada
-    where A.a_id = idElemento and A.a_estado = 1;
+    where A.a_juego = idElemento and A.a_estado = 1;
     end if;
     
     if tipo = 4 then
-	select A.a_titulo, P.p_descripcion, P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+	-- programa 
+    update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
+	
+    select A.a_titulo, P.p_descripcion, P.p_enlace, A.a_fsalida ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
     join programa as P
     on P.p_id = A.a_programa
     join imagen as I
     on I.img_id = A.a_portada
-    where A.a_id = idElemento and A.a_estado = 1;
+    where A.a_programa = idElemento and A.a_estado = 1;
     end if;
+
+
 end
 //
 
+call SP_Lectura(1,1);
 /*call sp_busqueda ('a', 1);
 SELECT * FROM v_catalogo*/
 
