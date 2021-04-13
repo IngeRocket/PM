@@ -43,3 +43,9 @@ constraint FK_a_juego foreign key (a_juego) references juego(j_id) on delete cas
 constraint FK_a_programa foreign key (a_programa) references programa(p_id) on delete cascade,
 constraint FK_a_portada foreign key (a_portada) references imagen(img_id) on delete cascade
 );
+
+alter table pelicula add column p_enlace text null;
+alter table serie add column s_enlace text null;
+alter table juego add column j_enlace text null;
+alter table programa add column p_enlace text null;
+alter table articulo add column a_descarga int unsigned default 0;

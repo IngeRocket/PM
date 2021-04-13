@@ -65,6 +65,50 @@ end if;
 end;
 //
 
+
+
+DELIMITER //
+create procedure SP_Lectura(idElemento int, tipo int)
+begin
+	if tipo = 1 then
+		-- se esta buscando en peliculas
+	select A.a_titulo, P.p_descripcion, P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    join pelicula as P
+    on P.p_id = A.a_pelicula
+    join imagen as I
+    on I.img_id = A.a_portada
+    where A.a_id = idElemento and A.a_estado = 1;
+    end if;
+    
+    if tipo = 2 then
+	select A.a_titulo, S.s_descripcion, S.s_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    join serie as S
+    on P.p_id = A.a_serie
+    join imagen as I
+    on I.img_id = A.a_portada
+    where A.a_id = idElemento and A.a_estado = 1;
+    end if;
+    
+    if tipo = 3 then
+	select A.a_titulo, J.j_descripcion, j_caracteristicas ,J.j_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    join juego as J
+    on P.p_id = A.a_juego
+    join imagen as I
+    on I.img_id = A.a_portada
+    where A.a_id = idElemento and A.a_estado = 1;
+    end if;
+    
+    if tipo = 4 then
+	select A.a_titulo, P.p_descripcion, P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    join programa as P
+    on P.p_id = A.a_programa
+    join imagen as I
+    on I.img_id = A.a_portada
+    where A.a_id = idElemento and A.a_estado = 1;
+    end if;
+end
+//
+
 /*call sp_busqueda ('a', 1);
 SELECT * FROM v_catalogo*/
 
