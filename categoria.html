@@ -4,61 +4,89 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<link rel="stylesheet" type="text/css" href="styles/BusquedaGeneral.css">
-	<link rel="stylesheet" type="text/css" href="styles/Categoria.css">
+	
 	<link rel="stylesheet" type="text/css" href="styles/General.css">
+	<link rel="stylesheet" type="text/css" href="styles/Categoria.css">
+	<link rel="stylesheet" type="text/css" href="styles/Navbar.css">
+	<link rel="stylesheet" type="text/css" href="styles/Footer.css">
+	<link rel="stylesheet" type="text/css" href="styles/BusquedaGeneral.css">
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
 	<script type="text/javascript" src="js/vistas.js"></script>
 </head>
 <body>
 <div class="contenedor">
 	<header class="header">
 		<div class="navbar">
-			<div class="logo"></div>
-			<div class="categorias"></div>
+				<div class="logo"><img src="img/logo.png"></div>
+				<div class="cuenta">
+					<div class="cuenta-opc1"><label class="color-fuente-1 fuente-1">Iniciar Sesion</label></div>
+					<div class="cuenta-opc2"><label class="color-fuente-1 fuente-1">Registro</label></div>
+				</div>
+				<div class="menu-categorias">
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Peliculas</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Series</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Juegos</label></div>
+						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Programas</label></div>
+				</div>
 		</div>
 	</header>
-	<div class="panel">
-		<div class="opcion-2">
-			<label>Ordenar por:</label>
-			<label>Fecha de publicacion </label>
-				<select>
-					<option>Descendente (Recientes primero)</option>
-					<option>Ascendente (Antiguos primero)</option>
-				</select>
-			
-			
-			<label>A&ntilde;o de estreno</label>
-				<select>
-					<option>Descendente</option>
-					<option>Ascendente</option>
-				</select>	
-		</div>
-		<div class="opcion-1">
-			<label>Mostrar categorias:</label>
-			<div class="orden">
-				<label><input type="checkbox" name="" value="1"> Peliculas </label>
-				<label><input type="checkbox" name="" value="2"> Series </label>
-				<label><input type="checkbox" name="" value="3"> Juegos </label>
-				<label><input type="checkbox" name="" value="4"> Programas </label>
+	<div class="pantalla">
+			<div class="panel b-color-3 color-fuente-1">
+			<div class="opcion-2 b-color-4">
+				<label>Ordenar por:</label>
+				<label>Fecha de publicacion </label>
+					<select>
+						<option>Descendente (Recientes primero)</option>
+						<option>Ascendente (Antiguos primero)</option>
+					</select>
+				
+				
+				<label>A&ntilde;o de estreno</label>
+					<select>
+						<option>Descendente</option>
+						<option>Ascendente</option>
+					</select>	
 			</div>
-			<button>Aplicar</button>
-		</div>
-	</div>
-	<div class="contenido">
-		<div class="caja-busqueda">
-			<div class="buscador"><input type="text" name=""></div>
-			<div class="boton"><button id="Buscar">Buscar</button></div>
-		</div>
-		<div class="area">
-			<div class="resultados">
+			<div class="opcion-1 b-color-4">
+				<label>Mostrar categorias:</label>
+				<div class="orden">
+					<label><input type="radio" id="r-1" name="r-categoria" value="5" checked> Todas </label>
+					<label><input type="radio" id="r-2" name="r-categoria" value="1"> Peliculas </label>
+					<label><input type="radio" id="r-3" name="r-categoria" value="2"> Series </label>
+					<label><input type="radio" id="r-4" name="r-categoria" value="3"> Juegos </label>
+					<label><input type="radio" id="r-5" name="r-categoria" value="4"> Programas </label>
+				</div>
+				<button>Aplicar</button>
 			</div>
-		</div>
-		<div class="navegacion">
-			<div class="anterior"> < </div>
-			<div class="siguiente"> > </div>
-		</div>
+			</div>
+
+			<div class="contenido b-color-3">
+			<div class="caja-busqueda">
+				<div class="buscador"><input id="titulo-busqueda" type="text" name="" placeholder="Buscar titulo / palabra"></div>
+				<div class="boton"><button id="Buscar-titulos">Buscar</button></div>
+			</div>
+			<div class="area">
+				<div id="resultados" class="resultados">
+				</div>
+			</div>
+		</div>	
 	</div>
+	<footer class="footer color-fuente-3">
+			<div class="footer-columna">
+				<label class="espaciado">Terminos y condiciones</label>
+				<label class="espaciado">Politica de privacidad</label>
+				<label class="espaciado">Ayuda</label>
+			</div>
+			<div class="footer-columna">
+				<label class="espaciado">Proyecto Programacion Multimedia (Interfaz y Experiencia de Usuario)</label>
+			</div>
+			<div class="footer-columna">
+				<label class="espaciado">Copyright 2010 - 2021</label>
+				<label class="espaciado">www.compucalitvPLUS.com</label>
+				<label class="espaciado">Mexico, Nuevo Leon</label>
+			</div>				
+	</footer>
 </div>
 </body>
 </html>

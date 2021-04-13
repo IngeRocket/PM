@@ -8,10 +8,14 @@
 	else
 		if($action == "Catalogo")
 			Catalogo();
+		else
+		if($action == "Login")
+			Login();
+		else
+			if($action == "Busqueda")
+				Busqueda();
 
-	if($action == "Login"){
-		Login();
-	}
+
 		if($action == "Registro"){
 			$user = $_POST['user'];
 			$pass = $_POST['pass'];
@@ -73,7 +77,7 @@
 		
 		}
 
-		function busqueda(){
+		function Busqueda(){
 
 		/* 1 Pelicula, 2 Serie, 3 Juego, 4 Programa, 5 Todas*/
 		$titulo = $_POST['titulo'];
