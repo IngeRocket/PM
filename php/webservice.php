@@ -99,6 +99,13 @@
 		$conexion->close();
 		
 		}
+
+		function Ver(){
+			$clave = $_POST['clave'];
+			$tipo = $_POST['tipo'];
+
+			//tipo de procedimiento a llamar
+		}
 /*
 	function RegistroUsuario(usuario, password, email){
 		$sentencia = $conexion->prepare("CALL SP_Registro(?,?,?)");
