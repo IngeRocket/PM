@@ -44,8 +44,26 @@ constraint FK_a_programa foreign key (a_programa) references programa(p_id) on d
 constraint FK_a_portada foreign key (a_portada) references imagen(img_id) on delete cascade
 );
 
+create table Reporte(
+r_id int unsigned auto_increment primary key,
+r_motivo text not null
+);
+
+#drop table ReporteArticulo;
+create table ReporteArticulo(
+ra_id_usuario int unsigned not null,
+ra_id_articulo int unsigned not null,
+ra_reporte_motivo int unsigned default 1,
+ra_fecha date default (date ( now() )),
+constraint FK_ra_id_usuario foreign key (ra_id_usuario) references usuario(usu_id),
+constraint FK_ra_id_articulo foreign key (ra_id_articulo) references articulo(a_id),
+constraint FK_ra_reporte foreign key (ra_reporte_motivo) references reporte(r_id),
+constraint FK_ra_primary primary key (ra_id_articulo, ra_id_usuario)
+);
+
 alter table pelicula add column p_enlace text null;
 alter table serie add column s_enlace text null;
 alter table juego add column j_enlace text null;
 alter table programa add column p_enlace text null;
 alter table articulo add column a_descarga int unsigned default 0;
+

@@ -91,3 +91,5 @@ insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Win
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Microsft Office 365',20,'2018','15.6 GB', 5);
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('After Effects CS2020',21,'2020','18.6 GB', 6);
 
+#motivo
+insert into Reporte(r_motivo) values('enlace caido');

@@ -32,23 +32,6 @@ DECLARE clave2 text;
 end;
 //
 
-# query comentados no tienen porque usarse, solo son pruebas para conexion
-/*
-DELIMITER //
-create procedure SP_Prueba()
-begin
-select * from v_catalogo_pelicula;
-end
-//
-call SP_Prueba;
-
-DELIMITER //
-create procedure SP_Catalogo()
-begin
-select * from v_catalogo;
-end;
-//
-*/
 DELIMITER //
 create procedure SP_Destacado(opcion int)
 begin
@@ -116,7 +99,7 @@ begin
 		-- se esta buscando en peliculas
     update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
         
-	select A.a_titulo, P.p_descripcion, A.a_fsalida ,P.p_enlace, I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+	select A.a_titulo Titulo, P.p_descripcion Descripcion, A.a_fsalida Fsalida,P.p_enlace Enlace, I.img_ruta Ruta, A.a_factualizacion Factualizacion, A.a_peso Peso, A.a_descarga Descargas, A.a_visita Visitas from articulo as A 
     join pelicula as P
     on P.p_id = A.a_pelicula
     join imagen as I
@@ -127,7 +110,7 @@ begin
     if tipo = 2 then
     -- series
         update articulo set a_visita = a_visita + 1 where a_serie = idElemento;
-	select A.a_titulo, S.s_descripcion, A.a_fsalida, S.s_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+	select A.a_titulo Titulo, S.s_descripcion Descripcion, A.a_fsalida Fsalida, S.s_enlace Enlace, I.img_ruta Ruta, A.a_factualizacion Factualizacion, A.a_peso Peso, A.a_descarga Descargas, A.a_visita Visitas from articulo as A 
     join serie as S
     on S.s_id = A.a_serie
     join imagen as I
@@ -138,7 +121,7 @@ begin
     if tipo = 3 then
     -- juegos
         update articulo set a_visita = a_visita + 1 where a_juego = idElemento;
-	select A.a_titulo, J.j_descripcion, A.a_fsalida, j_caracteristicas ,J.j_enlace ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+	select A.a_titulo Titulo, J.j_descripcion Descripcion, A.a_fsalida Fsalida, j_caracteristicas Caracteristicas,J.j_enlace Enlace, I.img_ruta Ruta, A.a_factualizacion Factualizacion, A.a_peso Peso, A.a_descarga Descargas, A.a_visita Visitas from articulo as A 
     join juego as J
     on J.j_id = A.a_juego
     join imagen as I
@@ -150,7 +133,7 @@ begin
 	-- programa 
     update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
 	
-    select A.a_titulo, P.p_descripcion, P.p_enlace, A.a_fsalida ,I.img_ruta, A.a_factualizacion, A.a_peso, A.a_descarga, A.a_visita from articulo as A 
+    select A.a_titulo Titulo, P.p_descripcion Descripcion, P.p_caracteristicas Caracteristicas, P.p_version 'Version', P.p_enlace Enlace, A.a_fsalida Fsalida, I.img_ruta Ruta, A.a_factualizacion Factualizacion, A.a_peso Peso, A.a_descarga Descargas, A.a_visita Visitas from articulo as A 
     join programa as P
     on P.p_id = A.a_programa
     join imagen as I
@@ -162,10 +145,38 @@ begin
 end
 //
 
-call SP_Lectura(1,1);
+#Usuario reporta
+DELIMITER //
+create procedure SP_AltaReporte(idusuario int, idarticulo int)
+begin
+
+end;
+//
+
+DELIMITER //
+create procedure SP_ConsultaReporte(idarticulo int, opcion int)
+begin
+# opcion 1 lista de reportes
+# opcion 2 descripcion de reporte de articulo especifico
+
+end;
+//
+
+DELIMITER //
+create procedure SP_SolucionReporte(idarticulo int)
+begin
+# primero traer a los usuarios, luego borrar registros de la tabla de reportes
+
+end;
+//
+
+CALL SP_Lectura(1,1);
+CALL SP_Lectura(1,2);
+CALL SP_Lectura(1,3);
+CALL SP_Lectura(1,4);
+
 CALL SP_Reciente(1);
-/*call sp_busqueda ('a', 1);
-SELECT * FROM v_catalogo*/
+
 
 
 
