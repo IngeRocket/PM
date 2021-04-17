@@ -1,3 +1,7 @@
+$(document).ready( function(){
+	alert("Hola");
+});
+
 function Opcion1(){
 //alert("Opcion 1");
 /*document.getElementById("nav-peliculas").style.background="rgba( 31,69,121,.3)";
@@ -29,3 +33,4 @@ document.getElementById("nav-series").style.background="none";
 document.getElementById("nav-juegos").style.background="none";
 document.getElementById("nav-programas").style.background="rgba( 31,69,121,.3)";*/
 }
+
