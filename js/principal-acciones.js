@@ -1,5 +1,5 @@
 $(document).ready( function(){
-	alert("Hola");
+	//alert("Hola");
 });
 
 function Opcion1(){

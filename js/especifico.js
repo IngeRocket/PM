@@ -7,6 +7,9 @@ var tipoSeleccion = localStorage.getItem("tipo-elemento");
 		alert("no hay nada");
 	}else{
 		//funcion ajax
+		alert("id " + idSeleccion);
+		alert("tipo " + tipoSeleccion);
+		/*
 		var dataToSend = { action: "Ver", clave: idSeleccion, tipo: tipoSeleccion};
 		$.ajax({
 		url: "php/webservice.php",
@@ -31,7 +34,7 @@ var tipoSeleccion = localStorage.getItem("tipo-elemento");
 				}	
 				//console.log(data);
 			}
-		});
+		}); */
 	}
 
 });

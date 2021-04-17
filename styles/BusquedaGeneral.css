@@ -14,7 +14,8 @@
 	flex-flow: column;
 	justify-content: center;
 	align-items: center;
-	background-color: skyblue;
+	/*background-color: skyblue;*/
+	background-color: #3c3c3c;
 	border-radius: 10px;
 	max-height: 200px;
 	max-width: 150px;
@@ -35,7 +36,8 @@
 	align-items: center;
 	height: 15%;
 	width: 100%;
-	background-color: orange;
+	/*background-color: orange;*/
+
 }
 .r-contenido > img {
 	height: 100%;
@@ -43,8 +45,14 @@
 	object-position: center;
 }
 .pelicula{
-	background-color: orange;
+/*	background-color: orange;*/
 }
 .serie{
-	background-color: skyblue;
+/*	background-color: skyblue;*/
+}
+.juego{
+/*	background-color: green;*/
+}
+.programa{
+/*	background-color: purple;*/
 }

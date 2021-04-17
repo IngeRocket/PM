@@ -131,7 +131,7 @@ begin
     
     if tipo = 4 then
 	-- programa 
-    update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
+    update articulo set a_visita = a_visita + 1 where a_programa = idElemento;
 	
     select A.a_titulo Titulo, P.p_descripcion Descripcion, P.p_caracteristicas Caracteristicas, P.p_version 'Version', P.p_enlace Enlace, A.a_fsalida Fsalida, I.img_ruta Ruta, A.a_factualizacion Factualizacion, A.a_peso Peso, A.a_descarga Descargas, A.a_visita Visitas from articulo as A 
     join programa as P
