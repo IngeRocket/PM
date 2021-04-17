@@ -32,6 +32,8 @@ DECLARE clave2 text;
 end;
 //
 
+# query comentados no tienen porque usarse, solo son pruebas para conexion
+/*
 DELIMITER //
 create procedure SP_Prueba()
 begin
@@ -46,7 +48,26 @@ begin
 select * from v_catalogo;
 end;
 //
-
+*/
+DELIMITER //
+create procedure SP_Destacado(opcion int)
+begin
+	if opcion = 1 then
+		select * from v_catalogo where pelicula is not null order by Visitas desc limit 5;
+	else
+			if opcion = 2 then
+				select * from v_catalogo where serie is not null order by Visitas desc limit 5;
+			else 
+					if opcion = 3 then
+						select * from v_catalogo where juego is not null order by Visitas desc limit 5;
+					else
+						select * from v_catalogo where programa is not null order by Visitas desc limit 5;
+					end if;
+            
+            end if;
+    end if;
+end;
+//
 
 DELIMITER //
 create procedure SP_Busqueda (busqueda text, categoria int)
