@@ -34,3 +34,12 @@ document.getElementById("nav-juegos").style.background="none";
 document.getElementById("nav-programas").style.background="rgba( 31,69,121,.3)";*/
 }
 
+function Destacado(){
+	//llamada para traer info de carousel de apartado destacado
+
+}
+function ContenidoReciente(){
+	//llamada para traer la informacion de contenido nuevo en categoria
+	
+}
+

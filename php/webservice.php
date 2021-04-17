@@ -3,63 +3,34 @@
 
 	$action = $_POST['action'];
 
-	if ($action == "Prueba")
-		Prueba();
-	else
-		if($action == "Catalogo")
-			Catalogo();
-		else
-		if($action == "Login")
+	switch ($action) {
+
+		case 'Login':
 			Login();
-		else
-			if($action == "Busqueda")
-				Busqueda();
+		break;
 
+		case 'Busqueda':
+			Busqueda();
+		break;
 
-		if($action == "Registro"){
-			$user = $_POST['user'];
-			$pass = $_POST['pass'];
-			$email = $_POST['email'];
-			RegistroUsuario($user, $pass, $email);
-		}		
-		
-	function Prueba(){
-		$conexion = Conectar();
-		$sentencia = $conexion->prepare("CALL sp_prueba");
-		$sentencia->execute();
+		case 'Registro':
+		Registro();
+		break;
 
-		$resultado = $sentencia->get_result();
-		while( $r = $resultado->fetch_assoc()) {
-		                $rows[] = $r;
-		         }                    
-		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+		case 'Destacado':
+		Destacado();
+		break;
 
-		$sentencia->close();
-		$conexion->close();
-	}
+		case 'Reciente':
+		Reciente();
+		break;
 
-	function Catalogo(){
-		$conexion = Conectar();
-		$sentencia = $conexion->prepare("CALL sp_Catalogo");
-		$sentencia->execute();
-
-		$resultado = $sentencia->get_result();
-		while( $r = $resultado->fetch_assoc()) {
-		                $rows[] = $r;
-		         }                    
-		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
-
-		$sentencia->close();
-		$conexion->close();
 	}
 
 
-	function Login(){
+		function Login(){
 		$usuario = $_POST['user'];
-		$password = $_POST['pass']; // La contraseña es case sensity debido a la encriptacion
-		/*
-		$usuario = "IngeRocket";
-		$password = "IngeRocket"; */ 
+		$password = $_POST['pass'];
 		$conexion = Conectar();
 		$sentencia = $conexion->prepare("CALL SP_Login(?,?)");
 		$sentencia->bind_param('ss', $usuario, $password);
@@ -69,16 +40,13 @@
 		while( $r = $resultado->fetch_assoc()) {
 		                $rows[] = $r;
 		         }                    
-
 		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
 
 		$sentencia->close();
-		$conexion->close();
-		
+		$conexion->close();		
 		}
 
 		function Busqueda(){
-
 		/* 1 Pelicula, 2 Serie, 3 Juego, 4 Programa, 5 Todas*/
 		$titulo = $_POST['titulo'];
 		$categoria = $_POST['categoria'];
@@ -92,7 +60,6 @@
 		while( $r = $resultado->fetch_assoc()) {
 		                $rows[] = $r;
 		         }                    
-
 		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
 
 		$sentencia->close();
@@ -106,10 +73,13 @@
 
 			//tipo de procedimiento a llamar
 		}
-/*
-	function RegistroUsuario(usuario, password, email){
-		$sentencia = $conexion->prepare("CALL SP_Registro(?,?,?)");
-		$sentencia->bind_param('sss', usuario, email, password);
+
+		function Destacado(){
+			$opcion = $_POST['opcion'];
+
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL SP_Destacado(?)");
+		$sentencia->bind_param('s', $opcion);
 		$sentencia->execute();
 
 		$resultado = $sentencia->get_result();
@@ -120,6 +90,41 @@
 
 		$sentencia->close();
 		$conexion->close();
-	}
-*/
+		}
+
+		function Reciente(){
+		$opcion = $_POST['opcion'];
+		$conexion = Conectar();
+		$sentencia = $conexion->prepare("CALL SP_Reciente(?)");
+		$sentencia->bind_param('s', $opcion);
+		$sentencia->execute();
+		
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+		
+		$sentencia->close();
+		$conexion->close();
+		}
+
+		function Registro(){
+		$user = $_POST['user'];
+		$email = $_POST['email'];
+		$pass = $_POST['pass'];
+		$sentencia = $conexion->prepare("CALL SP_Registro(?,?,?)");
+		$sentencia->bind_param('sss', $user, $email, $pass);
+		$sentencia->execute();
+
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+		$sentencia->close();
+		$conexion->close();
+		}
+/**/
 ?>

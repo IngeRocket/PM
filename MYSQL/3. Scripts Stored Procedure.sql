@@ -70,6 +70,27 @@ end;
 //
 
 DELIMITER //
+create procedure SP_Reciente(opcion int)
+begin
+	if opcion = 1 then
+		select * from v_catalogo where pelicula is not null order by ID desc limit 5;
+	else
+			if opcion = 2 then
+				select * from v_catalogo where serie is not null order by ID desc limit 5;
+			else 
+					if opcion = 3 then
+						select * from v_catalogo where juego is not null order by ID desc limit 5;
+					else
+						select * from v_catalogo where programa is not null order by ID desc limit 5;
+					end if;
+            
+            end if;
+    end if;
+end;
+//
+
+
+DELIMITER //
 create procedure SP_Busqueda (busqueda text, categoria int)
 begin
 if categoria = 1 then
@@ -142,6 +163,7 @@ end
 //
 
 call SP_Lectura(1,1);
+CALL SP_Reciente(1);
 /*call sp_busqueda ('a', 1);
 SELECT * FROM v_catalogo*/
 
