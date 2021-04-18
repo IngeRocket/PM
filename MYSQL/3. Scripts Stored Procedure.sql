@@ -95,6 +95,22 @@ drop procedure SP_Lectura;
 DELIMITER //
 create procedure SP_Lectura(idElemento int, tipo int)
 begin
+
+DECLARE idarticulo int;
+set idArticulo = idElemento;
+	if tipo = 1 then
+	set idElemento = (select a_pelicula from articulo where a_id = idArticulo);
+	end if;
+	if tipo = 2 then
+	set idElemento = (select a_serie from articulo where a_id = idArticulo);
+	end if;
+    if tipo = 3 then
+	set idElemento = (select a_juego from articulo where a_id = idArticulo);
+	end if;
+    if tipo = 4 then
+	set idElemento = (select a_programa from articulo where a_id = idArticulo);
+	end if;
+
 	if tipo = 1 then
 		-- se esta buscando en peliculas
     update articulo set a_visita = a_visita + 1 where a_pelicula = idElemento;
@@ -170,11 +186,11 @@ begin
 end;
 //
 
-CALL SP_Lectura(1,1);
+CALL SP_Lectura(23,3);
 CALL SP_Lectura(1,2);
 CALL SP_Lectura(1,3);
 CALL SP_Lectura(1,4);
-
+select * from articulo where a_id = 23;
 CALL SP_Reciente(1);
 
 

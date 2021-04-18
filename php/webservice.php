@@ -14,17 +14,20 @@
 		break;
 
 		case 'Registro':
-		Registro();
+			Registro();
 		break;
 
 		case 'Destacado':
-		Destacado();
+			Destacado();
 		break;
 
 		case 'Reciente':
-		Reciente();
+			Reciente();
 		break;
 
+		case 'Lectura':
+			Ver();
+		break;
 	}
 
 
@@ -68,10 +71,27 @@
 		}
 
 		function Ver(){
+			try {
 			$clave = $_POST['clave'];
 			$tipo = $_POST['tipo'];
+			$conexion = Conectar();
+			$sentencia = $conexion->prepare("CALL SP_Lectura(?,?)");
+			$sentencia->bind_param('ss', $clave, $tipo);
+			$sentencia->execute();
 
+			$resultado = $sentencia->get_result();
+			while( $r = $resultado->fetch_assoc()) {
+			                $rows[] = $r;
+			         }                    
+			echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+			$sentencia->close();
+			$conexion->close();
 			//tipo de procedimiento a llamar
+			} catch (Exception $e) {
+				echo $e->getMessage();
+			}
+			
 		}
 
 		function Destacado(){
@@ -125,6 +145,24 @@
 
 		$sentencia->close();
 		$conexion->close();
+		}
+
+		function GenerarReporte(){
+			$usuario = $_POST['idusuario'];
+			$articulo = $_POST['idelemento'];
+			$conexion = Conectar();
+			$sentencia = $conexion->prepare("CALL SP_AltaReporte(?,?)");
+			$sentencia->bind_param('ss', $titulo, $categoria);
+			$sentencia->execute();
+
+			$resultado = $sentencia->get_result();
+			while( $r = $resultado->fetch_assoc()) {
+			                $rows[] = $r;
+			         }                    
+			echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+
+			$sentencia->close();
+			$conexion->close();
 		}
 /**/
 ?>

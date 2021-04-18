@@ -107,7 +107,7 @@ function FuncionBusqueda(){
 		success: function (data){
 			
 				var datos = JSON.parse(data);
-				console.log(datos);
+				//console.log(datos);
 				if(datos.length > 0){
 					for (var i = 0; i < datos.length; i++) {
 
