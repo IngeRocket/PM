@@ -71,10 +71,18 @@ function RegistrarUsuario(user, pass, email){
 	data: dataToSend, 
 	success: function (data){
 
-			var datos = JSON.parse(data);			
-			/*for (var i = 0; i < datos.length; i++) {
-				}*/  
-			//alert(data);
+			var datos = JSON.parse(data);
+			if(datos[0].Resultado == 0){
+				alert(datos[0].Mensaje);
+			}else{
+				if(datos[0].Resultado == 1){
+					alert(datos[0].Mensaje);
+					//aqui se hace la llamada para el envio de correo electronico
+						//lamada de funcion
+					//aqui se llama a la funcion de ir a login (index.html)
+					
+				}
+			}			
 			console.log(data);
 		}
 	});

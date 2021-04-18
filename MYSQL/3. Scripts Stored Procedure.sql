@@ -26,9 +26,33 @@ end;
 DELIMITER //
 create procedure SP_Registro(usuario varchar(25), correo varchar(60), clave text)
 begin
+DECLARE existencia int;
+DECLARE direccion int;
+DECLARE nombre int;
 DECLARE clave2 text;
-	set clave2 = SHA1(clave);
-	insert into usuario(usu_correo, usu_nickname, usu_clave, usu_fregistro) values (correo, usuario, clave2, date( now() ) );
+	set existencia  =	(SELECT IF( EXISTS( SELECT usu_nickname FROM usuario WHERE usu_correo = correo OR usu_nickname = usuario), 1, 0) );
+	
+    if existencia = 1 then
+    #mensaje especifico
+			set direccion = (SELECT IF( EXISTS( SELECT usu_nickname FROM usuario WHERE usu_correo = correo), 1, 0) );
+			set nombre = (SELECT IF( EXISTS( SELECT usu_nickname FROM usuario WHERE usu_nickname = usuario), 1, 0) );
+        
+			if direccion = 1 and nombre = 1 then
+				select '0' Resultado, 'El nombre de usuario y direccion de correo electronico NO estan disponibles para registro' Mensaje;
+            else
+				if direccion = 1 then
+					select '0' Resultado, 'La direccion de correo electronico NO esta disponible para registro' Mensaje;
+				else
+                    select '0' Resultado, 'El nombre de usuario NO esta disponible para registro' Mensaje;
+                end if;
+			end if;
+	else
+	# mensaje de exito
+		set clave2 = SHA1(clave);
+		insert into usuario(usu_correo, usu_nickname, usu_clave, usu_fregistro) values (correo, usuario, clave2, date( now() ) );
+		select '1' Resultado, 'Registro exitoso' Mensaje, correo 'Correo';
+   
+    end if;
 end;
 //
 
