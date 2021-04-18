@@ -6,7 +6,9 @@
 	}
 
   function EnviarCorreo(){
-  	$para = 'angel.66.mendoza@gmail.com';
+    $nombre = $_POST['usuario'];
+    $para = $_POST['correo'];
+  	/*$para = 'angel.66.mendoza@gmail.com';*/
   	$titulo = 'Bienvenido a CompucaliTVPlus';
 /*  	$mensaje = '<html>'.
   		'<head><title>Email con HTML</title></head>'.
@@ -34,7 +36,7 @@
     '<td class="saludo" style="margin: 0px; padding: 0px; border:none; background-color: #0c0c0c; text-align: center; width: 100%; color: #fff; padding-top: 200px;">Hola</td>'.
     '</tr>'.
     '<tr>'.
-    '<td style="text-align: center; width: 100%; color: #2085B8; border:none; height: 100px; background-color: #0c0c0c;" class="nombre">Nombre de usuario</td>'.
+    '<td style="text-align: center; width: 100%; color: #2085B8; border:none; height: 100px; background-color: #0c0c0c;" class="nombre">'.$nombre.'</td>'.
     '</tr>'.
     '<tr>'.
     '<td style="text-align: center; width: 100%; background-color: #0c0c0c; color:#fff; padding-bottom: 100px; height: 200px;" class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.

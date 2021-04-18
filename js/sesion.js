@@ -39,6 +39,21 @@ $(document).ready(	function(){
 		$("body").on("click","#btn-r-login", function(){					
 			IrLogIn();
 		});
+
+		$("body").on("click","#btn-CrearCuenta",function(){
+			var unoUsuario 	= document.getElementById("i-usu").value;
+			var dosCorreo 	= document.getElementById("i-email").value;
+			var tresPass	= document.getElementById("i-clave").value;
+
+			if (unoUsuario.length == 0)
+				alert("Campo de Usuario vacio, favor de llenar");
+				else if (dosCorreo.length == 0)
+					alert("Campo de correo vacio, favor de llenar");
+					else if(tresPass.length == 0)
+						alert("Campo de clave vacio, favor de llenar");
+						else
+							RegistrarUsuario(unoUsuario,dosCorreo, tresPass);
+		});
 });
 
 function Requisitos(){
@@ -57,7 +72,7 @@ function Requisitos(){
  	}
 }
 
-function RegistrarUsuario(user, pass, email){
+function RegistrarUsuario(user, email, pass){
 	var dataToSend = { 
 		action: "Registro",
 		user: user,
@@ -78,8 +93,12 @@ function RegistrarUsuario(user, pass, email){
 				if(datos[0].Resultado == 1){
 					alert(datos[0].Mensaje);
 					//aqui se hace la llamada para el envio de correo electronico
-						//lamada de funcion
+					var uno = document.getElementById("i-usu").value;
+					var dos = document.getElementById("i-email").value;
+					alert(uno + ' '+ dos);
+					MandarCorreo(uno, dos);
 					//aqui se llama a la funcion de ir a login (index.html)
+					//IrLogIn();
 					
 				}
 			}			
@@ -137,4 +156,20 @@ function GuardarDatos(idusu, usuario, correo){
 	localStorage.setItem("idUsuario",idusu);
 	localStorage.setItem("Usuario",usuario);
 	localStorage.setItem("CorreoUsuario",correo);
+}
+function MandarCorreo(usuario, correo){
+	var dataToSend = { 
+		action: "Correo",
+		usuario: usuario,
+		correo: correo
+		};
+	$.ajax({
+	url: "php/correo.php",
+	async: true,
+	type: 'POST',
+	data: dataToSend, 
+	success: function (data){
+			console.log("correo enviado");
+		}
+	});
 }
