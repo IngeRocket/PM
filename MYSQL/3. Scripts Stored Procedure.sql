@@ -165,24 +165,51 @@ end
 DELIMITER //
 create procedure SP_AltaReporte(idusuario int, idarticulo int)
 begin
-
+	DECLARE Resultado int;
+    
+	set Resultado =	(SELECT IF( EXISTS( SELECT ra_fecha FROM reportearticulo WHERE ra_id_usuario = idusuario AND ra_id_articulo = idarticulo ),1,0) );
+    
+    if Resultado = 1 then
+		select '1' Resultado, 'Ya realizaste un reporte a este articulo con anterioridad' Mensaje;
+		else
+        insert into reportearticulo(ra_id_usuario, ra_id_articulo,ra_reporte_motivo)values(idusuario,idarticulo,1);
+        select '1' Resultado, 'Reporte realizado con exito' Mensaje;
+    end if;
+    
 end;
 //
 
 DELIMITER //
 create procedure SP_ConsultaReporte(idarticulo int, opcion int)
 begin
-# opcion 1 lista de reportes
-# opcion 2 descripcion de reporte de articulo especifico
-
+		# opcion 1 lista de reportes
+	if opcion = 1 then
+		select ID, Ruta, Titulo from v_reportes
+		group by Titulo
+		order by Fecha asc;
+	end if;
+    
+		# opcion 2 descripcion de reporte de articulo especifico
+	if opcion = 2 then
+		select ID, Ruta, Usuario, Correo, Motivo, Fecha  from v_reportes
+		where ID = idarticulo
+        order by Fecha asc;
+	end if;
 end;
 //
 
+#drop procedure SP_SolucionReporte;
 DELIMITER //
 create procedure SP_SolucionReporte(idarticulo int)
 begin
-# primero traer a los usuarios, luego borrar registros de la tabla de reportes
-
+# primero traer a los correos de los usuarios, luego borrar registros de la tabla de reportes
+		select Titulo, Usuario, Correo, Fecha  from v_reportes
+		where ID = idarticulo
+        order by Fecha asc;
+        
+        delete from reportearticulo where ra_id_articulo = idarticulo;
+        
+        update articulo set a_estado = 1 where a_id = idarticulo;
 end;
 //
 

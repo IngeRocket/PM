@@ -28,6 +28,10 @@
 		case 'Lectura':
 			Ver();
 		break;
+
+		case 'Reporte':
+			GenerarReporte();
+		break;
 	}
 
 
@@ -148,11 +152,12 @@
 		}
 
 		function GenerarReporte(){
+			
 			$usuario = $_POST['idusuario'];
 			$articulo = $_POST['idelemento'];
 			$conexion = Conectar();
 			$sentencia = $conexion->prepare("CALL SP_AltaReporte(?,?)");
-			$sentencia->bind_param('ss', $titulo, $categoria);
+			$sentencia->bind_param('ss', $usuario, $articulo);
 			$sentencia->execute();
 
 			$resultado = $sentencia->get_result();

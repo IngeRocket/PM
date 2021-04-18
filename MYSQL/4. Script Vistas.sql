@@ -42,6 +42,20 @@ on I.img_id = a_portada
 order by a_fsalida desc;
 //
 
+#recordar agrupar cuando quira revisar historial y no cantidad de reportes
+#drop view V_Reportes;
+DELIMITER //
+create view V_REPORTES as
+select A.a_id ID, I.img_ruta Ruta ,A.a_titulo Titulo, U.usu_nickname Usuario, U.usu_correo Correo, R.r_motivo Motivo, RA.ra_fecha Fecha from reportearticulo as RA
+join reporte as R
+on RA.ra_reporte_motivo = R.r_id
+join articulo as A
+on RA.ra_id_articulo = A.a_id
+join usuario as U
+on RA.ra_id_usuario = U.usu_id
+join imagen as I
+on A.a_portada = I.img_id;
+//
 
 select * from V_CATALOGO_PELICULA order by Estreno;
 select * from V_CATALOGO_SERIE order by Subido, Estreno desc;

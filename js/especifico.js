@@ -1,6 +1,10 @@
 var idSeleccion = 0;
 var tipoSeleccion = 0;
+var idUsuario = null;
+
 $(document).ready( function(){
+
+	Credenciales();
 
 	$("body").on("click","#btn_reportar",function(){
 		Reporte();
@@ -19,6 +23,12 @@ $(document).ready( function(){
 	}
 
 });
+
+function Credenciales(){
+
+	idUsuario = localStorage.getItem("idUsuario");
+
+}
 
 function Llenado(visita, descargas ,fecha, ruta){
 	var labelVisita 	= document.getElementById("N-vistas");
@@ -55,4 +65,31 @@ function BusquedaEspecifica(){
 
 function Reporte(){
 	alert("Opcion de Reporte");
+
+	if( idUsuario != null){
+		
+		alert(idUsuario);
+
+		var dataToSend = { action: "Reporte", idusuario: idUsuario, idelemento: idSeleccion};
+
+		$.ajax({
+		url: "php/webservice.php",
+		async: true,
+		type: 'POST',
+		data: dataToSend, 
+		success: function (data){
+			
+				var datos = JSON.parse(data);
+				console.log(datos);
+
+				if(datos.length > 0){
+					alert(datos[0].Mensaje);
+				} 	
+				//console.log(data);
+			}
+		}); 
+
+	}else{
+		alert("No puedes reportar si no tienes una sesion iniciada");
+	}
 }
