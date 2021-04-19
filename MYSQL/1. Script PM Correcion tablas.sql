@@ -1,4 +1,15 @@
+create database pm_proyecto;
 use pm_proyecto;
+
+create table Usuario(
+usu_id int unsigned auto_increment primary key,
+usu_correo varchar(60) unique,
+usu_nickname varchar(25) unique,
+usu_clave text not null,
+usu_fregistro date,
+usu_rol int default 1,
+usu_imagen mediumblob null
+);
 
 
 create table Pelicula(
@@ -20,6 +31,12 @@ p_id int unsigned auto_increment primary key,
 p_descripcion text not null,
 p_caracteristicas text not null,
 p_version varchar(10) not null
+);
+
+create table Imagen(
+img_id int unsigned auto_increment primary key,
+img_ruta text not null,
+img_formato varchar(8) null
 );
 
 -- drop table articulo;
@@ -60,6 +77,7 @@ constraint FK_ra_id_articulo foreign key (ra_id_articulo) references articulo(a_
 constraint FK_ra_reporte foreign key (ra_reporte_motivo) references reporte(r_id),
 constraint FK_ra_primary primary key (ra_id_articulo, ra_id_usuario)
 );
+
 
 alter table pelicula add column p_enlace text null;
 alter table serie add column s_enlace text null;

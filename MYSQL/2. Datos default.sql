@@ -1,7 +1,5 @@
 use PM_PROYECTO;
 
-/* select * from imagen;
- */
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/1.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/2.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/peliculas/3.jpg','JPG');
@@ -24,18 +22,6 @@ insert into Imagen(img_ruta,img_formato)values('img/programas/4.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/programas/5.jpg','JPG');
 insert into Imagen(img_ruta,img_formato)values('img/programas/6.jpg','JPG');
 
-describe serie;
-insert into serie(s_titulo, s_descripcion,s_temporada,s_year,s_peso) values('The Flash','23/23 episodios 1080p',1,'2014','2.4 GB');
-insert into serie(s_titulo, s_descripcion,s_temporada,s_year,s_peso) values('Brooklyn Nine-Nine','24/24 episodios 1080p',1,'2013','4.5 GB');
-insert into serie(s_titulo, s_descripcion,s_temporada,s_year,s_peso) values('The Big Bang Theory','17/17 episodios 1080p',1,'2007','3.6 GB');
-insert into serie(s_titulo, s_descripcion,s_temporada,s_year,s_peso) values('Arrow','23/23 episodios 1080p',1,'2012','5.9 GB');
-insert into serie(s_titulo, s_descripcion,s_temporada,s_year,s_peso) values('Smallville','21/21 episodios 720p',1,'2001','4.8 GB');
-
-insert into imagen_serie(is_id_s,is_id_img,is_portada)values(1,6,1);
-insert into imagen_serie(is_id_s,is_id_img,is_portada)values(2,7,1);
-insert into imagen_serie(is_id_s,is_id_img,is_portada)values(3,8,1);
-insert into imagen_serie(is_id_s,is_id_img,is_portada)values(4,9,1);
-insert into imagen_serie(is_id_s,is_id_img,is_portada)values(5,10,1);
 #peliculas descripcion
 insert into pelicula(p_descripcion) values('Descripcion de pelicula 1');
 insert into pelicula(p_descripcion) values('Descripcion de pelicula 2');
@@ -91,5 +77,7 @@ insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Win
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Microsft Office 365',20,'2018','15.6 GB', 5);
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('After Effects CS2020',21,'2020','18.6 GB', 6);
 
+select * from juego;
+select * from articulo;
 #motivo
 insert into Reporte(r_motivo) values('enlace caido');

@@ -237,10 +237,13 @@ begin
 end;
 //
 
+/*
+select * from articulo;
 CALL SP_Lectura(23,3);
-CALL SP_Lectura(1,2);
-CALL SP_Lectura(1,3);
+CALL SP_Lectura(1,1);
 CALL SP_Lectura(1,4);
+select * from V_catalogo_programa;
+CALL SP_Lectura(15,3);
 select * from articulo where a_id = 23;
 CALL SP_Reciente(1);
 
