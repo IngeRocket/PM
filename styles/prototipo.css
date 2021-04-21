@@ -1,0 +1,65 @@
+*{
+	margin: 0px;
+	border: 0px;
+	box-sizing: border-box;
+}
+.contenedor{
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+	background-color: orange;
+	align-items: center;
+}
+.carousel{
+	display: flex;
+	flex-flow: column;
+	width: 80%;
+	height: auto;
+	border: solid gray 2px;
+	background-color: gray;
+	padding:0px;
+	margin:0px;
+}
+.carousel-nav{
+	display: flex;
+	flex: 1 1 auto;
+	width: 80%;
+	justify-content: center;
+	background-color: red;
+}
+
+
+ul.slider{
+	position: relative;
+	
+}
+ul, li {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	height: inherit;
+}
+
+li img{
+	width: 100%;
+}
+
+ul.slider li{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: inherit;
+	height: inherit;
+	background-color: gray;
+	transition: opacity .5s;
+	
+}
+
+ul.slider li:first-child{
+	opacity: 1;
+}
+
+ul.slider li:target{
+	opacity: 1;
+}

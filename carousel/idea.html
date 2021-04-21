@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<style type="text/css">
+	.contenedor{
+		display: flex;
+		flex-flow: column;
+		flex: 1 1 auto;
+		background-color: skyblue;
+		align-items: center;
+	}
+	.galeria{
+		display: flex;
+		width: 80%;
+		flex:1 1 auto;
+		flex-flow: row;
+		border: solid gray 5px;
+		overflow: hidden;
+		/*overflow-x: scroll;*/
+		scroll-behavior: smooth;
+	}
+	.galeria img{
+		width: 100%;
+		object-fit: contain;
+	}
+	.flechas{
+		display: flex;
+		width: 80%;
+		justify-content: center;
+		flex: 1 1 auto;
+	}
+	.flechas > button{
+		width: 100%;
+	}
+</style>
+<script type="text/javascript">
+	
+
+	$(document).ready(function(){
+		var fila = document.querySelector('.galeria');
+		var imagenes = document.querySelector('.imagen');
+		var tanto = fila.scrollWidth / 5;
+		$("#btn-der").click(function(){
+			fila.scrollLeft += tanto;
+		});
+		$("#btn-izq").click(function(){		
+			fila.scrollLeft -= tanto;
+		});
+
+	});
+	
+
+</script>
+</head>
+<body>
+<div class="contenedor">
+	<div class="galeria">
+		<img class="imagen" src="img/1.png">
+		<img class="imagen" src="img/2.png">
+		<img class="imagen" src="img/3.png">
+		<img class="imagen" src="img/4.png">
+		<img class="imagen" src="img/2.png">
+	</div>
+	<div class="flechas">
+		<button id="btn-izq">Izq</button>
+		<button id="btn-der">Der</button>
+	</div>
+</div>
+</body>
+</html>
