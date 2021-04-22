@@ -158,6 +158,7 @@
 .carousel-contenido > .miniaturas{
 	width: 100%;
 	overflow: hidden;
+	/*overflow-x: scroll;*/
 	background-color: white;
 	display: flex;
 	scroll-behavior: smooth;
