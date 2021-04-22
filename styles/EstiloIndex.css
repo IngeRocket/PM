@@ -1,5 +1,10 @@
 /*HOJA DE ESTILO PARA PAGINA PRINCIPAL*/
-
+#p-flecha-izq, #p-flecha-der,
+#s-flecha-izq, #s-flecha-der,
+#j-flecha-izq, #j-flecha-der,
+#prg-flecha-izq, #prg-flecha-der{
+	visibility: hidden;
+}
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
@@ -220,6 +225,14 @@
 
 /* MEDIA QUERY*/
 @media (max-width: 600px){
+
+	#p-flecha-izq, #p-flecha-der,
+	#s-flecha-izq, #s-flecha-der,
+	#j-flecha-izq, #j-flecha-der,
+	#prg-flecha-izq, #prg-flecha-der{
+		visibility: visible;
+	}
+
 	.tarjetas > .miniaturas > .imagen{
 		min-width: 33.33%;
 	}

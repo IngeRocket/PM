@@ -17,12 +17,8 @@
 			Registro();
 		break;
 
-		case 'Destacado':
-			Destacado();
-		break;
-
-		case 'Reciente':
-			Reciente();
+		case 'Principal':
+			Principal();
 		break;
 
 		case 'Lectura':
@@ -91,30 +87,11 @@
 			} catch (Exception $e) {
 				echo $e->getMessage();
 			}
-			
 		}
 
-		function Destacado(){
+		function Principal(){
 			$conexion = Conectar();
-			$opcion = $_POST['opcion'];
-			$sentencia = $conexion->prepare("CALL SP_Destacado(?)");
-			$sentencia->bind_param('s', $opcion);
-			$sentencia->execute();
-
-			$resultado = $sentencia->get_result();
-			while( $r = $resultado->fetch_assoc()) {
-			                $rows[] = $r;
-			         }                    
-			echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
-			$sentencia->close();
-			$conexion->close();
-		}
-
-		function Reciente(){
-			$conexion = Conectar();
-			$opcion = $_POST['opcion'];
-			$sentencia = $conexion->prepare("CALL SP_Reciente(?)");
-			$sentencia->bind_param('s', $opcion);
+			$sentencia = $conexion->prepare("CALL SP_Principal()");
 			$sentencia->execute();
 			
 			$resultado = $sentencia->get_result();

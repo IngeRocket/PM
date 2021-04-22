@@ -55,44 +55,41 @@ DECLARE clave2 text;
     end if;
 end;
 //
-
+#DROP PROCEDURE SP_DESTACADO;
 DELIMITER //
-create procedure SP_Destacado(opcion int)
+create procedure SP_Destacado()
 begin
-	if opcion = 1 then
-		select * from v_catalogo where pelicula is not null order by Visitas desc limit 5;
-	else
-			if opcion = 2 then
-				select * from v_catalogo where serie is not null order by Visitas desc limit 5;
-			else 
-					if opcion = 3 then
-						select * from v_catalogo where juego is not null order by Visitas desc limit 5;
-					else
-						select * from v_catalogo where programa is not null order by Visitas desc limit 5;
-					end if;
-            
-            end if;
-    end if;
+# meter datos a nueva tabla
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Pelicula is not null order by Visitas desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Serie is not null order by Visitas desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Juego is not null order by Visitas desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Programa is not null order by Visitas desc limit 5;
+
 end;
 //
-
+#DROP PROCEDURE SP_Reciente;
 DELIMITER //
-create procedure SP_Reciente(opcion int)
+create procedure SP_Reciente()
 begin
-	if opcion = 1 then
-		select * from v_catalogo where pelicula is not null order by ID desc limit 5;
-	else
-			if opcion = 2 then
-				select * from v_catalogo where serie is not null order by ID desc limit 5;
-			else 
-					if opcion = 3 then
-						select * from v_catalogo where juego is not null order by ID desc limit 5;
-					else
-						select * from v_catalogo where programa is not null order by ID desc limit 5;
-					end if;
-            
-            end if;
-    end if;
+#insertar contenido reciente a la tabla nuevo
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Pelicula is not null order by ID desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Serie is not null order by ID desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Juego is not null order by ID desc limit 5;
+
+INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Programa is not null order by ID desc limit 5;
 end;
 //
 
@@ -182,7 +179,7 @@ set idArticulo = idElemento;
     end if;
 
 
-end
+end;
 //
 
 #Usuario reporta
@@ -236,6 +233,18 @@ begin
         update articulo set a_estado = 1 where a_id = idarticulo;
 end;
 //
+
+DELIMITER //
+create procedure SP_Principal()
+begin
+call SP_Destacado();
+call SP_Reciente();
+select * from destacado;
+truncate table destacado;
+end;
+//
+call SP_Principal();
+
 
 /*
 select * from articulo;

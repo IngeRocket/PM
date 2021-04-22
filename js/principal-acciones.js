@@ -1,5 +1,8 @@
 $(document).ready( function(){
 	//alert("Hola");
+	/* traer informacion con promesas */
+/* TRAER INFORMACION Y GUARDAR EN LOCALSTORAGE LOS JSON	*/
+	ContenidoPrincipal();
 });
 
 function Opcion1(){
@@ -34,12 +37,40 @@ document.getElementById("nav-juegos").style.background="none";
 document.getElementById("nav-programas").style.background="rgba( 31,69,121,.3)";*/
 }
 
-function Destacado(){
-	//llamada para traer info de carousel de apartado destacado
+function ContenidoPrincipal(){
+	var dataToSend = { 
+		action: "Principal"
+		};
 
+		$.ajax({
+		url: "php/webservice.php",
+		async: true,
+		type: 'POST',
+		data: dataToSend, 
+		success: function (data){
+			
+				var datos = JSON.parse(data);
+				//console.log(datos);
+				if(datos.length > 0){
+				/*	for (var i = 0; i < datos.length; i++) {
+				
+						if(datos[i].Pelicula != null)
+							AgregarPelicula(datos[i].ID,datos[i].Ruta,datos[i].Peso);
+						else
+							if(datos[i].Serie != null)
+								AgregarSerie(datos[i].ID,datos[i].Ruta,datos[i].Peso);
+								else
+									if(datos[i].Juego != null)	
+					 					AgregarJuego(datos[i].ID,datos[i].Ruta,datos[i].Peso);
+										else
+											AgregarPrograma(datos[i].ID,datos[i].Ruta,datos[i].Peso);
+				
+				}*/
+				console.log(data);
+				}else{
+					alert("no hay resultados");
+				}	
+				
+			}
+		});
 }
-function ContenidoReciente(){
-	//llamada para traer la informacion de contenido nuevo en categoria
-	
-}
-

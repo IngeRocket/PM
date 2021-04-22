@@ -78,10 +78,23 @@ constraint FK_ra_reporte foreign key (ra_reporte_motivo) references reporte(r_id
 constraint FK_ra_primary primary key (ra_id_articulo, ra_id_usuario)
 );
 
-
 alter table pelicula add column p_enlace text null;
 alter table serie add column s_enlace text null;
 alter table juego add column j_enlace text null;
 alter table programa add column p_enlace text null;
 alter table articulo add column a_descarga int unsigned default 0;
+/*NUEVAS TABLAS*/
+
+create table Destacado(
+d_articulo int not null,
+d_titulo text,
+d_imagen text,
+d_pelicula int null,
+d_serie int null,
+d_juego int null,
+d_programa int null,
+d_nuevo int unsigned default 0
+);
+
+
 
