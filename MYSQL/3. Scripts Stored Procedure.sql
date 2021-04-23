@@ -234,12 +234,13 @@ begin
 end;
 //
 
+#drop procedure SP_Principal;
 DELIMITER //
 create procedure SP_Principal()
 begin
 call SP_Destacado();
 call SP_Reciente();
-select * from destacado;
+select d_articulo ID, d_titulo Titulo, d_imagen Ruta, d_pelicula Pelicula, d_serie Serie, d_juego Juego, d_programa Programa, d_nuevo Nuevo from destacado;
 truncate table destacado;
 end;
 //

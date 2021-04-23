@@ -86,3 +86,17 @@ input, label{
 	background-color: #2085b8;
 }
 
+@media (max-width: 635px){
+	.formulario-login{
+		width: 100%;
+	}
+	.superior img{
+		width: 100%;
+		object-fit: contain;
+	}
+}
+@media (max-width: 460px){
+	.contenido{
+		width: 100%;
+	}
+}

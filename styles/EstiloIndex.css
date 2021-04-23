@@ -17,12 +17,9 @@
 .seccion:hover{
 	cursor: pointer;
 	cursor: hand;
-	font-size: 20px;
 	background-color: #2085b8;
 }
-.seccion:click{
-	background-color: #2085b8;
-}
+
 .buscador{
 	display: flex;
 	flex: 1 1 auto;
