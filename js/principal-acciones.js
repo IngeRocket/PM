@@ -73,6 +73,7 @@ function ContenidoPrincipal(){
 
 function CargaInfo(data){
 	var datos = JSON.parse(data);
+	console.log(data);
 	Guardado = JSON.parse(data);
 	
 	document.getElementById("C-1").src = datos[0].Ruta;
@@ -82,28 +83,64 @@ function CargaInfo(data){
 	document.getElementById("C-5").src = datos[4].Ruta;
 	
 	document.getElementById("P-1").src = datos[20].Ruta;
+	document.getElementById("OP-1").innerHTML = datos[20].Titulo;
+
 	document.getElementById("P-2").src = datos[21].Ruta;
+	document.getElementById("OP-2").innerHTML = datos[21].Titulo;
+
 	document.getElementById("P-3").src = datos[22].Ruta;
+	document.getElementById("OP-3").innerHTML = datos[22].Titulo;
+
 	document.getElementById("P-4").src = datos[23].Ruta;
+	document.getElementById("OP-4").innerHTML = datos[23].Titulo;
+
 	document.getElementById("P-5").src = datos[24].Ruta;
+	document.getElementById("OP-5").innerHTML = datos[24].Titulo;
 
 	document.getElementById("S-1").src = datos[25].Ruta;
+	document.getElementById("OS-1").innerHTML = datos[25].Titulo;
+
 	document.getElementById("S-2").src = datos[26].Ruta;
+	document.getElementById("OS-2").innerHTML = datos[26].Titulo;
+
 	document.getElementById("S-3").src = datos[27].Ruta;
+	document.getElementById("OS-3").innerHTML = datos[27].Titulo;
+
 	document.getElementById("S-4").src = datos[28].Ruta;
+	document.getElementById("OS-4").innerHTML = datos[28].Titulo;
+
 	document.getElementById("S-5").src = datos[29].Ruta;
+	document.getElementById("OS-5").innerHTML = datos[29].Titulo;
 
 	document.getElementById("J-1").src = datos[30].Ruta;
+	document.getElementById("OJ-1").innerHTML = datos[30].Titulo;
+
 	document.getElementById("J-2").src = datos[31].Ruta;
+	document.getElementById("OJ-2").innerHTML = datos[31].Titulo;
+
 	document.getElementById("J-3").src = datos[32].Ruta;
+	document.getElementById("OJ-3").innerHTML = datos[32].Titulo;
+
 	document.getElementById("J-4").src = datos[33].Ruta;
+	document.getElementById("OJ-4").innerHTML = datos[33].Titulo;
+
 	document.getElementById("J-5").src = datos[34].Ruta;
+	document.getElementById("OJ-5").innerHTML = datos[34].Titulo;
 
 	document.getElementById("PRG-1").src = datos[35].Ruta;
+	document.getElementById("OPRG-1").innerHTML = datos[35].Titulo;
+
 	document.getElementById("PRG-2").src = datos[36].Ruta;
+	document.getElementById("OPRG-2").innerHTML = datos[36].Titulo;
+
 	document.getElementById("PRG-3").src = datos[37].Ruta;
+	document.getElementById("OPRG-3").innerHTML = datos[37].Titulo;
+
 	document.getElementById("PRG-4").src = datos[38].Ruta;
+	document.getElementById("OPRG-4").innerHTML = datos[38].Titulo;
+
 	document.getElementById("PRG-5").src = datos[39].Ruta;
+	document.getElementById("OPRG-5").innerHTML = datos[39].Titulo;
 }
 
 function Borrar(){
