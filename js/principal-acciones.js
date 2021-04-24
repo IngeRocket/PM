@@ -6,6 +6,12 @@ $(document).ready( function(){
 	Borrar();
 	document.getElementById("nav-peliculas").style="background-color: #2085b8;";
 	ContenidoPrincipal();
+
+	$("body").on("click", ".imagen", function(){
+		var identificador = $(this).attr("articulo");
+		var tipo = $(this).attr("tipo");
+		alert("Articulo: "+ identificador+" Tipo: "+tipo);
+	});
 });
 
 function Opcion1(){
