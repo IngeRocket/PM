@@ -74,8 +74,11 @@ body, html{
 	width: 20%;
 	background-color: blue;
 }
+
+/* detalle con altura*/
 .buscador > input, .boton> button{
 	width: 100%;
+	min-height: 60px;
 }
 .opcion-1>button{
 	width: 80%;
@@ -121,3 +124,42 @@ body, html{
 	margin: 10px;
 	justify-content: center;
 }
+
+@media (max-width: 1200px){
+	.pantalla{
+		flex-flow: column;
+		align-items: center;
+	}
+	.panel{
+		flex: 1 1 auto;
+		width: 95%;
+		height: auto;
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.opcion-1, .opcion-2{
+		height: 80%;
+		display: flex;
+		flex: 1 1 auto;
+		margin-top: 0px;
+		margin-left: 5px;
+		margin-right: 5px
+	}
+	.orden{
+		flex-flow: row;
+		margin: 10px;
+		width: 100%;
+	}
+	.orden > label{
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.contenido{
+		width: 95%;
+		height: 80%;
+		margin: 0;
+	}
+}
+
+@media (max-width: 1000px){}
