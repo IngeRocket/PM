@@ -1,0 +1,1 @@
+/* crear una key en local storage llamada llave categoria especifica*/
