@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
 	<script type="text/javascript" src="js/categoria_especifica.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/General.css">
 	<link rel="stylesheet" type="text/css" href="styles/Navbar.css">
@@ -18,17 +19,17 @@
 					<div class="cuenta-opc2"><label class="color-fuente-1 fuente-1">Registro</label></div>
 				</div>
 				<div class="menu-categorias">
-						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Peliculas</label></div>
-						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Series</label></div>
-						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Juegos</label></div>
-						<div class="menu-categoria"><label class="color-fuente-1 fuente-1">Programas</label></div>
+						<div class="menu-categoria"><label id="menu-cat-pelicula" class="color-fuente-1 fuente-1">Peliculas</label></div>
+						<div class="menu-categoria"><label id="menu-cat-serie" class="color-fuente-1 fuente-1">Series</label></div>
+						<div class="menu-categoria"><label id="menu-cat-juego" class="color-fuente-1 fuente-1">Juegos</label></div>
+						<div class="menu-categoria"><label id="menu-cat-programa" class="color-fuente-1 fuente-1">Programas</label></div>
 				</div>
 		</div>
 	</header>
 	<div class="area">
 		<div class="panel-izq">
 			<div class="nombre-categoria">
-				<label>Nombre de categoria</label>
+				<label id="NombreDeCategoria">Nombre de categoria</label>
 			</div>
 			<div class="opciones-categoria">
 				<label>opciones</label>

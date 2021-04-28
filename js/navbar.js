@@ -38,6 +38,22 @@ $(document).ready(	function(){
 		$("body").on("click",".logo", function(){
 			IrPrincipal();
 		});
+		$("#menu-cat-pelicula").click(function(){
+			localStorage.setItem("NombreDeCategoria","Peliculas");
+			IrCategoriaEspecifica();
+		});
+		$("#menu-cat-serie").click(function(){
+			localStorage.setItem("NombreDeCategoria","Series");
+			IrCategoriaEspecifica();
+		});
+		$("#menu-cat-juego").click(function(){
+			localStorage.setItem("NombreDeCategoria","Juegos");
+			IrCategoriaEspecifica();
+		});
+		$("#menu-cat-programa").click(function(){
+			localStorage.setItem("NombreDeCategoria","Programas");
+			IrCategoriaEspecifica();
+		});
 
 
 });
@@ -78,4 +94,7 @@ function CerrarSesion(){
 	alert("Cierre de sesion");
 	localStorage.clear();
 	IrLogIn();
+}
+function IrCategoriaEspecifica(){
+	window.location.href="CategoriaEspecifica.html";
 }
