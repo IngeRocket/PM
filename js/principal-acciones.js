@@ -12,6 +12,13 @@ $(document).ready( function(){
 		var tipo = $(this).attr("tipo");
 		alert("Articulo: "+ identificador+" Tipo: "+tipo);
 	});
+	$("body").on("click","#Buscar", function(){
+		alert("Hola");
+				var titulobusqueda = document.getElementById("Texto-buscar").value;
+				localStorage.setItem("Busqueda", titulobusqueda);
+				localStorage.setItem("Filtro", 5);
+				window.location.href="categoria.html";
+			});
 });
 
 function Opcion1(){
@@ -120,8 +127,8 @@ function CargaInfo(data){
 	document.getElementById("C-2").src = datos[1].Ruta;
 	document.getElementById("C-3").src = datos[2].Ruta;
 	document.getElementById("C-4").src = datos[3].Ruta;
-	document.getElementById("C-5").src = datos[4].Ruta;
-
+	document.getElementById("C-5").src = datos[4].Ruta; 
+/*
 	//Llenado Peliculas
 	for (var i = 20; i < 25; i++) {
 		GrupoPelicula(datos[i].ID, datos[i].Titulo, datos[i].Ruta);
@@ -140,6 +147,6 @@ function CargaInfo(data){
 	//Llenado Programas
 	for (var i = 35; i < 40; i++) {
 		GrupoPrograma(datos[i].ID, datos[i].Titulo, datos[i].Ruta);
-	}
+	} */
 
 }

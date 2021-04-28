@@ -14,7 +14,13 @@
 		localStorage.setItem("id-elemento",identificador);
 		localStorage.setItem("tipo-elemento",tipo);
 		window.location.href="elemento.html";
+		});
 
+		$("body").on("click","#Buscar", function(){
+			var titulobusqueda = document.getElementById("Texto-buscar").value;
+			localStorage.setItem("Busqueda", titulobusqueda);
+			localStorage.setItem("Filtro", 5);
+			window.location.href="categoria.html";
 		});
 		
 	});	

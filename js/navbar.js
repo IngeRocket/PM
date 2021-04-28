@@ -28,12 +28,12 @@ $(document).ready(	function(){
 			}	
 		});
 
-		$("body").on("click","#Buscar", function(){
+		/*$("body").on("click","#Buscar", function(){
 			var titulobusqueda = document.getElementById("Texto-buscar").value;
 			localStorage.setItem("Busqueda", titulobusqueda);
 			localStorage.setItem("Filtro", 5);
 			window.location.href="categoria.html";
-		});
+		});*/
 
 		$("body").on("click",".logo", function(){
 			IrPrincipal();
