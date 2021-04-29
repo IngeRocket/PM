@@ -2,6 +2,19 @@
 var nombrecategoria = "";
 $(document).ready( function(){
 	Datos();
+	
+	$("#buscar-titulo").click(function(){
+		var nombre = document.getElementById("barra-titulo").value;
+		CatalogoCompleto(nombre, nombrecategoria);
+	});
+
+	$("body").on("click",".resultado", function(){					
+	var identificador = $(this).attr("atributo");
+	var tipo = $(this).attr("tipo");
+	localStorage.setItem("id-elemento",identificador);
+	localStorage.setItem("tipo-elemento",tipo);
+	window.location.href="elemento.html";
+	});
 
 });
 
@@ -10,7 +23,7 @@ function Datos(){
 
 	if(nombrecategoria != null){
 		document.getElementById("NombreDeCategoria").innerHTML = nombrecategoria;
-		CatalogoCompleto(nombrecategoria);
+		CatalogoCompleto("",nombrecategoria);
 	}
 }
 
@@ -51,18 +64,27 @@ function AgregarPrograma(id,ruta,peso){
 	"</div>");
 }
 
-function CatalogoCompleto(nombre){
-var indice = 0;
-var aux = "";
-switch(nombre){
-	case 'Peliculas': 		indice = 1; break;
-	case 'Series': 			indice = 2; break;
-	case 'Juegos': 			indice = 3; break;
-	case 'Programas': 		indice = 4; break;
+function LimpiarResultados(){
+	document.querySelector('.resultados').innerHTML = "";
 }
+
+function CatalogoCompleto(nombre, categoria){
+	LimpiarResultados();
+	var indice = 0;
+
+	switch(categoria){
+	case 'Peliculas': 		
+	indice = 1; break;
+	case 'Series': 			
+	indice = 2; break;
+	case 'Juegos': 			
+	indice = 3; break;
+	case 'Programas': 		
+	indice = 4; break;
+	}
 	var dataToSend = { 
 		action: "Busqueda",
-		titulo: aux,
+		titulo: nombre,
 		categoria: indice
 		};
 

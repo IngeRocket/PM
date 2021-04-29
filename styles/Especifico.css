@@ -9,7 +9,14 @@
 	cursor: pointer;
 	cursor: hand;
 }
-
+.reportar > button:hover{
+	background-color: #CA1D23;
+	border: solid #CA1D23 2px;
+	color: white;
+	font-size: 1.0em;
+	border-radius: 5px;
+	transition: ease 0.3s;
+}
 .contenedor{
 	display: flex;
 	flex: 1 1 auto;
@@ -20,7 +27,7 @@
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center; 		
-	color: white;	
+	color: #fff;	
 	flex: 1 1 auto;
 }
 .footer-columna{
@@ -102,19 +109,33 @@
 	display: flex;
 	width: 80%;
 	justify-content: flex-end;
-	background-color: gray;
+/*	background-color: gray;*/
 }
 .contador{
 	margin-left: 10px;
 	border-radius: 5px;
-	border: solid black 5px;
+	/*border: solid black 5px;*/
 	padding: 10px;
 }
 .fecha-ver, .reportar{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-left: 10px;
 	border-radius: 5px;
-	border: solid black 5px;
+/*	border: solid black 5px;*/
 	padding: 5px;
+}
+.reportar > button{
+	height: 40px;
+	width: 100px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #0C0C0C;
+	border: solid #2F2D2D 2px;
+	color: #CA1D23;
+	font-size: 1.0em;
+	border-radius: 5px;
 }
 .ver-mas{
 	display: flex;

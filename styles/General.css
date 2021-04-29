@@ -8,6 +8,7 @@ color invalido: #862121; rojo obscuro opaco
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+	font-family: Arial;
 }
 body{
 	background-color: rgba(0,0,0, .95);
@@ -81,4 +82,12 @@ body{
 .subtitulo-3{
 	font-size: 8px;
 }
-
+.normal{
+	font-size: 1.0em;
+}
+.normal-1{
+	font-size: 1.2em;
+}
+.normal-3{
+	font-size: 1.3em;
+}

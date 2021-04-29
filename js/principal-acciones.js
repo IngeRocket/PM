@@ -13,7 +13,7 @@ $(document).ready( function(){
 		alert("Articulo: "+ identificador+" Tipo: "+tipo);
 	});
 	$("body").on("click","#Buscar", function(){
-		alert("Hola");
+		//alert("Hola");
 				var titulobusqueda = document.getElementById("Texto-buscar").value;
 				localStorage.setItem("Busqueda", titulobusqueda);
 				localStorage.setItem("Filtro", 5);
