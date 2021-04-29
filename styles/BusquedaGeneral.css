@@ -2,13 +2,7 @@
 	cursor: pointer;
 	cursor: hand;
 }
-.resultados{
-	display: flex;
-	flex: 1 1 auto;
-	flex-flow: row wrap;
-	background-color: rgba(0, 0, 0, .3);
-	justify-content: center;
-}
+
 .resultado{
 	display: flex;
 	flex-flow: column;

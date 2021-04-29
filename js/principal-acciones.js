@@ -94,25 +94,25 @@ function Borrar(){
 
 function GrupoPelicula(articulo,titulo,ruta){
 	$("#min-Peliculas").append("<div class='imagen' tipo='1' articulo='"+ articulo +"'>"+
-				 			"<a href='#'><img src='"+ ruta +"'></a>"+
+				 			"<img src='"+ ruta +"'>"+
 				 			"<label class='overlay'>"+ titulo +"</label>" +
 				 			"</div>");
 }
 function GrupoSerie(articulo, titulo, ruta){
 	$("#min-Series").append("<div class='imagen' tipo='2' articulo='"+ articulo +"'>"+
-							"<a href='#'><img src='"+ ruta +"'></a>"+
+							"<img src='"+ ruta +"'>"+
 							"<label class='overlay'>"+ titulo +"</label>" +
 							"</div>");
 }
 function GrupoJuego(articulo, titulo, ruta){
 	$("#min-Juegos").append("<div class='imagen' tipo='3' articulo='"+ articulo +"'>"+
-				 			"<a href='#'><img src='"+ ruta +"'></a>"+
+				 			"<img src='"+ ruta +"'>"+
 				 			"<label class='overlay'>"+ titulo +"</label>" +
 				 			"</div>");
 }
 function GrupoPrograma(articulo, titulo, ruta){
 	$("#min-Programas").append("<div class='imagen' tipo='4' articulo='"+ articulo +"'>"+
-				 				"<a href='#'><img src='"+ ruta +"'></a>"+
+				 				"<img src='"+ ruta +"'>"+
 				 				"<label class='overlay'>"+ titulo +"</label>" +
 				 				"</div>");
 }
@@ -128,7 +128,7 @@ function CargaInfo(data){
 	document.getElementById("C-3").src = datos[2].Ruta;
 	document.getElementById("C-4").src = datos[3].Ruta;
 	document.getElementById("C-5").src = datos[4].Ruta; 
-/*
+/**/
 	//Llenado Peliculas
 	for (var i = 20; i < 25; i++) {
 		GrupoPelicula(datos[i].ID, datos[i].Titulo, datos[i].Ruta);
@@ -147,6 +147,7 @@ function CargaInfo(data){
 	//Llenado Programas
 	for (var i = 35; i < 40; i++) {
 		GrupoPrograma(datos[i].ID, datos[i].Titulo, datos[i].Ruta);
-	} */
+	} 
+	/**/
 
 }

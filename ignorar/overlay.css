@@ -72,3 +72,7 @@
 .imagen:hover .overlay-1{
 	opacity: 1;
 }
+.imagen:hover{
+	transform: scale(1.2);
+	transform-origin: center;
+}

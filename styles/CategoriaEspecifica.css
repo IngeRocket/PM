@@ -73,4 +73,5 @@
 	padding: 10px;
 	margin-bottom: 10px;
 	overflow-y: scroll;
+	justify-content: center;
 }
