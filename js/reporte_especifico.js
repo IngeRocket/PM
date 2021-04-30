@@ -14,13 +14,44 @@ $(document).ready( function(){
 	
 	//IdArticulo = localStorage.getItem("id-articulo");
 	$("#reparar").click(function(){
-		if(solicitud == false){
+		if(solicitud == false &&  IdArticulo != null){
 			alert("click a boton de reparar");
 			solicitud = true;
+			Peticion(IdArticulo);
+		}else{
+			alert("Intento de peticion invalida");
 		}	
+	});
+	$("body").on("click","#logo", function(){
+		IrReporte();
 	});
 });
 
 function Peticion(articulo){
 	//aqui se manda al ajax que lo reparara
+	var dataToSend = { 
+		action: "SolucionReporte",
+		articulo: articulo
+		};
+
+		$.ajax({
+		url: "php/webservice.php",
+		async: true,
+		type: 'POST',
+		data: dataToSend, 
+		success: function (data){
+			
+				var datos = JSON.parse(data);
+				//console.log(datos);
+				if(datos.length > 0){
+					console.log(data);		
+				}else{
+					alert("no hay resultados");
+				}	
+
+			}
+		});
+}
+function IrReporte(){
+	window.location.href="reporte.html";
 }

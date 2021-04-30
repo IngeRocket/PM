@@ -32,6 +32,10 @@
 		case 'Reportes':
 			ListaReportes();
 		break;
+
+		case 'SolucionReporte':
+			SolucionReporte();
+		break;
 	}
 
 
@@ -156,4 +160,18 @@
 			$sentencia->close();
 			$conexion->close();
 		}
+	function SolucionReporte(){
+		$conexion = Conectar();
+		$articulo = $_POST['articulo'];
+		$sentencia = $conexion->prepare("CALL SP_SolucionReporte(?)");
+		$sentencia->bind_param('s', $articulo);
+		$sentencia->execute();
+		$resultado = $sentencia->get_result();
+		while( $r = $resultado->fetch_assoc()) {
+		                $rows[] = $r;
+		         }                    
+		echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+		$sentencia->close();
+		$conexion->close();
+	}
 ?>
