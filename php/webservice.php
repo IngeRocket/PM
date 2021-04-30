@@ -28,6 +28,10 @@
 		case 'Reporte':
 			GenerarReporte();
 		break;
+
+		case 'Reportes':
+			ListaReportes();
+		break;
 	}
 
 
@@ -127,6 +131,22 @@
 			$articulo = $_POST['idelemento'];
 			$sentencia = $conexion->prepare("CALL SP_AltaReporte(?,?)");
 			$sentencia->bind_param('ss', $usuario, $articulo);
+			$sentencia->execute();
+			$resultado = $sentencia->get_result();
+			while( $r = $resultado->fetch_assoc()) {
+			                $rows[] = $r;
+			         }                    
+			echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+			$sentencia->close();
+			$conexion->close();
+		}
+
+		function ListaReportes(){
+			$conexion = Conectar();
+			$articulo = $_POST['articulo'];
+			$opcion = $_POST['opcion'];
+			$sentencia = $conexion->prepare("CALL SP_ConsultaReporte(?,?)");
+			$sentencia->bind_param('ss', $articulo, $opcion);
 			$sentencia->execute();
 			$resultado = $sentencia->get_result();
 			while( $r = $resultado->fetch_assoc()) {

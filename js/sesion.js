@@ -123,14 +123,21 @@ function LogIn(user, pass){
 			if(datos[0].Resultado == 0){
 				//datos incorrectos
 			}else{
-				GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
-				alert("Alerta antes de cambio");
-				IrPrincipal();
+				//nuevo
+				if(datos[0].Rol==1){
+					//usuario normal
+					GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
+					debugger;
+					alert("Alerta antes de cambio");
+					IrPrincipal();
+				}else{
+					//admin
+					IrPantallaAdmin();
+				}
+				
+				//fin de nuevo bloque
 			}			
-			/*for (var i = 0; i < datos.length; i++) {
-				}*/  
-			//alert(data);
-			console.log(data);
+			//console.log(data);
 			solicitud = false;
 		}
 	});
@@ -172,4 +179,7 @@ function MandarCorreo(usuario, correo){
 			console.log("correo enviado");
 		}
 	});
+}
+function IrPantallaAdmin(){
+	window.location.href="reporte.html";
 }

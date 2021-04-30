@@ -68,10 +68,11 @@ function Requisitos(){
  	/* aqui se revisara si hay sesion para cambiar nombre en opcion 1 de navbar*/
  	if (Usuario != null){
  		//document.getElementById("n-opc-1").value = Usuario;
-		var opcion1 = document.getElementById("n-opc-1");
-		var opcion2 = document.getElementById("n-opc-2");
-		opcion1.innerHTML= Usuario;
-		opcion2.innerHTML= "Cerrar Sesion";
+		 document.getElementById('cuenta-opc1').innerHTML = Usuario;
+		 document.getElementById('cuenta-opc2').innerHTML = "Cerrar Sesion";
+		//alert(Usuario);
+		/*opcion1.innerHTML= Usuario;
+		opcion2.innerHTML= "Cerrar Sesion";*/
 
  	}
 }

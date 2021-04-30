@@ -1,5 +1,5 @@
 use PM_PROYECTO;
-
+# drop procedure SP_Login;
 DELIMITER //
 create procedure SP_Login(usuario varchar(60), clave text)
 begin
@@ -12,10 +12,10 @@ set clave2 = SHA1(clave);
 set Resultado =	(SELECT IF( EXISTS( SELECT usu_nickname FROM usuario WHERE (usu_correo = usuario OR usu_nickname = usuario ) AND usu_clave = clave2 ),1,0) );
 
 if Resultado = 1 then
-	set usuId = (select usu_id from usuario where usu_correo = usuario OR usu_nickname = usuario);
+	/*set usuId = (select usu_id from usuario where usu_correo = usuario OR usu_nickname = usuario);
     set usuemail = (select usu_correo from usuario where usu_correo = usuario OR usu_nickname = usuario);
-    set usuname = (select usu_nickname from usuario where usu_correo = usuario OR usu_nickname = usuario);
-	select Resultado, usuId, usuemail, usuname;
+    set usuname = (select usu_nickname from usuario where usu_correo = usuario OR usu_nickname = usuario);*/
+	select Resultado, usu_id usuId, usu_correo usuemail, usu_nickname usuname, usu_rol Rol from usuario where usu_correo = usuario OR usu_nickname = usuario;
 else
 	select Resultado;
 end if;
@@ -199,13 +199,13 @@ begin
     
 end;
 //
-
+#drop procedure SP_ConsultaReporte;
 DELIMITER //
 create procedure SP_ConsultaReporte(idarticulo int, opcion int)
 begin
 		# opcion 1 lista de reportes
 	if opcion = 1 then
-		select ID, Ruta, Titulo from v_reportes
+		select ID, Ruta, Titulo, count(*) 'Reportes' from v_reportes
 		group by Titulo
 		order by Fecha asc;
 	end if;
@@ -246,6 +246,7 @@ end;
 //
 call SP_Principal();
 
+call SP_ConsultaReporte(1,1);
 
 /*
 select * from articulo;
@@ -257,6 +258,6 @@ CALL SP_Lectura(15,3);
 select * from articulo where a_id = 23;
 CALL SP_Reciente(1);
 
-
-
+select * from v_reportes;
+select * from usuario;
 

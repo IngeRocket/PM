@@ -11,3 +11,5 @@ call SP_AltaReporte(2,2);
 select * from reportearticulo;
 
 call SP_ConsultaReporte(4,2);
+call SP_Login('admin','admin');
+call SP_Login('IngeRocket','IngeRocket');
