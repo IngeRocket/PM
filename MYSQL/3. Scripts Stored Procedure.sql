@@ -93,24 +93,88 @@ SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHE
 end;
 //
 
-
+# drop procedure SP_Busqueda;
 DELIMITER //
-create procedure SP_Busqueda (busqueda text, categoria int)
+create procedure SP_Busqueda (busqueda text, categoria int, filtro int)
 begin
+# filtro 4 opciones nombre asc, nombre desc, fecha asc, fecha desc, popular asc, popular desc
 if categoria = 1 then
-SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null;
+	if filtro = 1 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo asc;
+    elseif filtro = 2 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo desc;
+	elseif filtro = 3 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido asc;
+	elseif filtro = 4 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido desc;
+	elseif filtro = 5 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas desc;
+	elseif filtro = 6 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas asc;
+    end if;
+    
 elseif categoria = 2 then
-SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Serie is not null;
+	if filtro = 1 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo asc;
+    elseif filtro = 2 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo desc;
+	elseif filtro = 3 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido asc;
+	elseif filtro = 4 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido desc;
+	elseif filtro = 5 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas desc;
+	elseif filtro = 6 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas asc;
+    end if;
+
 elseif categoria = 3 then
-SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Juego is not null;
-elseif categoria = 4 then
-SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%')and Programa is not null;
+		if filtro = 1 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo asc;
+    elseif filtro = 2 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo desc;
+	elseif filtro = 3 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido asc;
+	elseif filtro = 4 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido desc;
+	elseif filtro = 5 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas desc;
+	elseif filtro = 6 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas asc;
+    end if;
+ 
+ elseif categoria = 4 then
+	if filtro = 1 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo asc;
+    elseif filtro = 2 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo desc;
+	elseif filtro = 3 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido asc;
+	elseif filtro = 4 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido desc;
+	elseif filtro = 5 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas desc;
+	elseif filtro = 6 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas asc;
+    end if;
+
 elseif categoria = 5 then
-SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%');
+		if filtro = 1 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo asc;
+    elseif filtro = 2 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo desc;
+	elseif filtro = 3 then
+		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido asc;
+	elseif filtro = 4 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido desc;
+	elseif filtro = 5 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas desc;
+	elseif filtro = 6 then
+        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas asc;
+    end if;
 end if;
 end;
 //
-
 
 drop procedure SP_Lectura;
 DELIMITER //

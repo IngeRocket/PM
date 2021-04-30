@@ -25,7 +25,8 @@ $(document).ready( function(){
 		//alert("Hola");
 				var titulobusqueda = document.getElementById("Texto-buscar").value;
 				localStorage.setItem("Busqueda", titulobusqueda);
-				localStorage.setItem("Filtro", 5);
+				localStorage.setItem("Categoria", 5);
+				localStorage.setItem("Filtro", 1); //nombre A - Z
 				window.location.href="categoria.html";
 			});
 });

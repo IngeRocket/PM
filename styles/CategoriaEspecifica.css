@@ -1,8 +1,41 @@
+/* ESTILO PANER IZQUERDO */
+.opciones-categoria > button {
+	margin-top: 10px;
+	width: 40%;
+	height: 30px;
+	border: solid #FFFFFF 1px;
+	border-radius: 5px;
+	background-color:  rgba(0,0,0,.3);
+	color: white;
+	font-size: 1.1em;
+	transition: all ease 0.3s;
+}
+.opciones-categoria > button:hover {
+	border: none;
+	border-radius: 5px;
+	background-color: #2885B8;
+	cursor: pointer;
+	cursor: hand;
+}
+.opciones-categoria > select {
+	margin-top: 10px;
+	width: 80%;
+	height: 35px;
+	border: none;
+	border-radius: 5px;
+	font-size: 1.0em;
+}
 
+.opciones-categoria > label{
+	margin-top: 10px;
+	font-size: 1.0em;
+	color: white;
+}
+/* ESTILO DE PAGINA */
 .area{
 	display : flex;
 	flex-flow: row;
-	background-color: orange;
+	/*background-color: orange;*/
 	margin-top: 10px;
 	height: 800px;
 }
@@ -10,22 +43,26 @@
 	display: flex;
 	flex-flow: column;
 	flex: 2 1 auto;
-	background-color: white;
+	background-color: #2f2d2d;
 	margin: 10px;
+	border: solid gray 2px;
+	border-radius: 10px;
 }
 .panel-izq > .nombre-categoria{
 	display: flex;
 	justify-content: center;
-	background-color: gray;
+	background-color: rgba(0,0,0,.3);
 	margin: 10px;
 	height: 20%;
 	align-items: center;
+	color: white;
+	font-size: 1.5em;
 }
 .panel-izq > .opciones-categoria{
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-	background-color: gray;
+	background-color: rgba(0,0,0,.3);
 	margin: 10px;
 	height: 90%;
 }
@@ -34,14 +71,16 @@
 	flex-flow: column;
 	flex: 8 1 auto;
 	align-items: center;
-	background-color: white;
+	background-color: #2f2d2d;
 	margin: 10px;
+	border: solid gray 2px;
+	border-radius: 10px;
 
 }
 
 .panel-der > .buscador-categoria{
 	display: flex;
-	background-color: gray;
+	/*background-color: gray;*/
 	justify-content: center;
 	align-items: center;
 	width: 80%;
@@ -66,7 +105,7 @@
 .panel-der > .resultados{
 	display: flex;
 	flex-flow: row wrap;
-	background-color: gray;
+	background-color: rgba(0,0,0,.3);
 	margin-top: 10px;
 	width: 95%;
 	height: 90%;

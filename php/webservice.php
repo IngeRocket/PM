@@ -62,8 +62,9 @@
 			$conexion = Conectar();
 			$titulo = $_POST['titulo'];
 			$categoria = $_POST['categoria'];
-			$sentencia = $conexion->prepare("CALL SP_Busqueda(?,?)");
-			$sentencia->bind_param('ss', $titulo, $categoria);
+			$filtro = $_POST['filtro'];
+			$sentencia = $conexion->prepare("CALL SP_Busqueda(?,?,?)");
+			$sentencia->bind_param('sss', $titulo, $categoria, $filtro);
 			$sentencia->execute();
 
 			$resultado = $sentencia->get_result();

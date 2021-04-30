@@ -5,7 +5,13 @@ $(document).ready( function(){
 	
 	$("#buscar-titulo").click(function(){
 		var nombre = document.getElementById("barra-titulo").value;
-		CatalogoCompleto(nombre, nombrecategoria);
+		var numero = document.getElementById("filtros").value;
+		CatalogoCompleto(nombre, nombrecategoria, numero);
+	});
+	$("#cambio-filtro").click(function(){
+		var nombre = document.getElementById("barra-titulo").value;
+		var numero = document.getElementById("filtros").value;
+		CatalogoCompleto(nombre, nombrecategoria, numero);
 	});
 
 	$("body").on("click",".resultado", function(){					
@@ -23,7 +29,7 @@ function Datos(){
 
 	if(nombrecategoria != null){
 		document.getElementById("NombreDeCategoria").innerHTML = nombrecategoria;
-		CatalogoCompleto("",nombrecategoria);
+		CatalogoCompleto("",nombrecategoria,1);
 	}
 }
 
@@ -68,7 +74,7 @@ function LimpiarResultados(){
 	document.querySelector('.resultados').innerHTML = "";
 }
 
-function CatalogoCompleto(nombre, categoria){
+function CatalogoCompleto(nombre, categoria, numero){
 	LimpiarResultados();
 	var indice = 0;
 
@@ -85,7 +91,8 @@ function CatalogoCompleto(nombre, categoria){
 	var dataToSend = { 
 		action: "Busqueda",
 		titulo: nombre,
-		categoria: indice
+		categoria: indice,
+		filtro: numero
 		};
 
 		$.ajax({

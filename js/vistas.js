@@ -5,6 +5,7 @@
 		$("body").on("click","#Buscar-titulos",function(){
 			VaciarCaja();
 			FuncionBusqueda();
+			//alert(document.getElementById("filtros").value);
 		});
 		
 		$("body").on("click",".resultado", function(){					
@@ -14,13 +15,6 @@
 		localStorage.setItem("id-elemento",identificador);
 		localStorage.setItem("tipo-elemento",tipo);
 		window.location.href="elemento.html";
-		});
-
-		$("body").on("click","#Buscar", function(){
-			var titulobusqueda = document.getElementById("Texto-buscar").value;
-			localStorage.setItem("Busqueda", titulobusqueda);
-			localStorage.setItem("Filtro", 5);
-			window.location.href="categoria.html";
 		});
 		
 	});	
@@ -68,7 +62,9 @@ function VaciarCaja(){
 
 function DatosGuardados(){
 	document.getElementById("titulo-busqueda").value = localStorage.getItem("Busqueda");
-	var filtroactivo = localStorage.getItem("Filtro");
+	document.getElementById("filtros").value = localStorage.getItem("Filtro");
+
+	var filtroactivo = localStorage.getItem("Categoria");
 	if( filtroactivo == null || filtroactivo == 5)
 		document.getElementById("r-1").checked = true;	//todo
 		else if( filtroactivo == 1 )
@@ -86,6 +82,7 @@ function DatosGuardados(){
 function FuncionBusqueda(){
 	var tituloDeBusqueda = document.getElementById("titulo-busqueda");
 	var aux = tituloDeBusqueda.value;
+	var opcion = document.getElementById("filtros").value;
 	//alert(aux);
 	
 	var radios = document.getElementsByName('r-categoria');
@@ -93,16 +90,21 @@ function FuncionBusqueda(){
 	for (var i = 0; i < radios.length; i++) {
 		if(radios[i].checked){
 			indice = radios[i].value;
-			localStorage.setItem("Filtro",indice); //guardar por si da F5
+			localStorage.setItem("Categoria",indice); //guardar por si da F5
+			localStorage.setItem("Busqueda",document.getElementById("titulo-busqueda").value);
+			localStorage.setItem("Filtro", opcion);
 			break;
 		}
 	}
+
+
 	//alert(indice);
 	/* FUNCIONA PROBAR TRAER TITULO DE BUSQUEDA DEL INPUT */
 	var dataToSend = { 
 		action: "Busqueda",
 		titulo: aux,
-		categoria: indice
+		categoria: indice,
+		filtro: opcion
 		};
 
 		$.ajax({
