@@ -3,20 +3,28 @@ $(document).ready(function(){
 	Peticion(1,1);
 	$("body").on("click",".elemento", function(){
 		var identificador = $(this).attr("identificador");
-		alert(identificador);
+		var titulo = $(this).attr("titulo");
+		var ruta = $(this).attr("ruta");
+		var numero = $(this).attr("numero");
+		IrReporteEspecifico(identificador, titulo, ruta, numero);
+		//alert(identificador);
 	});
 
 	$("body").on("click","#logo", function(){
+		IrReporte();
+	});
+
+	$("body").on("click", "#Salida", function(){
 		IrLogIn();
 	});
 
 });
 
 function AgregarElemento(identificador, titulo, ruta, numero){
-	$(".contenedor").append("<div class='elemento' identificador='"+identificador+"'>"+
-			"<div class='portada'><img src='"+ruta+"'></div>"+
-			"<div class='titulo'><label>"+titulo+"</label></div>"+
-			"<div class='reportes'><label>"+numero+"</label></div>"+
+	$(".contenedor").append("<div class='elemento' titulo='"+titulo+"'  ruta='"+ruta+"' numero='"+numero+"' identificador='"+identificador+"'>"+
+			"<div class='portada'><img class='a-ruta' src='"+ruta+"'></div>"+
+			"<div class='titulo'><label class='a-titulo' >"+titulo+"</label></div>"+
+			"<div class='reportes'><label class='a-numero'>"+numero+"</label></div>"+
 			"</div>");
 }
 
@@ -58,4 +66,14 @@ function Peticion(articulo, opcion){
 function IrLogIn(){
 	localStorage.clear();
 	window.location.href="index.html";
+}
+function IrReporteEspecifico(articulo, titulo, ruta, numero){
+	localStorage.setItem("a-id", articulo);
+	localStorage.setItem("a-titulo", titulo);
+	localStorage.setItem("a-ruta", ruta);
+	localStorage.setItem("a-numero", numero);
+	window.location.href = "ReporteEspecifico.html";
+}
+function IrReporte(){
+	window.location.href= "reporte.html";
 }

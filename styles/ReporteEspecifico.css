@@ -1,0 +1,71 @@
+*{
+	padding: 10px;
+	margin: 10px;
+	box-sizing: border-box;
+}
+button:hover{
+	cursor: hand;
+	cursor: pointer;
+}
+.contenedor{
+	display: flex;
+	justify-content: center;
+	background-color: orange;
+	flex-flow: column;
+}
+.header{
+	display: flex;
+	flex-flow: column;
+	flex: 1 1 auto;
+}
+.logo{
+	display: flex;
+	justify-content: center;
+	background-color: #000000;
+}
+
+.informacion{
+	display: flex;
+	flex: 1 1 auto;
+	background-color: gray;
+}
+
+.info-imagen{
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	align-items: center;
+}
+.info-texto{
+	display: flex;
+	width: 80%;
+	justify-content: center;
+	align-items: center;
+}
+.info-reportes{
+	display: flex;
+	width: 20%;
+	justify-content: center;
+	align-items: center;
+}
+.info-imagen > img{
+	width: 100%;
+}
+.solucion{
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+}
+.solucion > button{
+	border: none;
+	background-color: gray;
+	color: white;
+	font-size: 1.2em;
+	border-radius: 5px;
+}
+
+.solucion > button:hover{
+	background-color: green;
+	color: white;
+	transition: all ease 0.3s;
+}

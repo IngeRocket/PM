@@ -3,20 +3,9 @@
 	margin: 0px;
 	box-sizing: border-box;
 }
-.elemento:hover, .logo > img:hover {
+.elemento:hover{
 	cursor: pointer;
 	cursor: hand;
-}
-
-body{
-	background-color: rgba(0,0,0,.85);
-}
-.header{
-	display : flex;
-	justify-content: center;
-	flex: 1 1 auto;
-	background-color: #000;
-	width: 100%;
 }
 .contenedor{
 	display: flex;
@@ -80,7 +69,6 @@ body{
 	display: flex;
 	flex-flow: column;
 	flex: 1 1 auto;
-	/*background-color: gray;*/
 	align-items: center;
 	justify-content: center;
 	max-width: 20%;

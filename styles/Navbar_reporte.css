@@ -1,0 +1,37 @@
+body{
+	background-color: rgba(0,0,0,.85);
+}
+.header{
+	display : flex;
+	justify-content: center;
+	flex: 1 1 auto;
+	background-color: #000;
+	width: 100%;
+	flex-flow: column;
+}
+.logo{
+	display: flex;
+	justify-content: center;
+}
+.logo > img:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.opcion{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #0c0c0c;
+	border-top: solid #FFFFFF 1px;
+}
+.opcion > label{
+	font-size: 1.3em;
+	color: white;
+}
+.opcion > label:hover{
+	cursor: hand;
+	cursor: pointer;
+}
