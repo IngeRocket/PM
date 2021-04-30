@@ -2,6 +2,8 @@ var idSeleccion = 0;
 var tipoSeleccion = 0;
 var idUsuario = null;
 
+var descripcion = "Esta es la descripcion del producto";
+var enlace = "";
 $(document).ready( function(){
 
 	Credenciales();
@@ -10,23 +12,36 @@ $(document).ready( function(){
 		Reporte();
 	});
 
- idSeleccion = localStorage.getItem("id-elemento");
- tipoSeleccion = localStorage.getItem("tipo-elemento");
-
-	if(idSeleccion == null){
-		alert("no hay nada");
-	}else{
-		//funcion ajax
-		alert("id " + idSeleccion);
-		alert("tipo " + tipoSeleccion);
-		BusquedaEspecifica();
-	}
+ 	$("body").on("click","#portada",function(){
+ 		document.getElementById("overlay").style="opacity: 0";
+ 	});
+ 	$("body").on("click","#descripcion",function(){
+ 		document.getElementById("overlay").style="opacity: 1";
+ 		document.getElementById("info-articulo").innerHTML = descripcion;
+ 	});
+ 	$("body").on("click","#enlace",function(){
+ 		document.getElementById("overlay").style="opacity: 1";
+ 		if(idUsuario != null){
+ 			document.getElementById("info-articulo").innerHTML = "Enlace";
+ 		}else{
+ 			document.getElementById("info-articulo").innerHTML = "Inicia Sesion para poder ver el enlace de descarga";
+ 		}
+ 	});
 
 });
 
 function Credenciales(){
 
 	idUsuario = localStorage.getItem("idUsuario");
+
+	idSeleccion = localStorage.getItem("id-elemento");
+ 	tipoSeleccion = localStorage.getItem("tipo-elemento");
+
+	if(idSeleccion == null){
+		alert("no hay nada");
+	}else{
+		BusquedaEspecifica();
+	}
 
 }
 
@@ -35,7 +50,7 @@ function Llenado(visita, descargas ,fecha, ruta){
 	var labelDescarga 	= document.getElementById("N-descargas");
 	var labelFechaAct 	= document.getElementById("F-Verificacion");
 
-	$("#portada").attr("src", ruta);
+	$("#imagen").attr("src", ruta);
 
 	labelVisita.innerHTML = "Visitas:" +" "+visita;
 	labelDescarga.innerHTML = "Descargas:" +" "+descargas;
@@ -57,8 +72,9 @@ function BusquedaEspecifica(){
 
 			if(datos.length > 0){
 				Llenado(datos[0].Visitas, datos[0].Descargas, datos[0].Factualizacion, datos[0].Ruta);	
+				descripcion = datos[0].Descripcion;
 			} 	
-			//console.log(data);
+			
 		}
 	}); 
 }
