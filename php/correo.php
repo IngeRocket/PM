@@ -25,7 +25,7 @@
     '<head>'.
     '<title></title>'.
     '</head>'.
-    '<body style="display:flex; justify-content: center;">'.
+    '<body style="display: flex !important; justify-content: center !important;">'.
     '<table style=" font-family: Arial; font-size: 22px; id="tabla" style=" max-width: 400px;'.
     ' border: none; margin: 0px; padding: 0px; border-collapse: collapse; border:none; background-color: #0c0c0c; border: solid white 1px;">'.
     '<tr>'.
@@ -33,13 +33,13 @@
     '<img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></td>'.
     '</tr>'.
     '<tr>'.
-    '<td class="saludo" style="margin: 0px; padding: 0px; border:none; background-color: #0c0c0c; text-align: center; width: 100%; color: #fff; padding-top: 200px;">Hola</td>'.
+    '<td class="saludo" style="margin: 0px; padding: 0px; border:none; font-size:1.5em; background-color: #0c0c0c; text-align: center; width: 100%; color: #fff; padding-top: 200px;">Hola</td>'.
     '</tr>'.
     '<tr>'.
-    '<td style="text-align: center; width: 100%; color: #2085B8; border:none; height: 100px; background-color: #0c0c0c;" class="nombre">'.$nombre.'</td>'.
+    '<td style="text-align: center; width: 100%; color: #2085B8; border:none; height: 100px; background-color: #0c0c0c; font-size:1.5em;" class="nombre">'.$nombre.'</td>'.
     '</tr>'.
     '<tr>'.
-    '<td style="text-align: center; width: 100%; background-color: #0c0c0c; color:#fff; padding-bottom: 100px; height: 200px;" class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.
+    '<td style="text-align: center; width: 100%; background-color: #0c0c0c; color:#fff; padding-bottom: 100px; font-size:1.5em; height: 200px;" class="mensaje">Bienvenido y gracias por registrarte en nuestra pagina de CompucaliTVPlus.com</td>'.
     '</tr>'.
     '<tr>'.
     '<td style="background-color: #000; text-align:center; color: #fff;" class="despedida">'.
@@ -53,7 +53,7 @@
     '</html>';
     $cabeceras = 'MIME-Version: 1.0' . "\r\n";
   	$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-  	$cabeceras .= 'From: CompucaliTVPlus';
+  	$cabeceras .= 'From:CompucaliTVPlus';
 
   	$enviado = mail($para, $titulo, $mensaje, $cabeceras);
 

@@ -78,14 +78,18 @@
 	justify-content: center;
 }
 .opcion{
-	
 	display: flex;
-	background-color: gray;
+	color: white;
+	font-size: 1.3em;
+	background-color: rgba(0,0,0,.9);
 	width: 100%;
 	height: 100%;
 	justify-content: center;
 	align-items: center;
-	border-bottom: solid blue 5px;
+	border-bottom: solid gray 2px;
+}
+div#portada{
+	background-color: #2085b8;
 }
 .vista{
 	
@@ -212,4 +216,10 @@
 .comentario{
 	width: 100%;
 	height: 80px;
+}
+.titulo-articulo{
+	display: flex;
+	justify-content: center;
+	font-size: 1.5em;
+	color: white;
 }

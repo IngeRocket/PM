@@ -247,6 +247,7 @@ end;
 //
 
 #Usuario reporta
+ # drop procedure SP_AltaReporte
 DELIMITER //
 create procedure SP_AltaReporte(idusuario int, idarticulo int)
 begin

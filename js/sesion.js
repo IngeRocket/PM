@@ -95,8 +95,9 @@ function RegistrarUsuario(user, email, pass){
 					//aqui se hace la llamada para el envio de correo electronico
 					var uno = document.getElementById("i-usu").value;
 					var dos = document.getElementById("i-email").value;
-					alert(uno + ' '+ dos);
+					//alert(uno + ' '+ dos);
 					MandarCorreo(uno, dos);
+					VaciarCamposRegistro();
 					//aqui se llama a la funcion de ir a login (index.html)
 					//IrLogIn();
 					
@@ -122,13 +123,13 @@ function LogIn(user, pass){
 			var datos = JSON.parse(data);
 			if(datos[0].Resultado == 0){
 				//datos incorrectos
+				alert("Credenciales de sesion incorrectas");
 			}else{
 				//nuevo
 				if(datos[0].Rol==1){
 					//usuario normal
 					GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
-					debugger;
-					alert("Alerta antes de cambio");
+					alert("Bienvenido: "+user);
 					IrPrincipal();
 				}else{
 					//admin
@@ -176,10 +177,16 @@ function MandarCorreo(usuario, correo){
 	type: 'POST',
 	data: dataToSend, 
 	success: function (data){
-			console.log("correo enviado");
+			console.log(data);
 		}
 	});
 }
 function IrPantallaAdmin(){
 	window.location.href="reporte.html";
+}
+function VaciarCamposRegistro(){
+	document.getElementById('i-usu').value="";
+	document.getElementById('i-email').value="";
+	document.getElementById('i-clave').value="";
+	//IrLogIn();
 }

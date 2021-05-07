@@ -43,6 +43,32 @@ body, html{
 	height: 30%;
 	/*background-color: orange;*/
 }
+.opcion-2 > select#filtros {
+	margin-top: 10px;
+	width: 80%;
+	height: 35px;
+	border: none;
+	border-radius: 5px;
+	font-size: 1.0em;
+}
+button.boton-filtro{
+	margin-top: 10px;
+	width: 40%;
+	height: 30px;
+	border: solid #FFFFFF 1px;
+	border-radius: 5px;
+	background-color:  rgba(0,0,0,.3);
+	color: white;
+	font-size: 1.1em;
+	transition: all ease 0.3s;
+}
+button.boton-filtro:hover{
+	border: none;
+	border-radius: 5px;
+	background-color: #2885B8;
+	cursor: pointer;
+	cursor: hand;
+}
 .contenido{
 	display: flex;
 	flex-flow: column;

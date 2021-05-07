@@ -25,6 +25,7 @@
 	display:flex;
 	flex: 1 1 auto;
 	background-color: skyblue;
+	justify-content: center;
 }
 .correo{
 	display: flex;

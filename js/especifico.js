@@ -14,13 +14,21 @@ $(document).ready( function(){
 
  	$("body").on("click","#portada",function(){
  		document.getElementById("overlay").style="opacity: 0";
+ 		QuitarFormato();
+ 		document.getElementById("portada").style="background-color: #2085b8;";
+	
  	});
  	$("body").on("click","#descripcion",function(){
  		document.getElementById("overlay").style="opacity: 1";
  		document.getElementById("info-articulo").innerHTML = descripcion;
+ 		QuitarFormato();
+ 		document.getElementById("descripcion").style="background-color: #2085b8;";
+	
  	});
  	$("body").on("click","#enlace",function(){
  		document.getElementById("overlay").style="opacity: 1";
+ 		QuitarFormato();
+ 		document.getElementById("enlace").style="background-color: #2085b8;";
  		if(idUsuario != null){
  			document.getElementById("info-articulo").innerHTML = "Enlace";
  		}else{
@@ -68,25 +76,35 @@ function BusquedaEspecifica(){
 	success: function (data){
 		
 			var datos = JSON.parse(data);
-			console.log(datos);
-
+			//console.log(data);
 			if(datos.length > 0){
 				Llenado(datos[0].Visitas, datos[0].Descargas, datos[0].Factualizacion, datos[0].Ruta);	
 				descripcion = datos[0].Descripcion;
+				document.getElementById("titulo-articulo").innerHTML = datos[0].Titulo;
 			} 	
 			
 		}
 	}); 
 }
 
+function QuitarFormato(){
+	document.getElementById("portada").style="background-color: rgba(0,0,0,.9);";
+	document.getElementById("descripcion").style="background-color: rgba(0,0,0,.9);";
+	document.getElementById("enlace").style="background-color: rgba(0,0,0,.9);";
+}
+
 function Reporte(){
-	alert("Opcion de Reporte");
+	//alert("Opcion de Reporte");
 
 	if( idUsuario != null){
 		
-		alert(idUsuario);
+		//alert(idUsuario);
 
-		var dataToSend = { action: "Reporte", idusuario: idUsuario, idelemento: idSeleccion};
+		var dataToSend = { 
+		action: "Reporte", 
+		idusuario: idUsuario, 
+		idelemento: idSeleccion
+	};
 
 		$.ajax({
 		url: "php/webservice.php",
@@ -94,14 +112,16 @@ function Reporte(){
 		type: 'POST',
 		data: dataToSend, 
 		success: function (data){
-			
+				//console.log(data);
+/**/
 				var datos = JSON.parse(data);
-				console.log(datos);
+				//console.log(datos);
 
 				if(datos.length > 0){
 					alert(datos[0].Mensaje);
 				} 	
 				//console.log(data);
+				
 			}
 		}); 
 
