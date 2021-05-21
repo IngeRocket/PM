@@ -26,5 +26,51 @@ $(document).ready(function(){
 		}
 	});
 
-});
+	/* grupo peliculas*/
+	$('#p-flecha-izq').click(function(){
+		var GgrpP = document.getElementById('min-Peliculas');
+		GgrpP.scrollLeft = 0; 		
+	});
+
+	$('#p-flecha-der').click(function(){
+		var GgrpP = document.getElementById('min-Peliculas');
+		GgrpP.scrollLeft += GgrpP.offsetWidth;		 	
+	});
+
+	/* grupo Series*/
+	$('#s-flecha-izq').click(function(){
+		var GgrpP = document.getElementById('min-Series');
+		GgrpP.scrollLeft = 0; 		
+	});
+
+	$('#s-flecha-der').click(function(){
+		var GgrpP = document.getElementById('min-Series');
+		GgrpP.scrollLeft += GgrpP.offsetWidth;		 	
+	});
+
+	/* grupo Juegos*/
+	$('#j-flecha-izq').click(function(){
+		var GgrpP = document.getElementById('min-Juegos');
+		GgrpP.scrollLeft = 0; 		
+	});
+
+	$('#j-flecha-der').click(function(){
+		var GgrpP = document.getElementById('min-Juegos');
+		GgrpP.scrollLeft += GgrpP.offsetWidth;		 	
+	});
+
+	/* grupo Programas*/
+	$('#prg-flecha-izq').click(function(){
+		var GgrpP = document.getElementById('min-Programas');
+		GgrpP.scrollLeft = 0; 		
+	});
+
+	$('#prg-flecha-der').click(function(){
+		var GgrpP = document.getElementById('min-Programas');
+		GgrpP.scrollLeft += GgrpP.offsetWidth;		 	
+	});
+	
+
+
+}); //cierre del document ready
 	

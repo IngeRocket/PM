@@ -1,7 +1,10 @@
 body, html{
 	height: 100%;
 }
-
+button:hover{
+	cursor: hand;
+	cursor: pointer;
+}
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
@@ -36,12 +39,14 @@ body, html{
 	margin-top: 20px;
 }
 .opcion-1{
-	/*background-color: gray;*/
+	background-color: #262626;
 	height: 70%;
+	padding: 10px;
 }
 .opcion-2{
 	height: 30%;
-	/*background-color: orange;*/
+	background-color: #262626;
+	padding: 10px;
 }
 .opcion-2 > select#filtros {
 	margin-top: 10px;
@@ -90,7 +95,6 @@ button.boton-filtro:hover{
 
 .caja-busqueda{
 	display: flex;
-	/*background-color: white;*/
 	width: 100%;
 	height: 10%;
 	padding: 10px;
@@ -99,17 +103,15 @@ button.boton-filtro:hover{
 	display: flex;
 	justify-content: center;
 	width: 80%;
-	background-color: purple;
 }
 .boton{
 	display: flex;
 	justify-content: center;
 	width: 20%;
-	background-color: blue;
 }
 
 /* detalle con altura*/
-.buscador > input, .boton> button{
+.buscador > input, .boton > button{
 	width: 100%;
 	min-height: 60px;
 }
@@ -122,7 +124,8 @@ button.boton-filtro:hover{
 	/*background-color: white;*/
 	width: 100%;
 	justify-content: center;
-	margin:10px;
+	margin: 10px;
+	padding: 10px;
 	overflow-y: scroll;
 	height: 90%;
 }
@@ -134,34 +137,24 @@ button.boton-filtro:hover{
 .orden > label{
 	margin-bottom: 10px;
 }
-.navegacion{
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 10%;
-	flex-flow: row;
-	background-color: white; 
-}
-.navegacion > .anterior{
-	display: flex;
-	background-color: gray; 
-	width: 40%;
-	margin: 10px;
-	justify-content: center;
-}
-.navegacion > .siguiente{
-	background-color: blue;
-	display: flex;
-	width: 40%;
-	margin: 10px;
-	justify-content: center;
-}
 
+.boton > button{
+	border: none;
+	font-size: 1.1em;
+	color: white;
+	background-color: #2885B8;
+	border-top-right-radius: 15px;
+}
 @media (max-width: 1200px){
+	.resultados{
+		margin-top: 10px;
+	}
 	.pantalla{
 		flex-flow: column;
 		align-items: center;
+		height: auto;
+		min-height: 500px;
+		margin-top: 20px;
 	}
 	.panel{
 		flex: 1 1 auto;
@@ -178,6 +171,7 @@ button.boton-filtro:hover{
 		margin-top: 0px;
 		margin-left: 5px;
 		margin-right: 5px
+		background-color: none !important;
 	}
 	.orden{
 		flex-flow: row;
@@ -195,4 +189,19 @@ button.boton-filtro:hover{
 	}
 }
 
-@media (max-width: 1000px){}
+@media (max-width: 750px){
+	.caja-busqueda{
+		max-height: 80px;
+	}
+	.panel{
+		flex-flow: column;
+	}
+	.orden{
+		display: flex;
+		flex-flow: row wrap;
+	}
+	.pantalla{
+		margin-top: 50px;
+		min-height: auto;
+	}
+}

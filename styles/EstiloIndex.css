@@ -5,6 +5,10 @@
 #prg-flecha-izq, #prg-flecha-der{
 	visibility: hidden;
 }
+button:hover{
+	cursor: hand;
+	cursor: pointer;
+}
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
@@ -23,7 +27,6 @@
 .buscador{
 	display: flex;
 	flex: 1 1 auto;
-	background-color: red;
 	align-self: center;
 	justify-content: center;
 	width: 80%;
@@ -34,20 +37,25 @@
 .buscador-texto{
 	display: flex;
 	width: 80%;
-	background-color: purple;
 	justify-content: center;
 }
 .buscador-boton{
 	display: flex;
 	width: 20%;
-	background-color: blue;
 	justify-content: flex-start;
 }
 .buscador-texto > input{
 	width: 100%;
+	font-size: 1.1em;
 }
 .buscador-boton > button{
 	width: 100%;
+	color: white;
+	background-color: #5a88bc;
+	border-top-right-radius: 10px; 
+	transition: all ease 0.3s;
+	font-size: 1.1em;
+	border: none;
 }
 .boton{
 	border-top-right-radius: 10px;	
@@ -129,7 +137,6 @@
 	margin: 5px;
 }
 .carousel-contenido{
-	background-color: orange;
 	display: flex;
 	position: relative;
 	margin: 10px;
@@ -161,7 +168,6 @@
 	width: 100%;
 	overflow: hidden;
 	/**/overflow-x: scroll;
-	background-color: white;
 	display: flex;
 	scroll-behavior: smooth;
 	justify-content: center;
@@ -199,7 +205,7 @@
 }
 .tarjetas > .miniaturas{
 	overflow: hidden;
-	/*background-color: white;*/
+	/*overflow-x: hidden;*/
 	display: flex;
 	scroll-behavior: smooth;
 	padding: 20px 0;
@@ -214,12 +220,6 @@
 .tarjetas > .miniaturas > .imagen >img{
 	width: 100%;
 }
-
-/*
-.tarjetas > .miniaturas > .imagen:hover{
-	transform: scale(1.2);
-	transform-origin: center;
-}*/
 /*pruebas de overlay*/
 .overlay{
 	

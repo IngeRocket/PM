@@ -114,7 +114,7 @@ function GrupoPrograma(articulo, titulo, ruta){
 function CargaInfo(data){
 
 	var datos = JSON.parse(data);
-	console.log(data);
+	//console.log(data);
 	Guardado = JSON.parse(data);
 	
 	//carousel apartado peliculas (Siempre se muestra apartado peliculas al llegar a esta pagina)
