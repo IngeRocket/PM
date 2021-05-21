@@ -114,3 +114,11 @@
 	overflow-y: scroll;
 	justify-content: center;
 }
+
+@media (max-width: 1200px){
+	.area{
+		display: flex;
+		flex-flow: column;
+	}
+
+}
