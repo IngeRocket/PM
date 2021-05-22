@@ -1,6 +1,6 @@
 *{
-	padding: 10px;
-	margin: 10px;
+	padding: 0px;
+	margin: 0px;
 	box-sizing: border-box;
 }
 button:hover{
@@ -10,7 +10,6 @@ button:hover{
 .contenedor{
 	display: flex;
 	justify-content: center;
-	background-color: orange;
 	flex-flow: column;
 }
 .header{
@@ -27,7 +26,10 @@ button:hover{
 .informacion{
 	display: flex;
 	flex: 1 1 auto;
-	background-color: gray;
+	border: solid 1px gray;
+	padding: 10px;
+	margin: 10px;
+	color: white;
 }
 
 .info-imagen{
@@ -41,6 +43,7 @@ button:hover{
 	width: 80%;
 	justify-content: center;
 	align-items: center;
+	color: white;
 }
 .info-reportes{
 	display: flex;
@@ -62,6 +65,8 @@ button:hover{
 	color: white;
 	font-size: 1.2em;
 	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
 }
 
 .solucion > button:hover{

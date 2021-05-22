@@ -44,7 +44,8 @@ function Peticion(articulo){
 				var datos = JSON.parse(data);
 				//console.log(datos);
 				if(datos.length > 0){
-					console.log(data);		
+					console.log(data);
+					IrReporte();		
 				}else{
 					alert("no hay resultados");
 				}	
