@@ -13,18 +13,19 @@ $(document).ready(	function(){
 			var user = document.getElementById("usu_name").value;
 			var pass = document.getElementById("usu_pass").value;
 			if(user == null || user == "")
-				alert("Favor de rellenar campo de usuario");
+			Swal.fire({icon: 'info', title: 'AVISO', text: 'Favor de rellenar campo de usuario' });//alert("");
 			else
 			if (pass == null || pass == "")
-			alert("Favor de rellenar campo de clave de acceso");
+			Swal.fire({icon: 'info', title: 'AVISO', text: 'Favor de rellenar campo de clave de acceso' });
 
 			if(user!="" && pass!="" && !solicitud){
 				solicitud = true;
-				alert("Iniciando peticion de login");
+				//alert("Iniciando peticion de login");
 				LogIn(user, pass);
 			}else{
 				if(solicitud){
-					alert("Espere la respuesta del servidor por favor");
+					//alert("Espere la respuesta del servidor por favor");
+					Swal.fire({icon: 'info', title: 'AVISO', text: 'Esperando respuesta del servidor' });
 				}
 			}
 		
@@ -46,11 +47,11 @@ $(document).ready(	function(){
 			var tresPass	= document.getElementById("i-clave").value;
 
 			if (unoUsuario.length == 0)
-				alert("Campo de Usuario vacio, favor de llenar");
+				Swal.fire({icon: 'info', title: 'Aviso', text: 'Favor de llenar el campo de usuario'});
 				else if (dosCorreo.length == 0)
-					alert("Campo de correo vacio, favor de llenar");
+					Swal.fire({icon: 'info', title: 'Aviso', text: 'Favor de llenar el campo de correo'});
 					else if(tresPass.length == 0)
-						alert("Campo de clave vacio, favor de llenar");
+						Swal.fire({icon: 'info', title: 'Aviso', html: 'Favor de llenar el campo de contrase&ntilde;a'});
 						else
 							RegistrarUsuario(unoUsuario,dosCorreo, tresPass);
 		});
@@ -67,7 +68,8 @@ function Requisitos(){
  	//alert(invitado); /* revisar porque entreba en false */
 	/**/
  	if (Invitado != null || Usuario != null) {
- 		alert("Datos de sesion previa");
+ 		//alert("Datos de sesion previa");
+ 		Swal.fire({icon: 'info', title: 'Aviso', text: 'Datos de sesion previa'});
  		IrPrincipal();
  	}
 }
@@ -88,10 +90,12 @@ function RegistrarUsuario(user, email, pass){
 
 			var datos = JSON.parse(data);
 			if(datos[0].Resultado == 0){
-				alert(datos[0].Mensaje);
+				Swal.fire({icon: 'error', title: 'ERROR', text: datos[0].Mensaje });
+				//alert(datos[0].Mensaje);
 			}else{
 				if(datos[0].Resultado == 1){
-					alert(datos[0].Mensaje);
+					Swal.fire({icon: 'success', title: 'AVISO', text: datos[0].Mensaje });
+					//alert(datos[0].Mensaje);
 					//aqui se hace la llamada para el envio de correo electronico
 					var uno = document.getElementById("i-usu").value;
 					var dos = document.getElementById("i-email").value;
@@ -123,13 +127,14 @@ function LogIn(user, pass){
 			var datos = JSON.parse(data);
 			if(datos[0].Resultado == 0){
 				//datos incorrectos
-				alert("Credenciales de sesion incorrectas");
+				Swal.fire({icon: 'error', title: 'ERROR', text: 'Credenciales de sesion incorrectas'});
 			}else{
 				//nuevo
 				if(datos[0].Rol==1){
 					//usuario normal
 					GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
-					alert("Bienvenido: "+user);
+					//alert("Bienvenido: "+user);
+					Swal.fire({icon: 'success', title: 'HOLA', text: 'Bienvenido '+user });
 					IrPrincipal();
 				}else{
 					//admin
