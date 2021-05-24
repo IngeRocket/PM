@@ -15,11 +15,11 @@ $(document).ready( function(){
 	});
 
 	$("body").on("click",".resultado", function(){					
-	var identificador = $(this).attr("atributo");
-	var tipo = $(this).attr("tipo");
-	localStorage.setItem("id-elemento",identificador);
-	localStorage.setItem("tipo-elemento",tipo);
-	window.location.href="elemento.html";
+		var identificador = $(this).attr("atributo");
+		var tipo = $(this).attr("tipo");
+		localStorage.setItem("id-elemento",identificador);
+		localStorage.setItem("tipo-elemento",tipo);
+		window.location.href="elemento.html";
 	});
 
 });
