@@ -12,7 +12,7 @@ $(document).ready(	function(){
 				//alert("click");
 				IrLogIn();	
 			}else{
-				alert("Opcion de mi cuenta");
+				//alert("Opcion de mi cuenta");
 				//opciones de cuenta como cambiar password
 				/* al cambiar, si da clic me voy a configuracion*/
 			}	
@@ -92,7 +92,8 @@ function IrPrincipal(){
 }
 
 function CerrarSesion(){
-	alert("Cierre de sesion");
+	//alert("Cierre de sesion");
+	Swal.fire({icon: 'success', title: 'SESION', text: 'Hasta la proxima!' });
 	localStorage.clear();
 	IrLogIn();
 }

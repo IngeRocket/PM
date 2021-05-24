@@ -131,7 +131,8 @@ function FuncionBusqueda(){
 											AgregarPrograma(datos[i].ID,datos[i].Ruta,datos[i].Peso);
 										}
 				}else{
-					alert("no hay resultados");
+					//alert("no hay resultados");
+					Swal.fire({icon: 'info', title: 'AVISO', text: 'No hay resultados' });
 				}	
 				//console.log(data);
 			}

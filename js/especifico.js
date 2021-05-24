@@ -46,7 +46,7 @@ function Credenciales(){
  	tipoSeleccion = localStorage.getItem("tipo-elemento");
 
 	if(idSeleccion == null){
-		alert("no hay nada");
+		Swal.fire({icon: 'error', title: 'AVISO', text: 'Acceso denegado!' });
 	}else{
 		BusquedaEspecifica();
 	}
@@ -118,7 +118,8 @@ function Reporte(){
 				//console.log(datos);
 
 				if(datos.length > 0){
-					alert(datos[0].Mensaje);
+					//alert(datos[0].Mensaje);
+					Swal.fire({icon: 'info', title: 'AVISO', text: datos[0].Mensaje });
 				} 	
 				//console.log(data);
 				
@@ -126,6 +127,7 @@ function Reporte(){
 		}); 
 
 	}else{
-		alert("No puedes reportar si no tienes una sesion iniciada");
+		//alert("No puedes reportar si no tienes una sesion iniciada");
+		Swal.fire({icon: 'info', title: 'AVISO', text: 'No puedes reportar si no tienes una sesion iniciada' });
 	}
 }

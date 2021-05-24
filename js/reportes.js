@@ -52,11 +52,12 @@ function Peticion(articulo, opcion){
 							AgregarElemento(datos[i].ID, datos[i].Titulo, datos[i].Ruta, datos[i].Reportes);
 							}
 					}else{
-						alert("No hay reportes");
-					
+						//alert("No hay reportes");
+						Swal.fire({icon: 'info', title: 'AVISO', text: 'No hay reportes' });
 					}		
 				}else{
-					alert("no hay resultados");
+					//alert("no hay resultados");
+					Swal.fire({icon: 'info', title: 'AVISO', text: 'Sin reultados' });
 				}	
 
 			}

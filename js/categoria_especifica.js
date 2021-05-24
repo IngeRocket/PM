@@ -119,7 +119,7 @@ function CatalogoCompleto(nombre, categoria, numero){
 											AgregarPrograma(datos[i].ID,datos[i].Ruta,datos[i].Peso);
 										}
 				}else{
-					alert("no hay resultados");
+					Swal.fire({icon: 'info', title: 'AVISO', text: 'No existen datos o fallo en la conexion' });//alert("");
 				}	
 				//console.log(data);
 			}
