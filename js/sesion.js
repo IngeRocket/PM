@@ -69,7 +69,7 @@ function Requisitos(){
 	/**/
  	if (Invitado != null || Usuario != null) {
  		//alert("Datos de sesion previa");
- 		Swal.fire({icon: 'info', title: 'Aviso', text: 'Datos de sesion previa'});
+ 		//Swal.fire({icon: 'info', title: 'Aviso', text: 'Datos de sesion previa'});
  		IrPrincipal();
  	}
 }
@@ -94,7 +94,7 @@ function RegistrarUsuario(user, email, pass){
 				//alert(datos[0].Mensaje);
 			}else{
 				if(datos[0].Resultado == 1){
-					Swal.fire({icon: 'success', title: 'AVISO', text: datos[0].Mensaje });
+					
 					//alert(datos[0].Mensaje);
 					//aqui se hace la llamada para el envio de correo electronico
 					var uno = document.getElementById("i-usu").value;
@@ -102,12 +102,27 @@ function RegistrarUsuario(user, email, pass){
 					//alert(uno + ' '+ dos);
 					MandarCorreo(uno, dos);
 					VaciarCamposRegistro();
+					//Swal.fire({icon: 'success', title: 'AVISO', text: datos[0].Mensaje });
+
+					Swal.fire({
+					icon: 'success',
+					title: 'AVISO',
+					text: datos[0].Mensaje,
+					confirmButtonText: 'OK',
+					}).then((result) => {
+					  /* Read more about isConfirmed, isDenied below */
+					  if (result.isConfirmed){
+					    //Swal.fire('Saved!', '', 'success');
+					    //localStorage.clear();
+						IrLogIn();
+					  }
+					});
 					//aqui se llama a la funcion de ir a login (index.html)
 					//IrLogIn();
 					
 				}
 			}			
-			console.log(data);
+			//console.log(data);
 		}
 	});
 }

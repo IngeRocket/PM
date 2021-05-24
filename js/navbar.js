@@ -28,13 +28,6 @@ $(document).ready(	function(){
 			}	
 		});
 
-		/*$("body").on("click","#Buscar", function(){
-			var titulobusqueda = document.getElementById("Texto-buscar").value;
-			localStorage.setItem("Busqueda", titulobusqueda);
-			localStorage.setItem("Filtro", 5);
-			window.location.href="categoria.html";
-		});*/
-
 		$("body").on("click",".logo", function(){
 			IrPrincipal();
 		});
@@ -93,9 +86,19 @@ function IrPrincipal(){
 
 function CerrarSesion(){
 	//alert("Cierre de sesion");
-	Swal.fire({icon: 'success', title: 'SESION', text: 'Hasta la proxima!' });
-	localStorage.clear();
-	IrLogIn();
+	//Swal.fire({icon: 'success', title: 'SESION', text: 'Hasta la proxima!' });
+	Swal.fire({
+	  title: 'CIERRE DE SESION',
+	  text: 'Hasta la proxima!',
+	  confirmButtonText: 'OK',
+	}).then((result) => {
+	  /* Read more about isConfirmed, isDenied below */
+	  if (result.isConfirmed){
+	    //Swal.fire('Saved!', '', 'success');
+	    localStorage.clear();
+		IrLogIn();
+	  }
+	});
 }
 function IrCategoriaEspecifica(){
 	window.location.href="CategoriaEspecifica.html";
