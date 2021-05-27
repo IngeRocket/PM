@@ -90,17 +90,26 @@
 .buscador-categoria > .barra{
 	display: flex;
 	flex: 8 1 auto;
-	background-color: orange;
+	min-height: 60px;
 }
 .buscador-categoria > .boton{
 	display: flex;
 	flex: 2 1 auto;
-	background-color: orange;
+	min-height: 60px;	
 }
 .buscador-categoria > .boton > button,
 .buscador-categoria > .barra > input{
 	width: 100%;
-	height: 40px;
+	font-size: 1.1em;
+}
+.boton > button{
+	border: none;
+	color: white;
+	background-color: #2885B8;
+	border-top-right-radius: 15px;
+}
+.barra > input{
+
 }
 .panel-der > .resultados{
 	display: flex;

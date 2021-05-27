@@ -33,18 +33,26 @@ $(document).ready(	function(){
 		});
 		$("#menu-cat-pelicula").click(function(){
 			localStorage.setItem("NombreDeCategoria","Peliculas");
+			localStorage.setItem("CE_busqueda", "");
+			localStorage.setItem("CE_filtro", 1);
 			IrCategoriaEspecifica();
 		});
 		$("#menu-cat-serie").click(function(){
 			localStorage.setItem("NombreDeCategoria","Series");
+			localStorage.setItem("CE_busqueda", "");
+			localStorage.setItem("CE_filtro", 1);
 			IrCategoriaEspecifica();
 		});
 		$("#menu-cat-juego").click(function(){
 			localStorage.setItem("NombreDeCategoria","Juegos");
+			localStorage.setItem("CE_busqueda", "");
+			localStorage.setItem("CE_filtro", 1);
 			IrCategoriaEspecifica();
 		});
 		$("#menu-cat-programa").click(function(){
 			localStorage.setItem("NombreDeCategoria","Programas");
+			localStorage.setItem("CE_busqueda", "");
+			localStorage.setItem("CE_filtro", 1);
 			IrCategoriaEspecifica();
 		});
 

@@ -6,11 +6,15 @@ $(document).ready( function(){
 	$("#buscar-titulo").click(function(){
 		var nombre = document.getElementById("barra-titulo").value;
 		var numero = document.getElementById("filtros").value;
+		localStorage.setItem("CE_busqueda", nombre);
+		localStorage.setItem("CE_filtro", numero);
 		CatalogoCompleto(nombre, nombrecategoria, numero);
 	});
 	$("#cambio-filtro").click(function(){
 		var nombre = document.getElementById("barra-titulo").value;
 		var numero = document.getElementById("filtros").value;
+		localStorage.setItem("CE_busqueda", nombre);
+		localStorage.setItem("CE_filtro", numero);
 		CatalogoCompleto(nombre, nombrecategoria, numero);
 	});
 
@@ -27,9 +31,17 @@ $(document).ready( function(){
 function Datos(){
 	nombrecategoria = localStorage.getItem("NombreDeCategoria");
 
+	var nombre = localStorage.getItem("CE_busqueda");
+	document.getElementById('barra-titulo').value = nombre;
+	var filtro = localStorage.getItem("CE_filtro");
+	document.getElementById('filtros').value = filtro;
+	console.log(nombre);
+	console.log(filtro);
 	if(nombrecategoria != null){
-		document.getElementById("NombreDeCategoria").innerHTML = nombrecategoria;
-		CatalogoCompleto("",nombrecategoria,1);
+		CatalogoCompleto(nombre,nombrecategoria,filtro);
+		document.getElementById("NombreDeCategoria").innerHTML = nombrecategoria;	
+	}else{
+		Swal.fire({icon: 'error', title: 'AVISO', text: 'Favor de no escribir el nombre de la pagina especifica' });
 	}
 }
 
@@ -101,7 +113,7 @@ function CatalogoCompleto(nombre, categoria, numero){
 		type: 'POST',
 		data: dataToSend, 
 		success: function (data){
-			
+			if(data != ""){
 				var datos = JSON.parse(data);
 				console.log(datos);
 				if(datos.length > 0){
@@ -118,10 +130,11 @@ function CatalogoCompleto(nombre, categoria, numero){
 										else
 											AgregarPrograma(datos[i].ID,datos[i].Ruta,datos[i].Peso);
 										}
-				}else{
-					Swal.fire({icon: 'info', title: 'AVISO', text: 'No existen datos o fallo en la conexion' });//alert("");
-				}	
-				//console.log(data);
+				} 
+			}else{
+				Swal.fire({icon: 'info', title: 'AVISO', text: 'No hay resultados de busqueda' });
+			}
+			
 			}
 		});
 }
