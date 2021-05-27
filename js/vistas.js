@@ -113,9 +113,13 @@ function FuncionBusqueda(){
 		type: 'POST',
 		data: dataToSend, 
 		success: function (data){
-			
+				
+			if (data != ""){
+
+				//console.log(data);
 				var datos = JSON.parse(data);
 				//console.log(datos);
+
 				if(datos.length > 0){
 					for (var i = 0; i < datos.length; i++) {
 
@@ -130,11 +134,12 @@ function FuncionBusqueda(){
 										else
 											AgregarPrograma(datos[i].ID,datos[i].Ruta,datos[i].Peso);
 										}
-				}else{
-					//alert("no hay resultados");
-					Swal.fire({icon: 'info', title: 'AVISO', text: 'No hay resultados' });
-				}	
+				} 
 				//console.log(data);
+			}else{
+				//alert("No hay nada");
+				Swal.fire({icon: 'error', title: 'AVISO', text: 'No hay resultados' });
 			}
-		});
+		}
+	});
 }

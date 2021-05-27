@@ -149,8 +149,19 @@ function LogIn(user, pass){
 					//usuario normal
 					GuardarDatos(datos[0].usuId, datos[0].usuname, datos[0].usuemail);
 					//alert("Bienvenido: "+user);
-					Swal.fire({icon: 'success', title: 'HOLA', text: 'Bienvenido '+user });
-					IrPrincipal();
+					//Swal.fire({icon: 'success', title: 'HOLA', text: 'Bienvenido '+user });
+					
+					Swal.fire({
+					icon: 'success',
+					title: 'HOLA',
+					text: 'Bienvenido '+user,
+					confirmButtonText: 'OK',
+					}).then((result) => {
+					  if (result.isConfirmed){
+						IrLogIn();
+					  }
+					});
+
 				}else{
 					//admin
 					IrPantallaAdmin();

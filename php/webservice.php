@@ -68,11 +68,17 @@
 			$sentencia->execute();
 
 			$resultado = $sentencia->get_result();
-			while( $r = $resultado->fetch_assoc()) {
+			if (mysqli_num_rows ( $resultado ) == 0){
+				return null;
+			}else{
+				//$resultado = $sentencia->get_result();
+				while( $r = $resultado->fetch_assoc()) {
 			                $rows[] = $r;
 			         }                    
-			echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
+				echo json_encode($rows,JSON_UNESCAPED_UNICODE);     
 
+			}
+			
 			$sentencia->close();
 			$conexion->close();
 		}

@@ -98,6 +98,7 @@ button.boton-filtro:hover{
 	width: 100%;
 	height: 10%;
 	padding: 10px;
+
 }
 .buscador{
 	display: flex;
@@ -114,6 +115,7 @@ button.boton-filtro:hover{
 .buscador > input, .boton > button{
 	width: 100%;
 	min-height: 60px;
+	font-size: 1.1em;
 }
 .opcion-1>button{
 	width: 80%;

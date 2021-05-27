@@ -2,6 +2,7 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
+	font-family: Arial;
 }
 button:hover{
 	cursor: hand;
@@ -37,6 +38,7 @@ button:hover{
 	width: 20%;
 	justify-content: center;
 	align-items: center;
+	font-size: 1.2em;
 }
 .info-texto{
 	display: flex;
@@ -44,12 +46,14 @@ button:hover{
 	justify-content: center;
 	align-items: center;
 	color: white;
+	font-size: 1.2em;
 }
 .info-reportes{
 	display: flex;
 	width: 20%;
 	justify-content: center;
 	align-items: center;
+	font-size: 1.2em;
 }
 .info-imagen > img{
 	width: 100%;
