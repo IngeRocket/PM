@@ -5,10 +5,11 @@
 #prg-flecha-izq, #prg-flecha-der{
 	visibility: hidden;
 }
-button:hover{
+button:hover, img:hover, .overlay:hover{
 	cursor: hand;
 	cursor: pointer;
 }
+
 .contenedor{
 	display:flex;
 	flex: 1 1 auto;
