@@ -1,7 +1,8 @@
 create database pm_proyecto;
 use pm_proyecto;
 
-create table Usuario(
+
+create table usuario(
 usu_id int unsigned auto_increment primary key,
 usu_correo varchar(60) unique,
 usu_nickname varchar(25) unique,
@@ -12,28 +13,28 @@ usu_imagen mediumblob null
 );
 
 
-create table Pelicula(
+create table pelicula(
 p_id int unsigned auto_increment primary key,
 p_descripcion text not null
 );
-create table Serie(
+create table serie(
 s_id int unsigned auto_increment primary key,
 s_descripcion text not null,
 s_temporada int not null
 );
-create table Juego(
+create table juego(
 j_id int unsigned auto_increment primary key,
 j_descripcion text not null,
 j_caracteristicas text not null
 );
-create table Programa(
+create table programa(
 p_id int unsigned auto_increment primary key,
 p_descripcion text not null,
 p_caracteristicas text not null,
 p_version varchar(10) not null
 );
 
-create table Imagen(
+create table imagen(
 img_id int unsigned auto_increment primary key,
 img_ruta text not null,
 img_formato varchar(8) null
@@ -61,13 +62,13 @@ constraint FK_a_programa foreign key (a_programa) references programa(p_id) on d
 constraint FK_a_portada foreign key (a_portada) references imagen(img_id) on delete cascade
 );
 
-create table Reporte(
+create table reporte(
 r_id int unsigned auto_increment primary key,
 r_motivo text not null
 );
 
 #drop table ReporteArticulo;
-create table ReporteArticulo(
+create table reportearticulo(
 ra_id_usuario int unsigned not null,
 ra_id_articulo int unsigned not null,
 ra_reporte_motivo int unsigned default 1,
@@ -85,7 +86,7 @@ alter table programa add column p_enlace text null;
 alter table articulo add column a_descarga int unsigned default 0;
 /*NUEVAS TABLAS*/
 
-create table Destacado(
+create table destacado(
 d_articulo int not null,
 d_titulo text,
 d_imagen text,

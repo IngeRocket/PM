@@ -16,8 +16,9 @@ where a_pelicula is not null
 order by a_fsalida desc;
 //
 
+
 DELIMITER //
-create view V_CATALOGO_Juego as 
+create view V_CATALOGO_JUEGO as 
 select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido from articulo 
 join imagen as I
 on I.img_id = a_portada
@@ -26,7 +27,7 @@ order by a_fsalida desc;
 //
 
 DELIMITER //
-create view V_CATALOGO_Programa as 
+create view V_CATALOGO_PROGRAMA as 
 select a_id ID, I.img_ruta Ruta, a_titulo Titulo, a_visita Visitas, a_peso Peso, a_fsalida Estreno, a_fsubida Subido from articulo 
 join imagen as I
 on I.img_id = a_portada

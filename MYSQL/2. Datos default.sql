@@ -1,26 +1,26 @@
-use PM_PROYECTO;
+use pm_proyecto;
 
-insert into Imagen(img_ruta,img_formato)values('img/peliculas/1.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/peliculas/2.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/peliculas/3.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/peliculas/4.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/peliculas/5.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/series/1.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/series/2.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/series/3.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/series/4.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/series/5.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/juegos/1.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/juegos/2.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/juegos/3.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/juegos/4.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/juegos/5.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/1.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/2.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/3.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/4.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/5.jpg','JPG');
-insert into Imagen(img_ruta,img_formato)values('img/programas/6.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/peliculas/1.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/peliculas/2.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/peliculas/3.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/peliculas/4.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/peliculas/5.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/series/1.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/series/2.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/series/3.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/series/4.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/series/5.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/juegos/1.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/juegos/2.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/juegos/3.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/juegos/4.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/juegos/5.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/1.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/2.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/3.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/4.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/5.jpg','JPG');
+insert into imagen(img_ruta,img_formato)values('img/programas/6.jpg','JPG');
 
 #peliculas descripcion
 insert into pelicula(p_descripcion) values('Descripcion de pelicula 1');
@@ -77,10 +77,11 @@ insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Win
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('Microsft Office 365',20,'2018','15.6 GB', 5);
 insert into articulo(a_titulo,a_portada,a_fsalida,a_peso,a_programa) values('After Effects CS2020',21,'2020','18.6 GB', 6);
 
-select * from juego;
-select * from articulo;
+/*select * from juego;
+select * from articulo;*/
 #motivo
-insert into Reporte(r_motivo) values('enlace caido');
+
+insert into reporte(r_motivo) values('enlace caido');
 
 DELIMITER //
 create procedure SP_RegistroAdmin(usuario varchar(25), correo varchar(60), clave text)

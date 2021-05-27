@@ -12,9 +12,6 @@ set clave2 = SHA1(clave);
 set Resultado =	(SELECT IF( EXISTS( SELECT usu_nickname FROM usuario WHERE (usu_correo = usuario OR usu_nickname = usuario ) AND usu_clave = clave2 ),1,0) );
 
 if Resultado = 1 then
-	/*set usuId = (select usu_id from usuario where usu_correo = usuario OR usu_nickname = usuario);
-    set usuemail = (select usu_correo from usuario where usu_correo = usuario OR usu_nickname = usuario);
-    set usuname = (select usu_nickname from usuario where usu_correo = usuario OR usu_nickname = usuario);*/
 	select Resultado, usu_id usuId, usu_correo usuemail, usu_nickname usuname, usu_rol Rol from usuario where usu_correo = usuario OR usu_nickname = usuario;
 else
 	select Resultado;
@@ -55,22 +52,23 @@ DECLARE clave2 text;
     end if;
 end;
 //
-#DROP PROCEDURE SP_DESTACADO;
+
+#DROP PROCEDURE SP_Destacado;
 DELIMITER //
 create procedure SP_Destacado()
 begin
 # meter datos a nueva tabla
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Pelicula is not null order by Visitas desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM V_CATALOGO WHERE Pelicula is not null order by Visitas desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Serie is not null order by Visitas desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM V_CATALOGO WHERE Serie is not null order by Visitas desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Juego is not null order by Visitas desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM V_CATALOGO WHERE Juego is not null order by Visitas desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM v_catalogo WHERE Programa is not null order by Visitas desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 0 FROM V_CATALOGO WHERE Programa is not null order by Visitas desc limit 5;
 
 end;
 //
@@ -80,16 +78,16 @@ create procedure SP_Reciente()
 begin
 #insertar contenido reciente a la tabla nuevo
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Pelicula is not null order by ID desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM V_CATALOGO WHERE Pelicula is not null order by ID desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Serie is not null order by ID desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM V_CATALOGO WHERE Serie is not null order by ID desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Juego is not null order by ID desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM V_CATALOGO WHERE Juego is not null order by ID desc limit 5;
 
 INSERT INTO destacado (d_articulo, d_titulo, d_imagen, d_pelicula, d_serie, d_juego, d_programa, d_nuevo) 
-SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM v_catalogo WHERE Programa is not null order by ID desc limit 5;
+SELECT ID, Titulo, Ruta, Pelicula, Serie, Juego, Programa, 1 FROM V_CATALOGO WHERE Programa is not null order by ID desc limit 5;
 end;
 //
 
@@ -100,83 +98,83 @@ begin
 # filtro 4 opciones nombre asc, nombre desc, fecha asc, fecha desc, popular asc, popular desc
 if categoria = 1 then
 	if filtro = 1 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo asc;
     elseif filtro = 2 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo desc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Titulo desc;
 	elseif filtro = 3 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido asc;
 	elseif filtro = 4 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Subido desc;
 	elseif filtro = 5 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas desc;
 	elseif filtro = 6 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas asc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Pelicula is not null order by Visitas asc;
     end if;
     
 elseif categoria = 2 then
 	if filtro = 1 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo asc;
     elseif filtro = 2 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo desc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Titulo desc;
 	elseif filtro = 3 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido asc;
 	elseif filtro = 4 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Subido desc;
 	elseif filtro = 5 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas desc;
 	elseif filtro = 6 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas asc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Serie is not null order by Visitas asc;
     end if;
 
 elseif categoria = 3 then
 		if filtro = 1 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo asc;
     elseif filtro = 2 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo desc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Titulo desc;
 	elseif filtro = 3 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido asc;
 	elseif filtro = 4 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Subido desc;
 	elseif filtro = 5 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas desc;
 	elseif filtro = 6 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas asc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Juego is not null order by Visitas asc;
     end if;
  
  elseif categoria = 4 then
 	if filtro = 1 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo asc;
     elseif filtro = 2 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo desc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Titulo desc;
 	elseif filtro = 3 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido asc;
 	elseif filtro = 4 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Subido desc;
 	elseif filtro = 5 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas desc;
 	elseif filtro = 6 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas asc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') and Programa is not null order by Visitas asc;
     end if;
 
 elseif categoria = 5 then
 		if filtro = 1 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo asc;
     elseif filtro = 2 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo desc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Titulo desc;
 	elseif filtro = 3 then
-		SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido asc;
+		SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido asc;
 	elseif filtro = 4 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Subido desc;
 	elseif filtro = 5 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas desc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas desc;
 	elseif filtro = 6 then
-        SELECT * FROM v_catalogo WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas asc;
+        SELECT * FROM V_CATALOGO WHERE Titulo LIKE CONCAT('%',busqueda,'%') order by Visitas asc;
     end if;
 end if;
 end;
 //
 
-drop procedure SP_Lectura;
+-- drop procedure SP_Lectura;
 DELIMITER //
 create procedure SP_Lectura(idElemento int, tipo int)
 begin
@@ -270,14 +268,14 @@ create procedure SP_ConsultaReporte(idarticulo int, opcion int)
 begin
 		# opcion 1 lista de reportes
 	if opcion = 1 then
-		select ID, Ruta, Titulo, count(*) 'Reportes' from v_reportes
+		select ID, Ruta, Titulo, count(*) 'Reportes' from V_REPORTES
 		group by Titulo
 		order by Fecha asc;
 	end if;
     
 		# opcion 2 descripcion de reporte de articulo especifico
 	if opcion = 2 then
-		select ID, Ruta, Usuario, Correo, Motivo, Fecha  from v_reportes
+		select ID, Ruta, Usuario, Correo, Motivo, Fecha  from V_REPORTES
 		where ID = idarticulo
         order by Fecha asc;
 	end if;
@@ -313,16 +311,5 @@ call SP_Principal();
 
 call SP_ConsultaReporte(1,1);
 
-/*
-select * from articulo;
-CALL SP_Lectura(23,3);
-CALL SP_Lectura(1,1);
-CALL SP_Lectura(1,4);
-select * from V_catalogo_programa;
-CALL SP_Lectura(15,3);
-select * from articulo where a_id = 23;
-CALL SP_Reciente(1);
 
-select * from v_reportes;
-select * from usuario;
 

@@ -1,8 +1,8 @@
 <?php
 	function Conectar(){
-		$databasehost = "127.0.0.1";	
-		$databaseuser = "root";
-		$databasepass = "root";
+		$databasehost = "pm-1635986-bd.cwotpk0fvwu5.us-west-2.rds.amazonaws.com";	
+		$databaseuser = "admin";
+		$databasepass = "IngeRocket";
 		$databasename = "pm_proyecto";
 
 		$conexion = new mysqli($databasehost, $databaseuser, $databasepass, $databasename, 3306);
