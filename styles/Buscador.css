@@ -40,11 +40,11 @@ button:hover{
 }
 .opcion-1{
 	background-color: #262626;
-	height: 70%;
+	height: 300px;
 	padding: 10px;
 }
 .opcion-2{
-	height: 30%;
+	height: 150px;
 	background-color: #262626;
 	padding: 10px;
 }
@@ -148,6 +148,9 @@ button.boton-filtro:hover{
 	border-top-right-radius: 15px;
 }
 @media (max-width: 1200px){
+	.caja-busqueda{
+		height: auto;
+	}
 	.resultados{
 		margin-top: 10px;
 	}
@@ -155,7 +158,6 @@ button.boton-filtro:hover{
 		flex-flow: column;
 		align-items: center;
 		height: auto;
-		min-height: 500px;
 		margin-top: 20px;
 	}
 	.panel{
@@ -176,7 +178,7 @@ button.boton-filtro:hover{
 		background-color: none !important;
 	}
 	.orden{
-		flex-flow: row;
+		flex-flow: row wrap;
 		margin: 10px;
 		width: 100%;
 	}
@@ -192,18 +194,35 @@ button.boton-filtro:hover{
 }
 
 @media (max-width: 750px){
+	html, body{
+		height: auto;
+	}
+	.area{
+		height: auto;
+		min-height: 600px;
+	}
 	.caja-busqueda{
 		max-height: 80px;
 	}
 	.panel{
 		flex-flow: column;
+		max-height: 400px;
+		flex: 1 1 auto;
+	}
+	.opcion-1, .opcion-2{
+		height: auto;
+		flex: 1 1 auto;
 	}
 	.orden{
 		display: flex;
 		flex-flow: row wrap;
 	}
 	.pantalla{
-		margin-top: 50px;
+		flex: 1 1 auto;
+		margin-top: 10px;
 		min-height: auto;
+		max-height: none;
+		height: auto;
+		justify-content: flex-start;
 	}
 }

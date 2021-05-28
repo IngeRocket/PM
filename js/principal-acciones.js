@@ -27,7 +27,7 @@ $(document).ready( function(){
 				localStorage.setItem("Busqueda", titulobusqueda);
 				localStorage.setItem("Categoria", 5);
 				localStorage.setItem("Filtro", 1); //nombre A - Z
-				window.location.href="categoria.html";
+				window.location.href="Buscador.html";
 			});
 });
 

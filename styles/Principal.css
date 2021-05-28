@@ -168,7 +168,7 @@ button:hover, img:hover, .overlay:hover{
 .carousel-contenido > .miniaturas{
 	width: 100%;
 	overflow: hidden;
-	/**/overflow-x: scroll;
+	overflow-x: scroll;
 	display: flex;
 	scroll-behavior: smooth;
 	justify-content: center;
