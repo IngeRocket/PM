@@ -62,7 +62,7 @@ function Llenado(visita, descargas ,fecha, ruta){
 
 	labelVisita.innerHTML = "Visitas:" +" "+visita;
 	labelDescarga.innerHTML = "Descargas:" +" "+descargas;
-	labelFechaAct.innerHTML = "Fecha de actualizacion:" +" "+fecha;
+	labelFechaAct.innerHTML = "Fecha de actualizaci&oacute;n:" +" "+fecha;
 }
 
 function BusquedaEspecifica(){
