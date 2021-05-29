@@ -287,13 +287,13 @@ DELIMITER //
 create procedure SP_SolucionReporte(idarticulo int)
 begin
 # primero traer a los correos de los usuarios, luego borrar registros de la tabla de reportes
-		select Titulo, Usuario, Correo, Fecha  from v_reportes
+		select Titulo, Usuario, Correo, Fecha  from V_REPORTES
 		where ID = idarticulo
         order by Fecha asc;
         
         delete from reportearticulo where ra_id_articulo = idarticulo;
         
-        update articulo set a_estado = 1 where a_id = idarticulo;
+        update articulo set a_estado = 1, a_factualizacion = date( now() ) where a_id = idarticulo;
 end;
 //
 
