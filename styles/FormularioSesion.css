@@ -41,11 +41,11 @@ label.sub{
 	align-items: center;
 	margin-top: 15px;
 }
-.campo label {
+.campo label, label.r-campo {
 	margin-bottom: 15px;
 	font-size: 1.1em;
 }
-.titulo-campo{
+.titulo-campo, label.r-titulo{
 	color: white;
 	font-size: 2em;
 	display: flex;
@@ -110,7 +110,7 @@ label.sub{
 	min-height: 91px;
 }
 .inferior > p {
-	font-size: 1.0em;
+	font-size: 1.1em;
 }
 .escala{
 	width: 80%;
