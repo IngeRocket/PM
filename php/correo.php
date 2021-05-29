@@ -30,7 +30,7 @@
     ' border: none; margin: 0px; padding: 0px; border-collapse: collapse; border:none; background-color: #0c0c0c; border: solid white 1px;">'.
     '<tr>'.
     '<td style="margin: 0px; padding: 0px; background-color: #000; border:none; text-align: center; width: 100%;">'.
-    '<img src="https://galeriadetiromi.000webhostapp.com/styles/logo.PNG"></td>'.
+    '<img src="https://programacionmultimedia1635986.herokuapp.com/img/logo.png"></td>'.
     '</tr>'.
     '<tr>'.
     '<td class="saludo" style="margin: 0px; padding: 0px; border:none; font-size:1.5em; background-color: #0c0c0c; text-align: center; width: 100%; color: #fff; padding-top: 200px;">Hola</td>'.
