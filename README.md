@@ -1,2 +1,2 @@
 # PM
- Proyecto PM - Sitio web HTML5/Flexbox/CSS3/JAVASCRIPT/JQUERY/AJAX/PHP(WEB SERVICE)/MYSQL(AWS)
+ Proyecto PM
