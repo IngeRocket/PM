@@ -8,18 +8,9 @@
   function EnviarCorreo(){
     $nombre = $_POST['usuario'];
     $para = $_POST['correo'];
-  	/*$para = 'angel.66.mendoza@gmail.com';*/
+ 
   	$titulo = 'Bienvenido a CompucaliTVPlus';
-/*  	$mensaje = '<html>'.
-  		'<head><title>Email con HTML</title></head>'.
-  		'<body><h1>Email con HTML</h1>'.
-  		'Esto es un email que se envía en el formato HTML'.
-  		'<hr>'.
-  		'Enviado por mi programa en PHP'.
-      ' "comillas dobles" '.
-  		'</body>'.
-  		'</html>';
-*/  	
+	
     $mensaje='<!DOCTYPE html>'.
     '<html>'.
     '<head>'.
